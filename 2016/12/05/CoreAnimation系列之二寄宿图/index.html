@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>CoreAnimation系列之二寄宿图 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="寄宿图CALayer类不仅能展现一个单调的颜色，也能够包含一张你喜欢的图片，这一章节我们将来探索CALayer的寄宿图（即图层中包含的图）。 contents属性CALayer 有一个属性叫做contents，这个属性的类型被定义为id，意味着它可以是任何类型的对象。在这种情况下，你可以给contents属性赋任何值，你的app仍然能够编译通过。但是，在实践中，如果你给contents赋的不是CG">
+  <meta name="description" content="CALayer类不仅能展现一个单调的颜色，也能够包含一张你喜欢的图片，这一章节我们将来探索CALayer的寄宿图（即图层中包含的图）。 contents属性CALayer 有一个属性叫做contents，这个属性的类型被定义为id，意味着它可以是任何类型的对象。在这种情况下，你可以给contents属性赋任何值，你的app仍然能够编译通过。但是，在实践中，如果你给contents赋的不是CGIma">
 <meta name="keywords" content="CoreAnimation,寄宿图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CoreAnimation系列之二寄宿图">
 <meta property="og:url" content="http://yoursite.com/2016/12/05/CoreAnimation系列之二寄宿图/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="寄宿图CALayer类不仅能展现一个单调的颜色，也能够包含一张你喜欢的图片，这一章节我们将来探索CALayer的寄宿图（即图层中包含的图）。 contents属性CALayer 有一个属性叫做contents，这个属性的类型被定义为id，意味着它可以是任何类型的对象。在这种情况下，你可以给contents属性赋任何值，你的app仍然能够编译通过。但是，在实践中，如果你给contents赋的不是CG">
+<meta property="og:description" content="CALayer类不仅能展现一个单调的颜色，也能够包含一张你喜欢的图片，这一章节我们将来探索CALayer的寄宿图（即图层中包含的图）。 contents属性CALayer 有一个属性叫做contents，这个属性的类型被定义为id，意味着它可以是任何类型的对象。在这种情况下，你可以给contents属性赋任何值，你的app仍然能够编译通过。但是，在实践中，如果你给contents赋的不是CGIma">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2016-12-08T09:56:04.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:43:56.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CoreAnimation系列之二寄宿图">
-<meta name="twitter:description" content="寄宿图CALayer类不仅能展现一个单调的颜色，也能够包含一张你喜欢的图片，这一章节我们将来探索CALayer的寄宿图（即图层中包含的图）。 contents属性CALayer 有一个属性叫做contents，这个属性的类型被定义为id，意味着它可以是任何类型的对象。在这种情况下，你可以给contents属性赋任何值，你的app仍然能够编译通过。但是，在实践中，如果你给contents赋的不是CG">
+<meta name="twitter:description" content="CALayer类不仅能展现一个单调的颜色，也能够包含一张你喜欢的图片，这一章节我们将来探索CALayer的寄宿图（即图层中包含的图）。 contents属性CALayer 有一个属性叫做contents，这个属性的类型被定义为id，意味着它可以是任何类型的对象。在这种情况下，你可以给contents属性赋任何值，你的app仍然能够编译通过。但是，在实践中，如果你给contents赋的不是CGIma">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="寄宿图"><a href="#寄宿图" class="headerlink" title="寄宿图"></a>寄宿图</h1><p>CALayer类不仅能展现一个单调的颜色，也能够包含一张你喜欢的图片，这一章节我们将来探索CALayer的寄宿图（即图层中包含的图）。</p>
+        <p>CALayer类不仅能展现一个单调的颜色，也能够包含一张你喜欢的图片，这一章节我们将来探索CALayer的寄宿图（即图层中包含的图）。</p>
 <h2 id="contents属性"><a href="#contents属性" class="headerlink" title="contents属性"></a>contents属性</h2><p>CALayer 有一个属性叫做<code>contents</code>，这个属性的类型被定义为id，意味着它可以是任何类型的对象。在这种情况下，你可以给<code>contents</code>属性赋任何值，你的app仍然能够编译通过。但是，在实践中，如果你给<code>contents</code>赋的不是CGImage，那么你得到的图层将是空白的。</p>
  <a id="more"></a>
 <p><code>contents</code>这个奇怪的表现是由Mac OS的历史原因造成的。它之所以被定义为id类型，是因为在Mac OS系统上，这个属性对CGImage和NSImage类型的值都起作用。如果你试图在iOS平台上将UIImage的值赋给它，只能得到一个空白的图层。一些初识Core Animation的iOS开发者可能会对这个感到困惑。</p>
@@ -429,7 +429,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#寄宿图"><span class="toc-number">1.</span> <span class="toc-text">寄宿图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#contents属性"><span class="toc-number">1.1.</span> <span class="toc-text">contents属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#contentsScale"><span class="toc-number">1.2.</span> <span class="toc-text">contentsScale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maskToBounds"><span class="toc-number">1.3.</span> <span class="toc-text">maskToBounds</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#contentsRect"><span class="toc-number">1.4.</span> <span class="toc-text">contentsRect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#contentsCenter"><span class="toc-number">1.5.</span> <span class="toc-text">contentsCenter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Custome-Drawing"><span class="toc-number">1.6.</span> <span class="toc-text">Custome Drawing</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#contents属性"><span class="toc-number">1.</span> <span class="toc-text">contents属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#contentsScale"><span class="toc-number">2.</span> <span class="toc-text">contentsScale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maskToBounds"><span class="toc-number">3.</span> <span class="toc-text">maskToBounds</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#contentsRect"><span class="toc-number">4.</span> <span class="toc-text">contentsRect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#contentsCenter"><span class="toc-number">5.</span> <span class="toc-text">contentsCenter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Custome-Drawing"><span class="toc-number">6.</span> <span class="toc-text">Custome Drawing</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -581,10 +581,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -597,15 +593,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,6 +633,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -645,19 +653,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,10 +666,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,6 +678,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,15 +729,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -785,11 +793,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

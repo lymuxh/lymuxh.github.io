@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ARKit入门系列六使用SceneKit旋转问题 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="旋转旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。 首先我们要明白一个概念，每个SCNNode 都有自身的三维坐标系，用CABasicAnimation就是让SCNNode绕自身的三维坐标轴旋转，所以要特别注意是坐标轴，不是这个SCNNode的几何中心。一般SceneKit 的自带的几个几何体的坐标系原点(0,0,0)就">
+  <meta name="description" content="旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。 首先我们要明白一个概念，每个SCNNode 都有自身的三维坐标系，用CABasicAnimation就是让SCNNode绕自身的三维坐标轴旋转，所以要特别注意是坐标轴，不是这个SCNNode的几何中心。一般SceneKit 的自带的几个几何体的坐标系原点(0,0,0)就是这">
 <meta name="keywords" content="SceneKit,旋转">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARKit入门系列六使用SceneKit旋转问题">
 <meta property="og:url" content="http://yoursite.com/2017/11/06/ARKit入门系列六使用SceneKit旋转问题/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="旋转旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。 首先我们要明白一个概念，每个SCNNode 都有自身的三维坐标系，用CABasicAnimation就是让SCNNode绕自身的三维坐标轴旋转，所以要特别注意是坐标轴，不是这个SCNNode的几何中心。一般SceneKit 的自带的几个几何体的坐标系原点(0,0,0)就">
+<meta property="og:description" content="旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。 首先我们要明白一个概念，每个SCNNode 都有自身的三维坐标系，用CABasicAnimation就是让SCNNode绕自身的三维坐标轴旋转，所以要特别注意是坐标轴，不是这个SCNNode的几何中心。一般SceneKit 的自带的几个几何体的坐标系原点(0,0,0)就是这">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2017-11-13T09:39:47.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:59:48.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARKit入门系列六使用SceneKit旋转问题">
-<meta name="twitter:description" content="旋转旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。 首先我们要明白一个概念，每个SCNNode 都有自身的三维坐标系，用CABasicAnimation就是让SCNNode绕自身的三维坐标轴旋转，所以要特别注意是坐标轴，不是这个SCNNode的几何中心。一般SceneKit 的自带的几个几何体的坐标系原点(0,0,0)就">
+<meta name="twitter:description" content="旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。 首先我们要明白一个概念，每个SCNNode 都有自身的三维坐标系，用CABasicAnimation就是让SCNNode绕自身的三维坐标轴旋转，所以要特别注意是坐标轴，不是这个SCNNode的几何中心。一般SceneKit 的自带的几个几何体的坐标系原点(0,0,0)就是这">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h1><p>旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。</p>
+        <p>旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。</p>
 <p>首先我们要明白一个概念，每个SCNNode 都有自身的三维坐标系，用CABasicAnimation就是让SCNNode绕自身的三维坐标轴旋转，所以要特别注意是坐标轴，不是这个SCNNode的几何中心。一般SceneKit 的自带的几个几何体的坐标系原点(0,0,0)就是这个它的几何中心，比如说SCNBox；SCNSphere等等，所以看上去跟绕几何中心旋转一模一样。</p>
 <p>我们先从Demo 入手，这里是模拟 太阳-地球-月球 天体运动的demo，分以下几点：</p>
 <p>1， 地球，月球自转<br>2， 月球绕着地球转<br>3， 地月系统绕着太阳转</p>
@@ -374,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#旋转"><span class="toc-number">1.</span> <span class="toc-text">旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#先实现地球，月球自转"><span class="toc-number">1.1.</span> <span class="toc-text">先实现地球，月球自转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#月球绕地球转（父子SCNNode技巧）"><span class="toc-number">1.2.</span> <span class="toc-text">月球绕地球转（父子SCNNode技巧）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地月系统绕着太阳转"><span class="toc-number">1.3.</span> <span class="toc-text">地月系统绕着太阳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学公式旋转"><span class="toc-number">1.4.</span> <span class="toc-text">数学公式旋转</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#先实现地球，月球自转"><span class="toc-number">1.</span> <span class="toc-text">先实现地球，月球自转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#月球绕地球转（父子SCNNode技巧）"><span class="toc-number">2.</span> <span class="toc-text">月球绕地球转（父子SCNNode技巧）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地月系统绕着太阳转"><span class="toc-number">3.</span> <span class="toc-text">地月系统绕着太阳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学公式旋转"><span class="toc-number">4.</span> <span class="toc-text">数学公式旋转</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -526,10 +526,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -542,15 +538,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,6 +578,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -590,19 +598,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,10 +611,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,6 +623,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,15 +674,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -730,11 +738,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

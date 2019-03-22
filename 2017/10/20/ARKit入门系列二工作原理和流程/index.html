@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ARKit入门系列二工作原理和流程 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SceneKit 苹果自家的3D 引擎 SceneKit,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：     很清楚的看到，SceneKit 中的坐标系是右手坐标系(笛卡尔坐标系)，如果需要与其他3D框架共享数据，先了解其框架是右手坐标系还是左手坐标系。其实也很好转化，就是Z 轴的正负不一样而已。   在开始开发之前，一定要了解下面这几个非常重要的类|    类 / 协">
+  <meta name="description" content="苹果自家的3D 引擎 SceneKit,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：     很清楚的看到，SceneKit 中的坐标系是右手坐标系(笛卡尔坐标系)，如果需要与其他3D框架共享数据，先了解其框架是右手坐标系还是左手坐标系。其实也很好转化，就是Z 轴的正负不一样而已。   在开始开发之前，一定要了解下面这几个非常重要的类    类 / 协议 描述 备注">
 <meta name="keywords" content="ARKit,iOS11">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARKit入门系列二工作原理和流程">
 <meta property="og:url" content="http://yoursite.com/2017/10/20/ARKit入门系列二工作原理和流程/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="SceneKit 苹果自家的3D 引擎 SceneKit,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：     很清楚的看到，SceneKit 中的坐标系是右手坐标系(笛卡尔坐标系)，如果需要与其他3D框架共享数据，先了解其框架是右手坐标系还是左手坐标系。其实也很好转化，就是Z 轴的正负不一样而已。   在开始开发之前，一定要了解下面这几个非常重要的类|    类 / 协">
+<meta property="og:description" content="苹果自家的3D 引擎 SceneKit,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：     很清楚的看到，SceneKit 中的坐标系是右手坐标系(笛卡尔坐标系)，如果需要与其他3D框架共享数据，先了解其框架是右手坐标系还是左手坐标系。其实也很好转化，就是Z 轴的正负不一样而已。   在开始开发之前，一定要了解下面这几个非常重要的类    类 / 协议 描述 备注">
 <meta property="og:locale" content="Zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/arkit/arkit_02_01.jpeg">
 <meta property="og:image" content="http://yoursite.com/images/arkit/arkit_scencekit.png">
 <meta property="og:image" content="http://yoursite.com/images/arkit/arkit_workflow.png">
-<meta property="og:updated_time" content="2017-11-28T10:07:36.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:57:21.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARKit入门系列二工作原理和流程">
-<meta name="twitter:description" content="SceneKit 苹果自家的3D 引擎 SceneKit,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：     很清楚的看到，SceneKit 中的坐标系是右手坐标系(笛卡尔坐标系)，如果需要与其他3D框架共享数据，先了解其框架是右手坐标系还是左手坐标系。其实也很好转化，就是Z 轴的正负不一样而已。   在开始开发之前，一定要了解下面这几个非常重要的类|    类 / 协">
+<meta name="twitter:description" content="苹果自家的3D 引擎 SceneKit,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：     很清楚的看到，SceneKit 中的坐标系是右手坐标系(笛卡尔坐标系)，如果需要与其他3D框架共享数据，先了解其框架是右手坐标系还是左手坐标系。其实也很好转化，就是Z 轴的正负不一样而已。   在开始开发之前，一定要了解下面这几个非常重要的类    类 / 协议 描述 备注">
 <meta name="twitter:image" content="http://yoursite.com/images/arkit/arkit_02_01.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
@@ -73,10 +73,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -189,72 +189,95 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：2k字 | 预计阅读时长：7分钟
+        字数：2.1k字 | 预计阅读时长：7分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SceneKit"><a href="#SceneKit" class="headerlink" title="SceneKit"></a>SceneKit</h1><p> 苹果自家的3D 引擎 <code>SceneKit</code>,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：</p>
+        <p> 苹果自家的3D 引擎 <code>SceneKit</code>,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：</p>
 <p> <img src="/images/arkit/arkit_02_01.jpeg" alt="ARKit与SceneKit"></p>
 <p>  很清楚的看到，SceneKit 中的坐标系是右手坐标系(笛卡尔坐标系)，如果需要与其他3D框架共享数据，先了解其框架是右手坐标系还是左手坐标系。其实也很好转化，就是Z 轴的正负不一样而已。</p>
-<p>  在开始开发之前，一定要了解下面这几个非常重要的类<br>|    类 / 协议         |  描述      |    备注            |<br>|————-|—————-|——————-|<br>| SCNView &amp; SCNSceneRenderer | 类似UIView，用来显示 SceneKit 的内容，定义了一些代理方法，可以用 addSubView 方法添加到UiView 中. | |<br>| SCNScene | SceneKit 内容的容器. 你可以从3D建模工具生成的.dae文件中加载一个场景，或者用代码创建一个 ，然后把它显示在视图上. | |<br>| SCNNode | 一个场景的基本构建块，你可以把摄像机，灯光，几何体附加到节点上 | |<br>| SCNGeometry | 一个可以连接到一个节点的三维物体。一个几何体（有时称为模型或网格）只定义了一个可见物体的形状。要定义对象的表面颜色图案，你必需要给几何体要附加材料。然后给材料贴图，或者上色，这个几何体表面才会有颜色，或者图案。你可以从3D建模工具生成的.dae文件中加载一个几何体，也可以用代码创建，SceneKit 提供了几种常见几何体，是SCNGeometry 的子类，比如长方体，球，圆柱球等等，后面我们会写一个demo会把官方提供的几何体给大家列出来，给大家一个直观的感受。 当然我们也可以用三维坐标，法向量自定义几何体，也可以讲一个2D 图案转化成一个具有深度(厚度)的三维几何体。后面应该专门有一篇会讲到利用贝塞尔曲线将一个2D 图案转化成一个具有深度(厚度)的三维几何体。| |<br>| CNMaterial | 材质，由于在3D建模工具中呈现球形，所以也叫材质球。上色，贴图全靠它。| |<br>| SCNLight |光源可以附加到节点上，在渲染场景中提供着色. | |<br>| SCNCamera | 虚拟摄像机可以附加到节点上，提供了一个场景的视图。| |</p>
+<p>  在开始开发之前，一定要了解下面这几个非常重要的类</p>
+<table>
+<thead>
+<tr>
+<th>类 / 协议</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCNView &amp; SCNSceneRenderer</td>
+<td>类似UIView，用来显示 SceneKit 的内容，定义了一些代理方法，可以用 addSubView 方法添加到UiView 中.</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNScene</td>
+<td>SceneKit 内容的容器. 你可以从3D建模工具生成的.dae文件中加载一个场景，或者用代码创建一个 ，然后把它显示在视图上.</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNNode</td>
+<td>一个场景的基本构建块，你可以把摄像机，灯光，几何体附加到节点上</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNGeometry</td>
+<td>一个可以连接到一个节点的三维物体。一个几何体（有时称为模型或网格）只定义了一个可见物体的形状。要定义对象的表面颜色图案，你必需要给几何体要附加材料。然后给材料贴图，或者上色，这个几何体表面才会有颜色，或者图案。你可以从3D建模工具生成的.dae文件中加载一个几何体，也可以用代码创建，SceneKit 提供了几种常见几何体，是SCNGeometry 的子类，比如长方体，球，圆柱球等等，后面我们会写一个demo会把官方提供的几何体给大家列出来，给大家一个直观的感受。 当然我们也可以用三维坐标，法向量自定义几何体，也可以讲一个2D 图案转化成一个具有深度(厚度)的三维几何体。后面应该专门有一篇会讲到利用贝塞尔曲线将一个2D 图案转化成一个具有深度(厚度)的三维几何体。</td>
+<td></td>
+</tr>
+<tr>
+<td>CNMaterial</td>
+<td>材质，由于在3D建模工具中呈现球形，所以也叫材质球。上色，贴图全靠它。</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNLight</td>
+<td>光源可以附加到节点上，在渲染场景中提供着色.</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNCamera</td>
+<td>虚拟摄像机可以附加到节点上，提供了一个场景的视图。</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a>
 <h1 id="ARKit-与-SceneKit关系"><a href="#ARKit-与-SceneKit关系" class="headerlink" title="ARKit 与 SceneKit关系"></a>ARKit 与 SceneKit关系</h1><p>  初次接触 ARKit ,很多人会为其复杂的架构关系而感到畏惧。这里简介的方式介绍一下苹果原生AR（虚拟增强现实）， ARKit并不是一个独立就能够运行的框架，而是必须要SceneKit一起用才可以，换一句话说，如果只有<code>ArKit</code> ,而没有<code>SceneKit</code> ，那么ARKit和一般的相机没有任何区别。两者配合实现AR功能。 </p>
 <p>  ARkit主要实现相机捕捉显示世界图像，SceneKit主要负责显示虚拟3D模型。</p>
 <p>  <img src="/images/arkit/arkit_scencekit.png" alt="ARKit与SceneKit"></p>
-<ol>
-<li><code>&lt;ARKit&gt;</code>框架中中显示3D虚拟增强现实的视图<code>ARSCNView</code>继承于<code>&lt;SceneKit&gt;</code>框架中的<code>SCNView</code>,而<code>SCNView</code>又继承于<code>&lt;UIKit&gt;</code>框架中的<code>UIView</code>。</li>
-</ol>
+<p> 1.<code>&lt;ARKit&gt;</code>框架中中显示3D虚拟增强现实的视图<code>ARSCNView</code>继承于<code>&lt;SceneKit&gt;</code>框架中的<code>SCNView</code>,而<code>SCNView</code>又继承于<code>&lt;UIKit&gt;</code>框架中的<code>UIView</code>。</p>
 <ul>
-<li><code>UIView</code>的作用是将视图显示在iOS设备的window中，<code>SCNView</code>的作用是显示一个3D场景，<code>ARScnView</code>的作用也是显示一个3D场景，只不过这个3D场景是由摄像头捕捉到的现实世界图像构成的。</li>
+<li><p><code>UIView</code>的作用是将视图显示在iOS设备的window中，<code>SCNView</code>的作用是显示一个3D场景，<code>ARScnView</code>的作用也是显示一个3D场景，只不过这个3D场景是由摄像头捕捉到的现实世界图像构成的。</p>
+<p>2.<code>ARSCNView</code>只是一个视图容器，它的作用是管理一个<code>ARSession</code>,笔者称之为AR会话。</p>
+</li>
 </ul>
-<ol start="2">
-<li><code>ARSCNView</code>只是一个视图容器，它的作用是管理一个<code>ARSession</code>,笔者称之为AR会话。</li>
-</ol>
-<ol start="3">
-<li><p>在一个完整的虚拟增强现实体验中，<code>&lt;ARKit&gt;</code>框架只负责将真实世界画面转变为一个3D场景，这一个转变的过程主要分为两个环节：由<code>ARCamera</code>负责捕捉摄像头画面，由<code>ARSession</code>负责搭建3D场景。</p>
-</li>
-<li><p>在一个完整的虚拟增强现实体验中，将虚拟物体现实在3D场景中是由<code>&lt;SceneKit&gt;</code>框架来完成中：每一个虚拟的物体都是一个节点<code>SCNNode</code>,每一个节点构成了一个场景<code>SCNScene</code>,无数个场景构成了3D世界。</p>
-<p>综上所述，<code>ARKit</code>捕捉3D现实世界使用的是自身的功能，这个功能是在iOS11新增的。而<code>ARKit</code>在3D现实场景中添加虚拟物体使用的是父类<code>SCNView</code>的功能，这个功能早在iOS8时就已经添加（<code>SceneKit</code>是iOS8新增），可以简单的理解为：<code>ARSCNView</code>所有跟场景和虚拟物体相关的属性及方法都是自己父类SCNView的。</p>
-</li>
-</ol>
-<h1 id="ARSCNView-与-ARSession"><a href="#ARSCNView-与-ARSession" class="headerlink" title="ARSCNView 与 ARSession"></a>ARSCNView 与 ARSession</h1><ol>
-<li><p><code>ARKit</code>提供两种虚拟增强现实视图，他们分别是3D效果的<code>ARSCNView</code>和2D效果的<code>ARSKView</code>，无论是使用哪一个视图都是用了相机图像作为背景视图（这里可以参考iOS自定义相机中的预览图层），而这一个相机的图像就是由<code>&lt;ARKit&gt;</code>框架中的相机类<code>ARCamera</code>来捕捉的。</p>
-</li>
-<li><p><code>ARSCNView</code>与<code>ARCamera</code>两者之间并没有直接的关系，它们之间是通过AR会话，也就是<code>ARKit</code>框架中非常重量级的一个类<code>ARSession</code>来搭建沟通桥梁的。</p>
-<p>在iOS框架中，凡是带<code>session</code>或者<code>context</code>后缀的，这种类一般自己不干活，作用一般都是两个：</p>
-<p>  1.管理其他类，帮助他们搭建沟通桥梁，好处就是解耦</p>
-<p>  2.负责帮助我们管理复杂环境下的内存</p>
-<p>  <code>context</code>与<code>session</code>不同之处是：一般与硬件打交道，例如摄像头捕捉<code>ARSession</code>，网卡的调用<code>NSURLSession</code>等使用的都是<code>session</code>后缀。没有硬件参与，一般用<code>context</code>，如绘图上下文，自定义转场上下文等。</p>
-</li>
-<li><p>要想运行一个<code>ARSession</code>会话，你必须要指定一个称之为会话追踪配置的对象:<code>ARSessionConfiguration</code>,<code>ARSessionConfiguration</code>的主要目的就是负责追踪相机在3D世界中的位置以及一些特征场景的捕捉（例如平面捕捉），这个类本身比较简单却作用巨大。</p>
-<p><code>ARSessionConfiguration</code>是一个父类，为了更好的看到增强现实的效果，苹果官方建议我们使用它的子类。<code>ARWorldTrackingSessionConfiguration</code>，该类只支持A9芯片之后的机型，也就是iPhone6s之后的机型。</p>
-</li>
-</ol>
-<h1 id="ARWorldTrackingSessionConfiguration-与-ARFrame"><a href="#ARWorldTrackingSessionConfiguration-与-ARFrame" class="headerlink" title="ARWorldTrackingSessionConfiguration 与 ARFrame"></a>ARWorldTrackingSessionConfiguration 与 ARFrame</h1><ol>
-<li><p><code>ARSession</code>搭建沟通桥梁的参与者主要有两个<code>ARWorldTrackingSessionConfiguration</code>与<code>ARFrame</code></p>
-</li>
-<li><p><code>ARWorldTrackingSessionConfiguration</code>（会话追踪配置）的作用是跟踪设备的方向和位置,以及检测设备摄像头看到的现实世界的表面。它的内部实现了一系列非常庞大的算法计算以及调用了你的iPhone必要的传感器来检测手机的移动及旋转甚至是翻滚,我们无需关心内部实现，<code>ARKit</code>框架帮助我们封装的非常完美，只需调用一两个属性即可。</p>
-</li>
-<li><p>当<code>ARWorldTrackingSessionConfiguration</code>计算出相机在3D世界中的位置时，它本身并不持有这个位置数据，而是将其计算出的位置数据交给<code>ARSession</code>去管理（与前面说的<code>session</code>管理内存相呼应），而相机的位置数据对应的类就是<code>ARFrame</code>。<code>ARSession</code>类一个属性叫做<code>currentFrame</code>，维护的就是<code>ARFrame</code>这个对象。</p>
-</li>
-<li><p><code>ARCamera</code>只负责捕捉图像，不参与数据的处理。它属于3D场景中的一个环节，每一个3D Scene都会有一个Camera，它决定了我们看物体的视野。</p>
-</li>
-</ol>
+<p> 3.在一个完整的虚拟增强现实体验中，<code>&lt;ARKit&gt;</code>框架只负责将真实世界画面转变为一个3D场景，这一个转变的过程主要分为两个环节：由<code>ARCamera</code>负责捕捉摄像头画面，由<code>ARSession</code>负责搭建3D场景。</p>
+<p> 4.在一个完整的虚拟增强现实体验中，将虚拟物体现实在3D场景中是由<code>&lt;SceneKit&gt;</code>框架来完成中：每一个虚拟的物体都是一个节点<code>SCNNode</code>,每一个节点构成了一个场景<code>SCNScene</code>,无数个场景构成了3D世界。</p>
+<p> 综上所述，<code>ARKit</code>捕捉3D现实世界使用的是自身的功能，这个功能是在iOS11新增的。而<code>ARKit</code>在3D现实场景中添加虚拟物体使用的是父类<code>SCNView</code>的功能，这个功能早在iOS8时就已经添加（<code>SceneKit</code>是iOS8新增），可以简单的理解为：<code>ARSCNView</code>所有跟场景和虚拟物体相关的属性及方法都是自己父类SCNView的。</p>
+<h1 id="ARSCNView-与-ARSession"><a href="#ARSCNView-与-ARSession" class="headerlink" title="ARSCNView 与 ARSession"></a>ARSCNView 与 ARSession</h1><p> 1.<code>ARKit</code>提供两种虚拟增强现实视图，他们分别是3D效果的<code>ARSCNView</code>和2D效果的<code>ARSKView</code>，无论是使用哪一个视图都是用了相机图像作为背景视图（这里可以参考iOS自定义相机中的预览图层），而这一个相机的图像就是由<code>&lt;ARKit&gt;</code>框架中的相机类<code>ARCamera</code>来捕捉的。</p>
+<p> 2.<code>ARSCNView</code>与<code>ARCamera</code>两者之间并没有直接的关系，它们之间是通过AR会话，也就是<code>ARKit</code>框架中非常重量级的一个类<code>ARSession</code>来搭建沟通桥梁的。</p>
+<pre><code>在iOS框架中，凡是带`session`或者`context`后缀的，这种类一般自己不干活，作用一般都是两个：
+
+  1.管理其他类，帮助他们搭建沟通桥梁，好处就是解耦
+
+  2.负责帮助我们管理复杂环境下的内存
+
+  `context`与`session`不同之处是：一般与硬件打交道，例如摄像头捕捉`ARSession`，网卡的调用`NSURLSession`等使用的都是`session`后缀。没有硬件参与，一般用`context`，如绘图上下文，自定义转场上下文等。
+</code></pre><p> 3.要想运行一个<code>ARSession</code>会话，你必须要指定一个称之为会话追踪配置的对象:<code>ARSessionConfiguration</code>,<code>ARSessionConfiguration</code>的主要目的就是负责追踪相机在3D世界中的位置以及一些特征场景的捕捉（例如平面捕捉），这个类本身比较简单却作用巨大。</p>
+<p> <code>ARSessionConfiguration</code>是一个父类，为了更好的看到增强现实的效果，苹果官方建议我们使用它的子类。<code>ARWorldTrackingSessionConfiguration</code>，该类只支持A9芯片之后的机型，也就是iPhone6s之后的机型。</p>
+<h1 id="ARWorldTrackingSessionConfiguration-与-ARFrame"><a href="#ARWorldTrackingSessionConfiguration-与-ARFrame" class="headerlink" title="ARWorldTrackingSessionConfiguration 与 ARFrame"></a>ARWorldTrackingSessionConfiguration 与 ARFrame</h1><p> 1.<code>ARSession</code>搭建沟通桥梁的参与者主要有两个<code>ARWorldTrackingSessionConfiguration</code>与<code>ARFrame</code></p>
+<p> 2.<code>ARWorldTrackingSessionConfiguration</code>（会话追踪配置）的作用是跟踪设备的方向和位置,以及检测设备摄像头看到的现实世界的表面。它的内部实现了一系列非常庞大的算法计算以及调用了你的iPhone必要的传感器来检测手机的移动及旋转甚至是翻滚,我们无需关心内部实现，<code>ARKit</code>框架帮助我们封装的非常完美，只需调用一两个属性即可。</p>
+<p> 3.当<code>ARWorldTrackingSessionConfiguration</code>计算出相机在3D世界中的位置时，它本身并不持有这个位置数据，而是将其计算出的位置数据交给<code>ARSession</code>去管理（与前面说的<code>session</code>管理内存相呼应），而相机的位置数据对应的类就是<code>ARFrame</code>。<code>ARSession</code>类一个属性叫做<code>currentFrame</code>，维护的就是<code>ARFrame</code>这个对象。</p>
+<p> 4.<code>ARCamera</code>只负责捕捉图像，不参与数据的处理。它属于3D场景中的一个环节，每一个3D Scene都会有一个Camera，它决定了我们看物体的视野。</p>
 <h1 id="AR工作流程"><a href="#AR工作流程" class="headerlink" title="AR工作流程"></a>AR工作流程</h1><p>ARKit框架工作流程可以参考下图:</p>
 <p><img src="/images/arkit/arkit_workflow.png" alt="ARKit流程"></p>
-<ol>
-<li><p><code>ARSCNView</code>加载场景<code>SCNScene</code></p>
-</li>
-<li><p><code>SCNScene</code>启动相机<code>ARCamera</code>开始捕捉场景</p>
-</li>
-<li><p>捕捉场景后<code>ARSCNView</code>开始将场景数据交给<code>Session</code></p>
-</li>
-<li><p><code>Session</code>通过管理<code>ARSessionConfiguration</code>实现场景的追踪并且返回一个<code>ARFrame</code></p>
-</li>
-<li><p>给<code>ARSCNView</code>的<code>scene</code>添加一个子节点（3D物体模型）</p>
-</li>
-</ol>
+<p>1.<code>ARSCNView</code>加载场景<code>SCNScene</code></p>
+<p>2.<code>SCNScene</code>启动相机<code>ARCamera</code>开始捕捉场景</p>
+<p>3.捕捉场景后<code>ARSCNView</code>开始将场景数据交给<code>Session</code></p>
+<p>4.<code>Session</code>通过管理<code>ARSessionConfiguration</code>实现场景的追踪并且返回一个<code>ARFrame</code></p>
+<p>5.给<code>ARSCNView</code>的<code>scene</code>添加一个子节点（3D物体模型）</p>
 <p><code>ARSessionConfiguration</code>捕捉相机3D位置的意义就在于能够在添加3D物体模型的时候计算出3D物体模型相对于相机的真实的矩阵位置。</p>
 <p>在3D坐标系统中，有一个世界坐标系和一个本地坐标系。类似于<code>UIView</code>的<code>Frame</code>和<code>Bounds</code>的区别，这种坐标之间的转换可以说是ARKit中最难的部分。</p>
 <p>参考文章：</p>
@@ -420,7 +443,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SceneKit"><span class="toc-number">1.</span> <span class="toc-text">SceneKit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ARKit-与-SceneKit关系"><span class="toc-number">2.</span> <span class="toc-text">ARKit 与 SceneKit关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ARSCNView-与-ARSession"><span class="toc-number">3.</span> <span class="toc-text">ARSCNView 与 ARSession</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ARWorldTrackingSessionConfiguration-与-ARFrame"><span class="toc-number">4.</span> <span class="toc-text">ARWorldTrackingSessionConfiguration 与 ARFrame</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AR工作流程"><span class="toc-number">5.</span> <span class="toc-text">AR工作流程</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ARKit-与-SceneKit关系"><span class="toc-number">1.</span> <span class="toc-text">ARKit 与 SceneKit关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ARSCNView-与-ARSession"><span class="toc-number">2.</span> <span class="toc-text">ARSCNView 与 ARSession</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ARWorldTrackingSessionConfiguration-与-ARFrame"><span class="toc-number">3.</span> <span class="toc-text">ARWorldTrackingSessionConfiguration 与 ARFrame</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AR工作流程"><span class="toc-number">4.</span> <span class="toc-text">AR工作流程</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -572,10 +595,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -588,15 +607,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,6 +647,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -636,19 +667,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,10 +680,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,6 +692,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,15 +743,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -776,11 +807,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="穆小灰灰的博客">
 <meta property="og:description" content="新添加判断iPhone X 、iPhone 8、iPhone 8 Plus  手机系统版本NSString* phoneVersion = [[UIDevice currentDevice] systemVersion]; 手机类型NSString* phoneModel = [self iphoneType];//方法在下面 手机系统NSString * iponeM = [[UIDevice">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2017-09-27T11:43:40.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:52:35.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS获取手机型号系统版本">
 <meta name="twitter:description" content="新添加判断iPhone X 、iPhone 8、iPhone 8 Plus  手机系统版本NSString* phoneVersion = [[UIDevice currentDevice] systemVersion]; 手机类型NSString* phoneModel = [self iphoneType];//方法在下面 手机系统NSString * iponeM = [[UIDevice">
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -185,7 +185,7 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：726字 | 预计阅读时长：4分钟
+        字数：988字 | 预计阅读时长：5分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -198,86 +198,9 @@
 <a id="more"></a>
 <h2 id="iphone机型"><a href="#iphone机型" class="headerlink" title="iphone机型"></a>iphone机型</h2><p>//需要导入头文件：</p>
 <p><code>#import &lt;sys/utsname.h&gt;</code></p>
-<p>`- (NSString*)iphoneType {</p>
-<p>struct utsname systemInfo;</p>
-<p>uname(&amp;systemInfo);</p>
-<p>NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];</p>
-<p>if([platform isEqualToString:@”iPhone1,1”])return @”iPhone 2G”;</p>
-<p>if([platform isEqualToString:@”iPhone1,2”])return @”iPhone 3G”;</p>
-<p>if([platform isEqualToString:@”iPhone2,1”])return @”iPhone 3GS”;</p>
-<p>if([platform isEqualToString:@”iPhone3,1”])return @”iPhone 4”;</p>
-<p>if([platform isEqualToString:@”iPhone3,2”])return @”iPhone 4”;</p>
-<p>if([platform isEqualToString:@”iPhone3,3”])return @”iPhone 4”;</p>
-<p>if([platform isEqualToString:@”iPhone4,1”])return @”iPhone 4S”;</p>
-<p>if([platform isEqualToString:@”iPhone5,1”])return @”iPhone 5”;</p>
-<p>if([platform isEqualToString:@”iPhone5,2”])return @”iPhone 5”;</p>
-<p>if([platform isEqualToString:@”iPhone5,3”])return @”iPhone 5c”;</p>
-<p>if([platform isEqualToString:@”iPhone5,4”])return @”iPhone 5c”;</p>
-<p>if([platform isEqualToString:@”iPhone6,1”])return @”iPhone 5s”;</p>
-<p>if([platformisEqualToString:@”iPhone6,2”])return @”iPhone 5s”;</p>
-<p>if([platform isEqualToString:@”iPhone7,1”])return @”iPhone 6 Plus”;</p>
-<p>if([platform isEqualToString:@”iPhone7,2”])return @”iPhone 6”;</p>
-<p>if([platform isEqualToString:@”iPhone8,1”])return @”iPhone 6s”;</p>
-<p>if([platform isEqualToString:@”iPhone8,2”])return @”iPhone 6s Plus”;</p>
-<p>if([platform isEqualToString:@”iPhone8,4”])return @”iPhone SE”;</p>
-<p>if([platform isEqualToString:@”iPhone9,1”])return @”iPhone 7”;</p>
-<p>if([platform isEqualToString:@”iPhone9,2”])return @”iPhone 7 Plus”;</p>
-<p>if([platform isEqualToString:@”iPhone10,1”])return @”iPhone 8”;</p>
-<p>if([platform isEqualToString:@”iPhone10,4”])return @”iPhone 8”;</p>
-<p>if([platform isEqualToString:@”iPhone10,2”])return @”iPhone 8 Plus”;</p>
-<p>if([platform isEqualToString:@”iPhone10,5”])return @”iPhone 8 Plus”;</p>
-<p>if([platform isEqualToString:@”iPhone10,3”])return @”iPhone X”;</p>
-<p>if([platform isEqualToString:@”iPhone10,6”])return @”iPhone X”;</p>
-<p>if([platform isEqualToString:@”iPod1,1”])return @”iPod Touch 1G”;</p>
-<p>if([platform isEqualToString:@”iPod2,1”])return @”iPod Touch 2G”;</p>
-<p>if([platform isEqualToString:@”iPod3,1”])return @”iPod Touch 3G”;</p>
-<p>if([platform isEqualToString:@”iPod4,1”])return @”iPod Touch 4G”;</p>
-<p>if([platform isEqualToString:@”iPod5,1”])return @”iPod Touch 5G”;</p>
-<p>if([platform isEqualToString:@”iPad1,1”])return @”iPad 1G”;</p>
-<p>if([platform isEqualToString:@”iPad2,1”])return @”iPad 2”;</p>
-<p>if([platform isEqualToString:@”iPad2,2”])return @”iPad 2”;</p>
-<p>if([platform isEqualToString:@”iPad2,3”])return @”iPad 2”;</p>
-<p>if([platform isEqualToString:@”iPad2,4”])return @”iPad 2”;</p>
-<p>if([platform isEqualToString:@”iPad2,5”])return @”iPad Mini 1G”;</p>
-<p>if([platform isEqualToString:@”iPad2,6”])return @”iPad Mini 1G”;</p>
-<p>if([platform isEqualToString:@”iPad2,7”])return @”iPad Mini 1G”;</p>
-<p>if([platform isEqualToString:@”iPad3,1”])return @”iPad 3”;</p>
-<p>if([platform isEqualToString:@”iPad3,2”])return @”iPad 3”;</p>
-<p>if([platform isEqualToString:@”iPad3,3”])return @”iPad 3”;</p>
-<p>if([platform isEqualToString:@”iPad3,4”])return @”iPad 4”;</p>
-<p>if([platform isEqualToString:@”iPad3,5”])return @”iPad 4”;</p>
-<p>if([platform isEqualToString:@”iPad3,6”])return @”iPad 4”;</p>
-<p>if([platform isEqualToString:@”iPad4,1”])return @”iPad Air”;</p>
-<p>if([platform isEqualToString:@”iPad4,2”])return @”iPad Air”;</p>
-<p>if([platform isEqualToString:@”iPad4,3”])return @”iPad Air”;</p>
-<p>if([platform isEqualToString:@”iPad4,4”])return @”iPad Mini 2G”;</p>
-<p>if([platform isEqualToString:@”iPad4,5”])return @”iPad Mini 2G”;</p>
-<p>if([platform isEqualToString:@”iPad4,6”])return @”iPad Mini 2G”;</p>
-<p>if([platform isEqualToString:@”iPad4,7”])return @”iPad Mini 3”;</p>
-<p>if([platform isEqualToString:@”iPad4,8”])return @”iPad Mini 3”;</p>
-<p>if([platform isEqualToString:@”iPad4,9”])return @”iPad Mini 3”;</p>
-<p>if([platform isEqualToString:@”iPad5,1”])return @”iPad Mini 4”;</p>
-<p>if([platform isEqualToString:@”iPad5,2”])return @”iPad Mini 4”;</p>
-<p>if([platform isEqualToString:@”iPad5,3”])return @”iPad Air 2”;</p>
-<p>if([platform isEqualToString:@”iPad5,4”])return @”iPad Air 2”;</p>
-<p>if([platform isEqualToString:@”iPad6,3”])return @”iPad Pro 9.7”;</p>
-<p>if([platform isEqualToString:@”iPad6,4”])return @”iPad Pro 9.7”;</p>
-<p>if([platform isEqualToString:@”iPad6,7”])return @”iPad Pro 12.9”;</p>
-<p>if([platform isEqualToString:@”iPad6,8”])return @”iPad Pro 12.9”;</p>
-<p>if([platform isEqualToString:@”i386”])return @”iPhone Simulator”;</p>
-<p>if([platform isEqualToString:@”x86_64”])return @”iPhone Simulator”;<br>returnplatform;<br>}<br>`</p>
-<h2 id="系统版本比较定义"><a href="#系统版本比较定义" class="headerlink" title="系统版本比较定义"></a>系统版本比较定义</h2><p>`</p>
-<p>#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)</p>
-<p>#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)</p>
-<p>#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)</p>
-<p>#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)</p>
-<p>#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)`</p>
-<h2 id="定义主线程执行"><a href="#定义主线程执行" class="headerlink" title="定义主线程执行"></a>定义主线程执行</h2><p><code>#define dispatch_async_main_safe(block)\
-if ([NSThread isMainThread]) {\
-block();\
-} else {\
-dispatch_async(dispatch_get_main_queue(), block);\
-}</code></p>
+<figure class="highlight plain"><figcaption><span>(NSString*)iphoneType &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">struct utsname systemInfo;</span><br><span class="line"></span><br><span class="line">uname(&amp;systemInfo);</span><br><span class="line"></span><br><span class="line">NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone1,1&quot;])return @&quot;iPhone 2G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone1,2&quot;])return @&quot;iPhone 3G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone2,1&quot;])return @&quot;iPhone 3GS&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone3,1&quot;])return @&quot;iPhone 4&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone3,2&quot;])return @&quot;iPhone 4&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone3,3&quot;])return @&quot;iPhone 4&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone4,1&quot;])return @&quot;iPhone 4S&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone5,1&quot;])return @&quot;iPhone 5&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone5,2&quot;])return @&quot;iPhone 5&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone5,3&quot;])return @&quot;iPhone 5c&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone5,4&quot;])return @&quot;iPhone 5c&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone6,1&quot;])return @&quot;iPhone 5s&quot;;</span><br><span class="line"></span><br><span class="line">if([platformisEqualToString:@&quot;iPhone6,2&quot;])return @&quot;iPhone 5s&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone7,1&quot;])return @&quot;iPhone 6 Plus&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone7,2&quot;])return @&quot;iPhone 6&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone8,1&quot;])return @&quot;iPhone 6s&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone8,2&quot;])return @&quot;iPhone 6s Plus&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone8,4&quot;])return @&quot;iPhone SE&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone9,1&quot;])return @&quot;iPhone 7&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone9,2&quot;])return @&quot;iPhone 7 Plus&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone10,1&quot;])return @&quot;iPhone 8&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone10,4&quot;])return @&quot;iPhone 8&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone10,2&quot;])return @&quot;iPhone 8 Plus&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone10,5&quot;])return @&quot;iPhone 8 Plus&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone10,3&quot;])return @&quot;iPhone X&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPhone10,6&quot;])return @&quot;iPhone X&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPod1,1&quot;])return @&quot;iPod Touch 1G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPod2,1&quot;])return @&quot;iPod Touch 2G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPod3,1&quot;])return @&quot;iPod Touch 3G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPod4,1&quot;])return @&quot;iPod Touch 4G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPod5,1&quot;])return @&quot;iPod Touch 5G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad1,1&quot;])return @&quot;iPad 1G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad2,1&quot;])return @&quot;iPad 2&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad2,2&quot;])return @&quot;iPad 2&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad2,3&quot;])return @&quot;iPad 2&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad2,4&quot;])return @&quot;iPad 2&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad2,5&quot;])return @&quot;iPad Mini 1G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad2,6&quot;])return @&quot;iPad Mini 1G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad2,7&quot;])return @&quot;iPad Mini 1G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad3,1&quot;])return @&quot;iPad 3&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad3,2&quot;])return @&quot;iPad 3&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad3,3&quot;])return @&quot;iPad 3&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad3,4&quot;])return @&quot;iPad 4&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad3,5&quot;])return @&quot;iPad 4&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad3,6&quot;])return @&quot;iPad 4&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad4,1&quot;])return @&quot;iPad Air&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad4,2&quot;])return @&quot;iPad Air&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad4,3&quot;])return @&quot;iPad Air&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad4,4&quot;])return @&quot;iPad Mini 2G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad4,5&quot;])return @&quot;iPad Mini 2G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad4,6&quot;])return @&quot;iPad Mini 2G&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad4,7&quot;])return @&quot;iPad Mini 3&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad4,8&quot;])return @&quot;iPad Mini 3&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad4,9&quot;])return @&quot;iPad Mini 3&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad5,1&quot;])return @&quot;iPad Mini 4&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad5,2&quot;])return @&quot;iPad Mini 4&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad5,3&quot;])return @&quot;iPad Air 2&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad5,4&quot;])return @&quot;iPad Air 2&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad6,3&quot;])return @&quot;iPad Pro 9.7&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad6,4&quot;])return @&quot;iPad Pro 9.7&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad6,7&quot;])return @&quot;iPad Pro 12.9&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;iPad6,8&quot;])return @&quot;iPad Pro 12.9&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;i386&quot;])return @&quot;iPhone Simulator&quot;;</span><br><span class="line"></span><br><span class="line">if([platform isEqualToString:@&quot;x86_64&quot;])return @&quot;iPhone Simulator&quot;;</span><br><span class="line">returnplatform;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="系统版本比较定义"><a href="#系统版本比较定义" class="headerlink" title="系统版本比较定义"></a>系统版本比较定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)</span><br><span class="line"></span><br><span class="line">#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)</span><br><span class="line"></span><br><span class="line">#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)</span><br><span class="line">#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)</span><br><span class="line"></span><br><span class="line">#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)</span><br></pre></td></tr></table></figure>
+<h2 id="定义主线程执行"><a href="#定义主线程执行" class="headerlink" title="定义主线程执行"></a>定义主线程执行</h2><figure class="highlight plain"><figcaption><span>dispatch_async_main_safe(block)\</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if ([NSThread isMainThread]) &#123;\</span><br><span class="line">block();\</span><br><span class="line">&#125; else &#123;\</span><br><span class="line">dispatch_async(dispatch_get_main_queue(), block);\</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>参考网址</p>
 <p><a href="http://www.jianshu.com/p/02bba9419df8" target="_blank" rel="noopener">天明依旧-iOS 获取手机型号，系统版本</a></p>
 
@@ -592,10 +515,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -608,15 +527,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,6 +567,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -656,19 +587,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,10 +600,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,6 +612,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,15 +663,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,11 +727,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

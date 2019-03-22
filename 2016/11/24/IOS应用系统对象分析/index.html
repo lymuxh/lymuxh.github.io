@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="穆小灰灰的博客">
 <meta property="og:description" content="xcode 创建iOS应用后项目里面会包含info.plist、UIApplication、UIWindow、UIViewController文件，为了更好的管理头文件，可以添加pch文件，下面就分别看一下这些文件在应用生命周期中的作用。 程序配置文件info.plist工程的配置中Info选项里面的内容实际上是info.plist文件里面的内容的拷贝，info.plist里面存放了许多关于项目启">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2016-12-05T03:16:29.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:20:38.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOS应用系统对象分析">
 <meta name="twitter:description" content="xcode 创建iOS应用后项目里面会包含info.plist、UIApplication、UIWindow、UIViewController文件，为了更好的管理头文件，可以添加pch文件，下面就分别看一下这些文件在应用生命周期中的作用。 程序配置文件info.plist工程的配置中Info选项里面的内容实际上是info.plist文件里面的内容的拷贝，info.plist里面存放了许多关于项目启">
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -185,7 +185,7 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：3.1k字 | 预计阅读时长：12分钟
+        字数：3.2k字 | 预计阅读时长：12分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -204,38 +204,21 @@
 <p>UIKit Keys</p>
 <p>描述IOS Apps的行为，每个IOS应用都依赖于Info。plist的keys来与IOS系统通信。Xcode提供了生成的plist文件提供了所有app所需的那些比较重要的keys。 但app可能需要扩展默认的plist来描述更多的信息，如定制app启动后的默认旋转方向，标识app是否支持文件共享等等。</p>
 <p>下面是一些常用的键的意义：</p>
-<ol>
-<li><p>Localiztion native development region — CFBundleDevelopmentRegion 本地化相关，如果⽤户所在地没有相应的语言资源，则用这个key的value来作为默认</p>
-</li>
-<li><p>Bundle display name — CFBundleDisplayName 设置程序安装后显示的名称。应⽤程序名称限制在10-12个字符，如果超出，将被显示缩写名称。</p>
-</li>
-<li><p>Executaule file – CFBundleExecutable 程序安装包的名称</p>
-</li>
-<li><p>Bundle identidier — CFBundleIdentidier 该束的唯一标识字符串，该字符串的格式类似 com。yourcompany。yourapp，如果使⽤用模拟器跑你的应用，这个字段没有用处，如果你需要把你的应⽤部署到设备上，你必须⽣成一个证书，⽽在生成证书的时候，在apple的⽹网站上需要增加相应的app IDs。这⾥有一个字段Bundle identidier，如果这个Bundle identidier是一个完整字符串，那么文件中的这个字段必须和后者完全相同，如果app IDs中的字段含有通配符*，那么文件中的字符串必须符合后者的描述。</p>
-</li>
-<li><p>InfoDictionary version — CFBundleInfoDictionaryVersion Info。plist 格式的版本信息，一般创建后不修改。</p>
-</li>
-<li><p>Bundle name — CFBundleName 产品名称</p>
-</li>
-<li><p>Bundle OS Type code – CFBundlePackageType ⽤来标识束类型的四个字母长的代码，一般都是APPL。</p>
-</li>
-<li><p>Bundle versions string， short — CFBundleShortVersionString ⾯向用户市场的束的版本字符串，应用的版本号。</p>
-</li>
-<li><p>Bundle creator OS Type code — CFBundleSignature 用来标识创建者的四个字母长的代码。</p>
-</li>
-<li><p>Bundle version — CFBundleVersion 应⽤程序版本号，每次部署应用程序的一个新版本时， 将会增加这个编号，在app store上用的。</p>
-</li>
-<li><p>Application require iPhone environment – LSRequiresIPhoneOS 用于指示程序包是否只能运行在iPhone OS 系统上。Xcode自动加入这个键，并将它的值设置为true。您不应该改变这个键的值。</p>
-</li>
-<li><p>Main storybard dile base name – UIMainStoryboardFile 这是一个字符串，指定应用程序主nib文件的名称。</p>
-</li>
-<li><p>supported interface orientations – UISupportedInterfaceOrientations 程序默认支持的设备方向。</p>
-</li>
-<li><p>screen interface file base name – Launch screen 这是一个字符串，指定应用程序启动页nib文件的名称。</p>
-</li>
-<li><p>Status bar tinting parameters – 定义状态蓝前景色，一般设置根据导航栏默认样式。</p>
-</li>
-</ol>
+<p>1.Localiztion native development region — CFBundleDevelopmentRegion 本地化相关，如果⽤户所在地没有相应的语言资源，则用这个key的value来作为默认</p>
+<p>2.Bundle display name — CFBundleDisplayName 设置程序安装后显示的名称。应⽤程序名称限制在10-12个字符，如果超出，将被显示缩写名称。</p>
+<p>3.Executaule file – CFBundleExecutable 程序安装包的名称</p>
+<p>4.Bundle identidier — CFBundleIdentidier 该束的唯一标识字符串，该字符串的格式类似 com。yourcompany。yourapp，如果使⽤用模拟器跑你的应用，这个字段没有用处，如果你需要把你的应⽤部署到设备上，你必须⽣成一个证书，⽽在生成证书的时候，在apple的⽹网站上需要增加相应的app IDs。这⾥有一个字段Bundle identidier，如果这个Bundle identidier是一个完整字符串，那么文件中的这个字段必须和后者完全相同，如果app IDs中的字段含有通配符*，那么文件中的字符串必须符合后者的描述。</p>
+<p>5.InfoDictionary version — CFBundleInfoDictionaryVersion Info。plist 格式的版本信息，一般创建后不修改。</p>
+<p>6.Bundle name — CFBundleName 产品名称</p>
+<p>7.Bundle OS Type code – CFBundlePackageType ⽤来标识束类型的四个字母长的代码，一般都是APPL。</p>
+<p>8.Bundle versions string， short — CFBundleShortVersionString ⾯向用户市场的束的版本字符串，应用的版本号。</p>
+<p>9.Bundle creator OS Type code — CFBundleSignature 用来标识创建者的四个字母长的代码。</p>
+<p>10.Bundle version — CFBundleVersion 应⽤程序版本号，每次部署应用程序的一个新版本时， 将会增加这个编号，在app store上用的。</p>
+<p>11.Application require iPhone environment – LSRequiresIPhoneOS 用于指示程序包是否只能运行在iPhone OS 系统上。Xcode自动加入这个键，并将它的值设置为true。您不应该改变这个键的值。</p>
+<p>12.Main storybard dile base name – UIMainStoryboardFile 这是一个字符串，指定应用程序主nib文件的名称。</p>
+<p>13.supported interface orientations – UISupportedInterfaceOrientations 程序默认支持的设备方向。</p>
+<p>14.screen interface file base name – Launch screen 这是一个字符串，指定应用程序启动页nib文件的名称。</p>
+<p>15.Status bar tinting parameters – 定义状态蓝前景色，一般设置根据导航栏默认样式。</p>
 <h1 id="程序全局头文件pch"><a href="#程序全局头文件pch" class="headerlink" title="程序全局头文件pch"></a>程序全局头文件pch</h1><p>pch文件,是prefix header file。是程序运行起来后的全局头文件，当添加了该文件后，不用在其他文件中使用 <em>#include</em> 或者是 <em>#import</em> 导入该文件，就可以直接使用该文件中的各种内容，比如宏定义和常量和一些公用的类。在xcode5及之前可以直接使用pch文件，在xcode6之后需要在Build Settings中的Apple LLVM 6.0-Language项中的Prefix Header条目中，设置pch文件所在的目录为(SRCROOT)/对应的文件夹名/PrefixHeader.pch，例如在根目录中可以直接设置(SRCROOT)/PrefixHeader.pch。</p>
 <p>当程序中的NSLog较多时，会造成很大的性能问题(NSLog是一个IO操作)，对于发布程序是非常不好的，如果依次找到程序中的所有NSLog并将他们删除或者注释，工程项是巨大的，因此可以是用在pch中设置一个条件编译，如果是在调试状态下NSLog为正常的代码，如果在发布状态下则忽略他们。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifdef DEBUG</span><br><span class="line">#define NSLog(...); NSLog(__VA_ARGS__);</span><br><span class="line">#else</span><br><span class="line">#define NSLog(...);</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
@@ -243,30 +226,26 @@
 <p>ios开发中难免会遇到一些oc与c混编的时候，当使用了pch文件时，c文件是不会识别上面的条件编译和#import等指令的，这时候应该使用另外一个条件编译来避免出现问题：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#ifdef __OBJC__</span><br><span class="line">    #import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">    #import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
 <h1 id="应用程序对象UIApplication"><a href="#应用程序对象UIApplication" class="headerlink" title="应用程序对象UIApplication"></a>应用程序对象UIApplication</h1><p>UIApplication是一个应用的单例类，可以做一些应用级别的操作。</p>
-<ol>
-<li><p>设置应用图标右上角的消息条数。 –applicationIconBadgeNumber</p>
-</li>
-<li><p>手机联网操作时，状态栏上的菊花等待图标指示器。waiting图标。—networkActivityIndicatorVisible</p>
-</li>
-<li><p>利用UIApplication打开某个资源</p>
-<p> <em>打开一个网页</em></p>
-<p> [app openURL:[NSURL URLWithString:@”<a href="https://www.baidu.com&quot;]]" target="_blank" rel="noopener">https://www.baidu.com&quot;]]</a>;</p>
-<p><em>打电话</em></p>
-<p>[app openURL:[NSURL URLWithString:@”tel://10086”]];</p>
-<p><em>发短信</em></p>
-<p>[app openURL:[NSURL URLWithString:@”sms://10086”]];</p>
-<p><em>发邮件</em></p>
-<p>[app openURL:[NSURL URLWithString:@”mailto:<a href="mailto://1234578@qq.com" target="_blank" rel="noopener">//1234578@qq.com</a>“]];</p>
-</li>
-<li><p>通过UIApplication管理状态栏</p>
-<p>iOS7开始可以通过两种方式来控制状态栏:</p>
+<p>1.设置应用图标右上角的消息条数。 –applicationIconBadgeNumber</p>
+<p>2.手机联网操作时，状态栏上的菊花等待图标指示器。waiting图标。—networkActivityIndicatorVisible</p>
+<p>3.利用UIApplication打开某个资源</p>
+<pre><code>*打开一个网页*
+
+[app openURL:[NSURL URLWithString:@&quot;https://www.baidu.com&quot;]];
+</code></pre><p>  <em>打电话</em></p>
+<p>  [app openURL:[NSURL URLWithString:@”tel://10086”]];</p>
+<p>  <em>发短信</em></p>
+<p>  [app openURL:[NSURL URLWithString:@”sms://10086”]];</p>
+<p>  <em>发邮件</em></p>
+<p>  [app openURL:[NSURL URLWithString:@”mailto:<a href="mailto://1234578@qq.com" target="_blank" rel="noopener">//1234578@qq.com</a>“]];</p>
+<p>4.通过UIApplication管理状态栏</p>
+<p> iOS7开始可以通过两种方式来控制状态栏:</p>
 <ul>
 <li><p>控制器</p>
-<p><code>- (BOOL)prefersStatusBarHidden</code></p>
-<p><code>- (UIStatusBarStyle)preferredStatusBarStyle</code></p>
-</li>
-<li><p>UIApplication</p>
-</li>
+<p> <code>- (BOOL)prefersStatusBarHidden</code></p>
+<p> <code>- (UIStatusBarStyle)preferredStatusBarStyle</code></p>
+<ul>
+<li>UIApplication</li>
 </ul>
 <p>如果希望通过UIApplication来管理，步骤如下:</p>
 <p>在Info.plist文件中增加一个配置项</p>
@@ -275,7 +254,7 @@
 <p>app.statusBarHidden = YES;</p>
 <p>app.statusBarStyle=UIStatusBarStyleDefault</p>
 </li>
-</ol>
+</ul>
 <h1 id="应用程序委托UIApplicationDelegate"><a href="#应用程序委托UIApplicationDelegate" class="headerlink" title="应用程序委托UIApplicationDelegate"></a>应用程序委托UIApplicationDelegate</h1><p>在main函数中进行的设置UIApplication对象的代理。<br>App容易受到干扰。正在玩游戏，一个电话打过来了。</p>
 <ul>
 <li>应用程序的生命周期事件(如程序启动和关闭)</li>
@@ -295,32 +274,23 @@
 </ul>
 <p><strong> 要想成为UIApplication的代理对象, 必须遵守:UIApplicationDelegate协议。</strong></p>
 <p> 代理中的若干方法介绍:</p>
-<ol>
-<li><p><code>- (BOOL)application: didFinishLaunchingWithOptions:</code></p>
-<p>// app第一次启动完毕后就会调用(当程序启动后会显示一张启动图片, 当这个图片显示完毕, 消失后, 就开始调用这个方法)</p>
-</li>
-<li><p><code>- (void)applicationDidEnterBackground:(UIApplication *)application</code></p>
-<p>// 当程序进入后台时, 调用该方法。（比如：按了Home键, 或者一个电话打过来了, 当前程序都会进入后台。）<br>// 在这个方法中可以做一些保存当前程序数据, 暂停程序的操作。</p>
-</li>
-<li><p><code>- (void)applicationWillEnterForeground:(UIApplication *)application</code></p>
-<p>// 当程序再次进入前台的时候调用。</p>
-</li>
-<li><p><code>- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application</code></p>
-<p>// 当发生内存警告时触发该事件。</p>
-</li>
-<li><p><code>- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings NS_AVAILABLE_IOS(8_0) ;</code></p>
+<p><code>- (BOOL)application: didFinishLaunchingWithOptions:</code></p>
+<p> // app第一次启动完毕后就会调用(当程序启动后会显示一张启动图片, 当这个图片显示完毕, 消失后, 就开始调用这个方法)</p>
+<p><code>- (void)applicationDidEnterBackground:(UIApplication *)application</code></p>
+<p> // 当程序进入后台时, 调用该方法。（比如：按了Home键, 或者一个电话打过来了, 当前程序都会进入后台。）<br>// 在这个方法中可以做一些保存当前程序数据, 暂停程序的操作。</p>
+<p><code>- (void)applicationWillEnterForeground:(UIApplication *)application</code></p>
+<p> // 当程序再次进入前台的时候调用。</p>
+<p><code>- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application</code></p>
+<p> // 当发生内存警告时触发该事件。</p>
+<p><code>- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings NS_AVAILABLE_IOS(8_0) ;</code></p>
 <p><code>- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken</code></p>
 <p><code>- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error NS_AVAILABLE_IOS(3_0);</code></p>
-<p>// 进行推送服务注册</p>
-</li>
-<li><p><code>- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window</code></p>
-<p>//应用支持屏幕旋转方向，目前旋转有控制器控制</p>
-</li>
-<li><p><code>- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url NS_DEPRECATED_IOS(2_0, 9_0, &quot;Please use application:openURL:options:&quot;)</code></p>
+<p>  // 进行推送服务注册</p>
+<p><code>- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window</code></p>
+<p> //应用支持屏幕旋转方向，目前旋转有控制器控制</p>
+<p><code>- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url NS_DEPRECATED_IOS(2_0, 9_0, &quot;Please use application:openURL:options:&quot;)</code></p>
 <p><code>- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation NS_DEPRECATED_IOS(4_2, 9_0, &quot;Please use application:openURL:options:&quot;)</code></p>
-<p>//处理第三方登录回调或启动</p>
-</li>
-</ol>
+<p> //处理第三方登录回调或启动</p>
 <p>程序启动后：</p>
 <p>didFinishLaunchingWithOptions–&gt;applicationDidBecomeActive</p>
 <p>按home键使程序进入后台：</p>
@@ -333,9 +303,18 @@
 <p>applicationWillTerminate</p>
 <p>推送相关：</p>
 <p><code>- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo</code></p>
-<p>  iOS10改为使用 UserNotifications Framework’s <code>-[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:]</code> or <code>-[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]</code> for user visible notifications and <code>-[UIApplicationDelegate application:didReceiveRemoteNotification:fetchCompletionHandler:]</code> for silent remote notifications;</p>
+<p>  iOS10改为使用 UserNotifications Framework’s</p>
+<p>   <code>-[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:]</code></p>
+<p>   or</p>
+<p>  <code>-[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]</code> </p>
+<p>  for user visible notifications and </p>
+<p>  <code>-[UIApplicationDelegate application:didReceiveRemoteNotification:fetchCompletionHandler:]</code> </p>
+<p>  for silent remote notifications;</p>
 <p><code>- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification</code></p>
-<p> iOS10改为使用 UserNotifications Framework’s <code>-[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:]</code> or <code>-[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]</code></p>
+<p> iOS10改为使用 UserNotifications Framework’s </p>
+<p> <code>-[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:]</code></p>
+<p>  or </p>
+<p>  <code>-[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]</code></p>
 <h1 id="应用显示视图UIWindow"><a href="#应用显示视图UIWindow" class="headerlink" title="应用显示视图UIWindow"></a>应用显示视图UIWindow</h1><ul>
 <li><p>UIWindow是一种特殊的UIView, UIWindow也是继承自UIView。</p>
 </li>
@@ -727,10 +706,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -743,15 +718,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,6 +758,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -791,19 +778,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -812,10 +791,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -828,6 +803,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,15 +854,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -931,11 +918,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

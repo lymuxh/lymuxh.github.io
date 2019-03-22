@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>CoreAnimation系列之四视觉效果 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CoreAnimation的视觉效果图层不仅仅可以是图片或是颜色的容器；还有一系列内建的特性使得创造美丽优雅的令人深刻的界面元素成为可能。在这一章，我们将会探索一些能够通过使用CALayer属性实现的视觉效果。">
+  <meta name="description" content="图层不仅仅可以是图片或是颜色的容器；还有一系列内建的特性使得创造美丽优雅的令人深刻的界面元素成为可能。在这一章，我们将会探索一些能够通过使用CALayer属性实现的视觉效果。">
 <meta name="keywords" content="CoreAnimation,视觉效果">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CoreAnimation系列之四视觉效果">
 <meta property="og:url" content="http://yoursite.com/2016/12/05/CoreAnimation系列之四视觉效果/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="CoreAnimation的视觉效果图层不仅仅可以是图片或是颜色的容器；还有一系列内建的特性使得创造美丽优雅的令人深刻的界面元素成为可能。在这一章，我们将会探索一些能够通过使用CALayer属性实现的视觉效果。">
+<meta property="og:description" content="图层不仅仅可以是图片或是颜色的容器；还有一系列内建的特性使得创造美丽优雅的令人深刻的界面元素成为可能。在这一章，我们将会探索一些能够通过使用CALayer属性实现的视觉效果。">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2016-12-08T09:57:44.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:44:43.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CoreAnimation系列之四视觉效果">
-<meta name="twitter:description" content="CoreAnimation的视觉效果图层不仅仅可以是图片或是颜色的容器；还有一系列内建的特性使得创造美丽优雅的令人深刻的界面元素成为可能。在这一章，我们将会探索一些能够通过使用CALayer属性实现的视觉效果。">
+<meta name="twitter:description" content="图层不仅仅可以是图片或是颜色的容器；还有一系列内建的特性使得创造美丽优雅的令人深刻的界面元素成为可能。在这一章，我们将会探索一些能够通过使用CALayer属性实现的视觉效果。">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CoreAnimation的视觉效果"><a href="#CoreAnimation的视觉效果" class="headerlink" title="CoreAnimation的视觉效果"></a>CoreAnimation的视觉效果</h1><p>图层不仅仅可以是图片或是颜色的容器；还有一系列内建的特性使得创造美丽优雅的令人深刻的界面元素成为可能。在这一章，我们将会探索一些能够通过使用CALayer属性实现的视觉效果。</p>
+        <p>图层不仅仅可以是图片或是颜色的容器；还有一系列内建的特性使得创造美丽优雅的令人深刻的界面元素成为可能。在这一章，我们将会探索一些能够通过使用CALayer属性实现的视觉效果。</p>
  <a id="more"></a>
 <h2 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h2><p>圆角矩形是iOS的一个标志性审美特性。这在iOS的每一个地方都得到了体现，不论是主屏幕图标，还是警告弹框，甚至是文本框。按照这流行程度，你可能会认为一定有不借助Photoshop就能轻易创建圆角举行的方法。恭喜你，猜对了。</p>
 <p>CALayer有一个叫做<code>conrnerRadius</code>的属性控制着图层角的曲率。它是一个浮点数，默认为0（为0的时候就是直角），但是你可以把它设置成任意值。默认情况下，这个曲率值只影响背景颜色而不影响背景图片或是子图层。不过，如果把<code>masksToBounds</code>设置成YES的话，图层里面的所有东西都会被截取。</p>
@@ -430,7 +430,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CoreAnimation的视觉效果"><span class="toc-number">1.</span> <span class="toc-text">CoreAnimation的视觉效果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#圆角"><span class="toc-number">1.1.</span> <span class="toc-text">圆角</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图层边框"><span class="toc-number">1.2.</span> <span class="toc-text">图层边框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阴影"><span class="toc-number">1.3.</span> <span class="toc-text">阴影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阴影裁剪"><span class="toc-number">1.4.</span> <span class="toc-text">阴影裁剪</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shadowPath属性"><span class="toc-number">1.5.</span> <span class="toc-text">shadowPath属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图层蒙板"><span class="toc-number">1.6.</span> <span class="toc-text">图层蒙板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拉伸过滤"><span class="toc-number">1.7.</span> <span class="toc-text">拉伸过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组透明"><span class="toc-number">1.8.</span> <span class="toc-text">组透明</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#圆角"><span class="toc-number">1.</span> <span class="toc-text">圆角</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图层边框"><span class="toc-number">2.</span> <span class="toc-text">图层边框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阴影"><span class="toc-number">3.</span> <span class="toc-text">阴影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阴影裁剪"><span class="toc-number">4.</span> <span class="toc-text">阴影裁剪</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shadowPath属性"><span class="toc-number">5.</span> <span class="toc-text">shadowPath属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图层蒙板"><span class="toc-number">6.</span> <span class="toc-text">图层蒙板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拉伸过滤"><span class="toc-number">7.</span> <span class="toc-text">拉伸过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组透明"><span class="toc-number">8.</span> <span class="toc-text">组透明</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -582,10 +582,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -598,15 +594,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,6 +634,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -646,19 +654,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,10 +667,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,6 +679,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,15 +730,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,11 +794,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

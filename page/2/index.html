@@ -67,10 +67,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -167,6 +167,102 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-iOS延时执行的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/27/iOS延时执行的几种方式/">iOS延时执行的几种方式</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/27/iOS延时执行的几种方式/" class="archive-article-date">
+  	<time datetime="2017-09-27T11:32:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-27</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：213字 | 预计阅读时长：1分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>延时执行方法定义如下</p>
+<p><code>-(void)delayMethod
+{
+    NSLog(@&quot;delayMehtod run&quot;);
+}</code></p>
+<h2 id="performSelect方法"><a href="#performSelect方法" class="headerlink" title="performSelect方法"></a>performSelect方法</h2><p><code>[self performSelector:@selector(delayMethod) withObject:nil
+ afterDelay:2.0];</code></p>
+<p>注：此方法是一种非阻塞的执行方式，未找到取消执行的方法,withObject可以传任何类型参数</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">延时执行</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">NSTimer</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/27/iOS延时执行的几种方式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-iOS获取手机型号系统版本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -185,7 +281,7 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：726字 | 预计阅读时长：4分钟
+        字数：988字 | 预计阅读时长：5分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -274,12 +370,12 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：487字 | 预计阅读时长：1分钟
+        字数：479字 | 预计阅读时长：1分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="hexo-安装及常用命令"><a href="#hexo-安装及常用命令" class="headerlink" title="hexo 安装及常用命令"></a>hexo 安装及常用命令</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Node和Git都安装好后,首先创建在用户目录一个文件夹,如blog,然后进入blog里安装Hexo。</p>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Node和Git都安装好后,首先创建在用户目录一个文件夹,如blog,然后进入blog里安装Hexo。</p>
 <p>执行如下命令安装Hexo：</p>
 <p><code>sudo npm install -g hexo</code></p>
 <p>初始化然后，执行init命令初始化hexo,命令：</p>
@@ -364,19 +460,14 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：375字 | 预计阅读时长：2分钟
+        字数：329字 | 预计阅读时长：1分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="iphoneX和iOS11适配遇到问题"><a href="#iphoneX和iOS11适配遇到问题" class="headerlink" title="iphoneX和iOS11适配遇到问题"></a>iphoneX和iOS11适配遇到问题</h1><h2 id="1-底部tabbar-选中效果下移"><a href="#1-底部tabbar-选中效果下移" class="headerlink" title="1.底部tabbar 选中效果下移"></a>1.底部tabbar 选中效果下移</h2><p><code>self.tabBar.backgroundImage =[UIColor createImageWithColor:RGB(38.0, 50.0, 56.0)]；
-self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.bounds.size.height)];</code></p>
+        <h2 id="1-底部tabbar-选中效果下移"><a href="#1-底部tabbar-选中效果下移" class="headerlink" title="1.底部tabbar 选中效果下移"></a>1.底部tabbar 选中效果下移</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.bounds.size.height)];</span><br></pre></td></tr></table></figure>
 <p>改为</p>
-<p> <code>UITabBar *appearance = [UITabBar appearance];
-    [appearance setBackgroundImage:[UIColor createImageWithColor:RGB(38.0, 50.0, 56.0)]];
-    UIImage *selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.frame.size.height)];
-    selectionIndicatorImage = [selectionIndicatorImage resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 0, 0)];
-    [appearance setSelectionIndicatorImage:selectionIndicatorImage];</code></p>
+<figure class="highlight plain"><figcaption><span>*appearance </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[appearance setBackgroundImage:[UIColor createImageWithColor:RGB(38.0, 50.0, 56.0)]];</span><br><span class="line">UIImage *selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.frame.size.height)];</span><br><span class="line">selectionIndicatorImage = [selectionIndicatorImage resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 0, 0)];</span><br><span class="line">[appearance setSelectionIndicatorImage:selectionIndicatorImage];</span><br></pre></td></tr></table></figure>
         
       
 
@@ -920,88 +1011,6 @@ self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayC
 
 
   
-    <article id="post-CoreAnimation系列之九图层时间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/CoreAnimation系列之九图层时间/">CoreAnimation系列之九图层时间</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/07/CoreAnimation系列之九图层时间/" class="archive-article-date">
-  	<time datetime="2016-12-07T08:34:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-07</time>
-</a>
-        
-      </header>
-      <div align="center" class="post-count">
-        字数：3.5k字 | 预计阅读时长：14分钟
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们探讨了可以用<code>CAAnimation</code>和它的子类实现的多种图层动画。动画的发生是需要持续一段时间的，所以<em>计时</em>对整个概念来说至关重要。在这一章中，我们来看看<code>CAMediaTiming</code>，看看Core Animation是如何跟踪时间的。</p>
-<h2 id="CAMediaTiming协议"><a href="#CAMediaTiming协议" class="headerlink" title="CAMediaTiming协议"></a><code>CAMediaTiming</code>协议</h2><p><code>CAMediaTiming</code>协议定义了在一段动画内用来控制逝去时间的属性的集合，<code>CALayer</code>和<code>CAAnimation</code>都实现了这个协议，所以时间可以被任意基于一个图层或者一段动画的类控制。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CoreAnimation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图层时间</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/07/CoreAnimation系列之九图层时间/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1123,10 +1132,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -1139,15 +1144,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1175,6 +1184,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -1187,19 +1204,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1208,10 +1217,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,6 +1229,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1263,15 +1280,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1327,11 +1344,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

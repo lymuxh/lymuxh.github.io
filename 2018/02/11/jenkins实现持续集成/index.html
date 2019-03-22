@@ -8,18 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>jenkins实现持续集成 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jenkins实现移动持续集成集成环境 macBook 10.13.3 java8 xcode9 jenkins  java环境安装">
+  <meta name="description" content="集成环境 macBook  java环境 1.8 tomcat 7.0 xcode环境 9.0 jenkins(.war) v2.6+  java环境安装1.从orcale官网下载macOS对应的java版本进行下载 建议下载jdk-8u201-macosx-x64_bin.dmg 2.双击下载文件，继续双击出现图标 3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成 j">
 <meta name="keywords" content="jenkins,继续集成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jenkins实现持续集成">
 <meta property="og:url" content="http://yoursite.com/2018/02/11/jenkins实现持续集成/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="jenkins实现移动持续集成集成环境 macBook 10.13.3 java8 xcode9 jenkins  java环境安装">
+<meta property="og:description" content="集成环境 macBook  java环境 1.8 tomcat 7.0 xcode环境 9.0 jenkins(.war) v2.6+  java环境安装1.从orcale官网下载macOS对应的java版本进行下载 建议下载jdk-8u201-macosx-x64_bin.dmg 2.双击下载文件，继续双击出现图标 3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成 j">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2018-02-12T01:50:48.000Z">
+<meta property="og:image" content="http://yoursite.com/images/jinkens/jinkens_01.jpg">
+<meta property="og:image" content="http://yoursite.com/images/jinkens/jinkens_02.jpg">
+<meta property="og:image" content="http://yoursite.com/images/jinkens/jinkens_03.jpg">
+<meta property="og:updated_time" content="2019-03-22T11:09:13.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jenkins实现持续集成">
-<meta name="twitter:description" content="jenkins实现移动持续集成集成环境 macBook 10.13.3 java8 xcode9 jenkins  java环境安装">
+<meta name="twitter:description" content="集成环境 macBook  java环境 1.8 tomcat 7.0 xcode环境 9.0 jenkins(.war) v2.6+  java环境安装1.从orcale官网下载macOS对应的java版本进行下载 建议下载jdk-8u201-macosx-x64_bin.dmg 2.双击下载文件，继续双击出现图标 3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成 j">
+<meta name="twitter:image" content="http://yoursite.com/images/jinkens/jinkens_01.jpg">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +73,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -185,18 +189,54 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：25字 | 预计阅读时长：1分钟
+        字数：1.3k字 | 预计阅读时长：6分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="jenkins实现移动持续集成"><a href="#jenkins实现移动持续集成" class="headerlink" title="jenkins实现移动持续集成"></a>jenkins实现移动持续集成</h1><h2 id="集成环境"><a href="#集成环境" class="headerlink" title="集成环境"></a>集成环境</h2><ul>
-<li>macBook 10.13.3</li>
-<li>java8</li>
-<li>xcode9</li>
-<li>jenkins</li>
+        <h2 id="集成环境"><a href="#集成环境" class="headerlink" title="集成环境"></a>集成环境</h2><ul>
+<li>macBook </li>
+<li>java环境 1.8</li>
+<li>tomcat 7.0</li>
+<li>xcode环境 9.0</li>
+<li>jenkins(.war) v2.6+</li>
 </ul>
-<h3 id="java环境安装"><a href="#java环境安装" class="headerlink" title="java环境安装"></a>java环境安装</h3>
+<h3 id="java环境安装"><a href="#java环境安装" class="headerlink" title="java环境安装"></a>java环境安装</h3><p>1.从orcale官网下载macOS对应的java版本进行下载</p>
+<p>建议下载jdk-8u201-macosx-x64_bin.dmg</p>
+<p>2.双击下载文件，继续双击出现图标</p>
+<p>3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成</p>
+<p><code>java -version</code></p>
+<p>如果能正常显示java版本说明java安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jjava version &quot;1.8.0_201&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_201-b09)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)</span><br></pre></td></tr></table></figure>
+<p>4.配置PATH和CLASS_PATH，打开终端输入以下指令，打开profile文件（需要sudo超级权限）</p>
+<p><code>sudo vim ~/.bash_profile</code></p>
+<p>按提示输入密码即可，正常情况vim编辑器会打开一个文件，在英文输入下，按“i”进入编辑模式，在文件最后添加一下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=&quot;/Library/Java/JavaVirtualMachines/jdk-1.8.0.jdk/Contents/Home&quot;</span><br><span class="line"> </span><br><span class="line">CLASS_PATH=&quot;$JAVA_HOME/lib&quot;</span><br><span class="line"> </span><br><span class="line">PATH=&quot;.:$PATH:$JAVA_HOME.bin&quot;</span><br></pre></td></tr></table></figure>
+<p>添加完上述内容后，按‘esc’键退出编辑模式，输入‘：wq’保存并退出profile，需要配置生效，需要在终端执行如下指令：</p>
+<p><code>source ~/.bash_profile</code></p>
+<h3 id="tomcat安装"><a href="#tomcat安装" class="headerlink" title="tomcat安装"></a>tomcat安装</h3><p>下载需要的版本进行解压，文件随便放哪里都可以执行的，我放在/User/用户/Library下面。</p>
+<p>为了方便操作，把Tomcat的/bin路径放入环境变量里面，更新上面的.bash_profile文件，在最后添加</p>
+<p><code>export PATH=$JAVA_HOME/bin:$PATH:/Users/用户/Library/Tomcat7/bin</code></p>
+<p>然后完成后在终端执行以下指令让文件生效</p>
+<p><code>source ~/.bash_profile</code></p>
+<p>如果tomcat路径没有操作权限，可以通过以下命令分配权限</p>
+<p><code>sudo chmod 755 tomcat路径/bin/*.sh</code> </p>
+<p>终端中输入startup.sh启动tomat，启动完毕后，可以通过浏览器输入’<a href="http://loalhost:8080&#39;,成功可以看到tomcat页面" target="_blank" rel="noopener">http://loalhost:8080&#39;,成功可以看到tomcat页面</a></p>
+<p>关闭tomcat可以在终端输入shutdown.sh</p>
+<h3 id="xcode安装"><a href="#xcode安装" class="headerlink" title="xcode安装"></a>xcode安装</h3><p>xcode可以从mac的app store下载安装，具体就不说了。</p>
+<h3 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h3><p>下载需要的版本war包，放入之前Tomcat文件夹下/webapps文件夹中。</p>
+<p>通过浏览器输入’<a href="http://loalhost:8080/jinkens&#39;打开可以看到jinkens页面" target="_blank" rel="noopener">http://loalhost:8080/jinkens&#39;打开可以看到jinkens页面</a></p>
+<p>第一次打开根据页面在输入指定路径下文件密码进行激活，安装进入安装页面，一般就选推荐安装，选择需要的插件安装，如果插件安装失败可以在jinkens上手动安装。</p>
+<p>安装完需要设置第一个管理员账号，设置完就进入jinkens界面</p>
+<p>插件安装，点击系统管理&gt;管理插件&gt;，这里就不逐个说明了，每个插件点进去都有介绍，下面的插件列表没有的在可选插件里面搜索出来，选中安装完重启jenkins就可以了<br>比如github、xcode、git、Gradle、NodeJs、Keychains and ProvisioningProfiles Mangement、Persistent Parameter 、PostBuildScript等插件</p>
+<h2 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h2><p>通过jenkins新建任务，选择构建一个自由风格的项目，点击ok。</p>
+<p><img src="/images/jinkens/jinkens_01.jpg" alt="Git分支参数和自定义环境参数"></p>
+<p><img src="/images/jinkens/jinkens_02.jpg" alt="Git仓库参数设置"></p>
+<p><img src="/images/jinkens/jinkens_03.jpg" alt="构建脚本和构建后脚本配置"></p>
+<h2 id="打包脚本"><a href="#打包脚本" class="headerlink" title="打包脚本"></a>打包脚本</h2><p>iOS打包脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"></span><br><span class="line">#工程名</span><br><span class="line">projectnmae=$1</span><br><span class="line">#targetName</span><br><span class="line">targetname=$2</span><br><span class="line"># 导出路径</span><br><span class="line">exportpath=$3</span><br><span class="line">#打包模式</span><br><span class="line">mode=$4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 是否 传入工程名</span><br><span class="line">if [ -z &quot;$projectnmae&quot; ]; then</span><br><span class="line">    echo &apos;$&#123;projectnmae&#125; : 无效&apos; </span><br><span class="line">    echo &quot;请将projectNmae作为脚本第一个参数传入&quot;; exit 1;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># 是否 传入target名称</span><br><span class="line">if [ -z &quot;$targetname&quot; ]; then</span><br><span class="line">    echo &apos;$&#123;projectnmae&#125; : 无效&apos; </span><br><span class="line">    echo &quot;请将projectNmae作为脚本第一个参数传入&quot;; exit 1;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#工程绝对路径</span><br><span class="line">project_path=$&#123;PWD&#125;</span><br><span class="line"></span><br><span class="line">echo &apos;项目路径====&apos;$project_path</span><br><span class="line"></span><br><span class="line">#工程名</span><br><span class="line"></span><br><span class="line">project_name=$&#123;projectnmae&#125;</span><br><span class="line"></span><br><span class="line">#打包模式 Debug/Release</span><br><span class="line">development_mode=$&#123;mode&#125;</span><br><span class="line"></span><br><span class="line">#scheme名</span><br><span class="line">scheme_name=$&#123;targetname&#125;</span><br><span class="line"></span><br><span class="line">#build文件夹路径</span><br><span class="line">build_path=$&#123;project_path&#125;/build</span><br><span class="line"></span><br><span class="line">#plist文件所在路径</span><br><span class="line">exportOptionsPlistPath=$&#123;project_path&#125;/ExportOptions.plist</span><br><span class="line">DistributionSPlistPath=$&#123;project_path&#125;/DistributionSummary.plist</span><br><span class="line"></span><br><span class="line">#导出.ipa文件所在路径</span><br><span class="line">if [ -z &quot;$exportpath&quot; ]; then</span><br><span class="line">    exportFilePath=$&#123;project_path&#125;/ipa/$&#123;development_mode&#125;</span><br><span class="line">else  </span><br><span class="line">    exportFilePath=$&#123;exportpath&#125;</span><br><span class="line">fi  </span><br><span class="line"></span><br><span class="line">echo &apos;导出文件路径 ==== &apos; $&#123;exportFilePath&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo &apos;*** 正在 清理工程 ***&apos;</span><br><span class="line">xcodebuild \</span><br><span class="line">clean -configuration $&#123;development_mode&#125; -quiet  || exit </span><br><span class="line">echo &apos;*** 清理完成 ***&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo &apos;*** 正在 编译工程 For &apos;$&#123;development_mode&#125;</span><br><span class="line">security unlock-keychain -p $&#123;KEYCHAIN_PASSWORD&#125; ~/Library/Keychains/login.keychain-db</span><br><span class="line">#security unlock-keychain -p $&#123;KEYCHAIN_PASSWORD&#125; $&#123;KEYCHAIN_PATH&#125;</span><br><span class="line">echo $&#123;project_path&#125;/$&#123;project_name&#125;.xcworkspace</span><br><span class="line">xcodebuild \</span><br><span class="line">archive -workspace $&#123;project_path&#125;/$&#123;project_name&#125;.xcworkspace \</span><br><span class="line">-scheme $&#123;scheme_name&#125; \</span><br><span class="line">-configuration $&#123;development_mode&#125; \</span><br><span class="line">-archivePath $&#123;build_path&#125;/$&#123;project_name&#125;.xcarchive -quiet  || exit</span><br><span class="line">echo &apos;*** 编译完成 ***&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo &apos;*** 正在 打包 ***&apos;</span><br><span class="line"></span><br><span class="line">if [ &quot;$&#123;development_mode&#125;&quot; == &quot;Debug&quot; ];then</span><br><span class="line">  echo $&#123;exportOptionsPlistPath&#125;</span><br><span class="line">  xcodebuild -exportArchive -archivePath $&#123;build_path&#125;/$&#123;project_name&#125;.xcarchive \</span><br><span class="line">  -configuration $&#123;development_mode&#125; \</span><br><span class="line">  -exportPath $&#123;exportFilePath&#125; \</span><br><span class="line">  -exportOptionsPlist $&#123;exportOptionsPlistPath&#125; \</span><br><span class="line">  -quiet || exit</span><br><span class="line">elif [ &quot;$&#123;development_mode&#125;&quot; == &quot;Release&quot; ];then</span><br><span class="line">  echo $&#123;DistributionSPlistPath&#125;</span><br><span class="line">  xcodebuild -exportArchive -archivePath $&#123;build_path&#125;/$&#123;project_name&#125;.xcarchive \</span><br><span class="line">  -configuration $&#123;development_mode&#125; \</span><br><span class="line">  -exportPath $&#123;exportFilePath&#125; \</span><br><span class="line">  -exportOptionsPlist $&#123;DistributionSPlistPath&#125; \</span><br><span class="line">  -quiet || exit</span><br><span class="line">else</span><br><span class="line">  echo &apos;***没有plist***&apos;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ -e $exportFilePath/$scheme_name.ipa ]; then</span><br><span class="line">    # mv $exportFilePath/$scheme_name.ipa $exportFilePath/$scheme_name&apos;_&apos;$&#123;development_mode&#125;&apos;_&apos;`date +%Y%m%d-%H/%M`.ipa</span><br><span class="line">    #unzip $exportFilePath/$scheme_name.ipa  #解压ipa文件</span><br><span class="line">    mv /Users/macserver/jenkinsconfig/workspace/CLS.ipa /Users/macserver/jenkinsconfig/workspace/CheDai-iOS/</span><br><span class="line">    echo &quot;*** .ipa文件已导出 ***&quot;</span><br><span class="line">    #open $exportFilePath</span><br><span class="line">else</span><br><span class="line">    echo &quot;*** 创建.ipa文件失败 ***&quot;</span><br><span class="line">fi</span><br><span class="line">echo &apos;*** 打包完成 ***&apos;</span><br></pre></td></tr></table></figure>
+<p>打包后钉钉群通知脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">posturl=&quot;https://oapi.dingtalk.com/robot/send?access_token=xxxxx&quot;</span><br><span class="line"></span><br><span class="line">a=$&#123;BUILD_ENV&#125;</span><br><span class="line">b=$&#123;a/Debug/测试环境&#125;</span><br><span class="line">c=$&#123;b/Release/正式环境&#125;</span><br><span class="line"></span><br><span class="line">postdata=`cat &lt;&lt; EOF</span><br><span class="line">&#123;</span><br><span class="line">&quot;msgtype&quot;: &quot;text&quot;,</span><br><span class="line">&quot;text&quot;: &#123;</span><br><span class="line">&quot;content&quot;: &quot;【$c】CLS工程iOS打包失败！！&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;at&quot;: &#123;</span><br><span class="line">&quot;atMobiles&quot;: [</span><br><span class="line">&quot;xxxxxx&quot;</span><br><span class="line">],</span><br><span class="line">&quot;isAtAll&quot;: &quot;false&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">`</span><br><span class="line">curl -H &quot;Content-Type:application/json&quot; -X POST -d &quot;$postdata&quot;  $posturl</span><br></pre></td></tr></table></figure>
       
 
       
@@ -314,6 +354,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/03/22/iOS图片压缩方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS图片压缩方式
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/11/06/ARKit入门系列八使用SceneKit的碰撞检测/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">ARKit入门系列八使用SceneKit的碰撞检测</div>
@@ -343,7 +392,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins实现移动持续集成"><span class="toc-number">1.</span> <span class="toc-text">jenkins实现移动持续集成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集成环境"><span class="toc-number">1.1.</span> <span class="toc-text">集成环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java环境安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">java环境安装</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#集成环境"><span class="toc-number">1.</span> <span class="toc-text">集成环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java环境安装"><span class="toc-number">1.1.</span> <span class="toc-text">java环境安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tomcat安装"><span class="toc-number">1.2.</span> <span class="toc-text">tomcat安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xcode安装"><span class="toc-number">1.3.</span> <span class="toc-text">xcode安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jenkins"><span class="toc-number">1.4.</span> <span class="toc-text">jenkins</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目配置"><span class="toc-number">2.</span> <span class="toc-text">项目配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包脚本"><span class="toc-number">3.</span> <span class="toc-text">打包脚本</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -495,10 +544,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -511,15 +556,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,6 +596,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -559,19 +616,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,10 +629,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,6 +641,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,15 +692,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,11 +756,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

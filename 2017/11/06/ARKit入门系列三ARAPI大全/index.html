@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="穆小灰灰的博客">
 <meta property="og:description" content="框架中所有的API 本篇主要翻译自苹果官方文档，适当加上一些笔者的见解.    ARAnchor  ARAnchor表示一个物体在3D空间的位置和方向（ARAnchor通常称为物体的3D锚点，有点像UIKit框架中CALayer的Anchor） 也就是说ARFrame用于捕捉相机的移动，其他虚拟物体用ARAnchor ARFrame表示的也是物体的位置和方向，但是ARFrame通常表示的是AR相">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/arkit／arkit_03_01.png">
+<meta property="og:image" content="http://yoursite.com/images/arkit/arkit_03_01.png">
 <meta property="og:image" content="http://yoursite.com/images/arkit／arkit_03_02.png">
-<meta property="og:updated_time" content="2017-11-07T06:10:04.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:58:17.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARKit入门系列三ARAPI大全">
 <meta name="twitter:description" content="框架中所有的API 本篇主要翻译自苹果官方文档，适当加上一些笔者的见解.    ARAnchor  ARAnchor表示一个物体在3D空间的位置和方向（ARAnchor通常称为物体的3D锚点，有点像UIKit框架中CALayer的Anchor） 也就是说ARFrame用于捕捉相机的移动，其他虚拟物体用ARAnchor ARFrame表示的也是物体的位置和方向，但是ARFrame通常表示的是AR相">
-<meta name="twitter:image" content="http://yoursite.com/images/arkit／arkit_03_01.png">
+<meta name="twitter:image" content="http://yoursite.com/images/arkit/arkit_03_01.png">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -72,10 +72,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -194,7 +194,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p> 框架中所有的API 本篇主要翻译自苹果官方文档，适当加上一些笔者的见解.</p>
-<p>  <img src="/images/arkit／arkit_03_01.png" alt="ARKit与SceneKit"></p>
+<p>  <img src="/images/arkit/arkit_03_01.png" alt="ARKit与SceneKit"></p>
 <h2 id="ARAnchor"><a href="#ARAnchor" class="headerlink" title="ARAnchor"></a>ARAnchor</h2><p>  ARAnchor表示一个物体在3D空间的位置和方向（ARAnchor通常称为物体的3D锚点，有点像UIKit框架中CALayer的Anchor） 也就是说ARFrame用于捕捉相机的移动，其他虚拟物体用ARAnchor ARFrame表示的也是物体的位置和方向，但是ARFrame通常表示的是AR相机的位置和方向以及追踪相机的时间，还可以捕捉相机的帧图片.</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@interface ARAnchor : NSObject </span><br><span class="line">/**标识符*/</span><br><span class="line">@property (nonatomic, readonly) NSUUID *identifier;</span><br><span class="line">/**锚点的旋转变换矩阵，定义了锚点的旋转、位置、缩放。是一个4x4的矩阵（读者可以自行科普什么叫4x4矩阵）*/</span><br><span class="line">@property (nonatomic, readonly) matrix_float4x4 transform;</span><br><span class="line">/**构造方法,一般我们无需构造。因为添加一个3D物体时ARKit会有代理告知我们物体的锚点*/</span><br><span class="line">- (instancetype)initWithTransform:(matrix_float4x4)transform;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 <h2 id="ARCamera"><a href="#ARCamera" class="headerlink" title="ARCamera"></a>ARCamera</h2><p>  ARCamera是一个相机，它是连接虚拟场景与现实场景之间的枢纽。在ARKit中，它是捕捉现实图像的相机，在SceneKit中它又是3D虚拟世界中的相机。（一般第一人称3D游戏，主角其实就是一个3D相机，我们电脑屏幕看到的画面就是这个相机捕捉的画面）。</p>
@@ -539,10 +539,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -555,15 +551,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,6 +591,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -603,19 +611,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,10 +624,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,6 +636,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,15 +687,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,11 +751,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -67,10 +67,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -167,6 +167,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-iOS图片压缩方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/22/iOS图片压缩方式/">iOS图片压缩方式</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/22/iOS图片压缩方式/" class="archive-article-date">
+  	<time datetime="2019-03-22T07:11:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：701字 | 预计阅读时长：3分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="通过UIImageJPEGRepresentation进行压缩"><a href="#通过UIImageJPEGRepresentation进行压缩" class="headerlink" title="通过UIImageJPEGRepresentation进行压缩"></a>通过UIImageJPEGRepresentation进行压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  return image as JPEG. May return nil if image has no CGImageRef or invalid bitmap format. compression is 0(most)..1(least)</span><br><span class="line">*</span><br><span class="line">let imageData :Data = UIImageJPEGRepresentation(image, 0.1)!</span><br></pre></td></tr></table></figure>
+<p>上面就是把图片压缩十分之一大小，需要注意是只针对jpg图片，对于png图片不适用，该压缩不修改图片尺寸大小进行压缩，循环调用并不会一直压缩。如果压缩后依然不能满足大小就只能通过修改图尺寸进行压缩了。</p>
+<h2 id="指定宽高同比压缩"><a href="#指定宽高同比压缩" class="headerlink" title="指定宽高同比压缩"></a>指定宽高同比压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">- (UIImage *)scaleToWidth:(CGFloat)width&#123;</span><br><span class="line">    </span><br><span class="line">    // 如果传入的宽度比当前宽度还要大,就直接返回</span><br><span class="line">    </span><br><span class="line">    if (width &gt; self.size.width) &#123;</span><br><span class="line">        return  self;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 计算缩放之后的高度</span><br><span class="line">    CGFloat height = (width / self.size.width) * self.size.height;</span><br><span class="line">    </span><br><span class="line">    // 初始化要画的大小</span><br><span class="line">    CGRect  rect = CGRectMake(0, 0, width, height);</span><br><span class="line"></span><br><span class="line">    // 1. 开启图形上下文</span><br><span class="line">    UIGraphicsBeginImageContext(rect.size);</span><br><span class="line">    </span><br><span class="line">    // 2. 画到上下文中 (会把当前image里面的所有内容都画到上下文)</span><br><span class="line">    [self drawInRect:rect];</span><br><span class="line">    </span><br><span class="line">    // 3. 取到图片</span><br><span class="line">    </span><br><span class="line">    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();</span><br><span class="line">    </span><br><span class="line">    // 4. 关闭上下文</span><br><span class="line">    UIGraphicsEndImageContext();</span><br><span class="line">    // 5. 返回</span><br><span class="line">    return image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="按制定尺寸进行压缩"><a href="#按制定尺寸进行压缩" class="headerlink" title="按制定尺寸进行压缩"></a>按制定尺寸进行压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">- (UIImage *)imageByScalingToSize:(CGSize)targetSize&#123;</span><br><span class="line">    </span><br><span class="line">    UIImage *sourceImage = self;</span><br><span class="line">    UIImage *newImage = nil;</span><br><span class="line">    </span><br><span class="line">    CGSize imageSize = sourceImage.size;</span><br><span class="line">    CGFloat width = imageSize.width;</span><br><span class="line">    CGFloat height = imageSize.height;</span><br><span class="line">    </span><br><span class="line">    CGFloat targetWidth = targetSize.width;</span><br><span class="line">    CGFloat targetHeight = targetSize.height;</span><br><span class="line">    </span><br><span class="line">    CGFloat scaleFactor = 0.0;</span><br><span class="line">    CGFloat scaledWidth = targetWidth;</span><br><span class="line">    CGFloat scaledHeight = targetHeight;</span><br><span class="line">    </span><br><span class="line">    CGPoint thumbnailPoint = CGPointMake(0.0,0.0);</span><br><span class="line">    </span><br><span class="line">    if (!CGSizeEqualToSize(imageSize, targetSize)) &#123;</span><br><span class="line">        CGFloat widthFactor = targetWidth / width;</span><br><span class="line">        CGFloat heightFactor = targetHeight / height;</span><br><span class="line">        if (widthFactor &gt; heightFactor)</span><br><span class="line">            scaleFactor = widthFactor;</span><br><span class="line">        else</span><br><span class="line">            scaleFactor = heightFactor;</span><br><span class="line">        scaledWidth  = width * scaleFactor;</span><br><span class="line">        scaledHeight = height * scaleFactor;</span><br><span class="line">        </span><br><span class="line">        // center the image</span><br><span class="line">    </span><br><span class="line">        if (widthFactor &gt; heightFactor) &#123;</span><br><span class="line">            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;</span><br><span class="line">        &#125; else if (widthFactor &gt; heightFactor) &#123;</span><br><span class="line">            thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // this is actually the interesting part:</span><br><span class="line">    </span><br><span class="line">    UIGraphicsBeginImageContext(targetSize);</span><br><span class="line">    </span><br><span class="line">    CGRect thumbnailRect = CGRectZero;</span><br><span class="line">    thumbnailRect.origin = thumbnailPoint;</span><br><span class="line">    thumbnailRect.size.width  = scaledWidth;</span><br><span class="line">    thumbnailRect.size.height = scaledHeight;</span><br><span class="line">    </span><br><span class="line">    [sourceImage drawInRect:thumbnailRect];</span><br><span class="line">    </span><br><span class="line">    newImage = UIGraphicsGetImageFromCurrentImageContext();</span><br><span class="line">    UIGraphicsEndImageContext();</span><br><span class="line">    </span><br><span class="line">    if(newImage == nil) DDLog(@&quot;could not scale image&quot;);</span><br><span class="line">    return newImage ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="其他图片常用方法"><a href="#其他图片常用方法" class="headerlink" title="其他图片常用方法"></a>其他图片常用方法</h2><h3 id="图片根据朝向旋转"><a href="#图片根据朝向旋转" class="headerlink" title="图片根据朝向旋转"></a>图片根据朝向旋转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">- (UIImage *)fixOrientation&#123;</span><br><span class="line">    </span><br><span class="line">    if (self.imageOrientation == UIImageOrientationUp) return self;</span><br><span class="line">    CGAffineTransform transform = CGAffineTransformIdentity;</span><br><span class="line">    switch (self.imageOrientation) &#123;</span><br><span class="line">        case UIImageOrientationDown:</span><br><span class="line">        case UIImageOrientationDownMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, self.size.width, self.size.height);</span><br><span class="line">            transform = CGAffineTransformRotate(transform, M_PI);</span><br><span class="line">            break;</span><br><span class="line">            </span><br><span class="line">        case UIImageOrientationLeft:</span><br><span class="line">        case UIImageOrientationLeftMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, self.size.width, 0);</span><br><span class="line">            transform = CGAffineTransformRotate(transform, M_PI_2);</span><br><span class="line">            break;</span><br><span class="line">            </span><br><span class="line">        case UIImageOrientationRight:</span><br><span class="line">        case UIImageOrientationRightMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, 0, self.size.height);</span><br><span class="line">            transform = CGAffineTransformRotate(transform, -M_PI_2);</span><br><span class="line">            break;</span><br><span class="line">        case UIImageOrientationUp:</span><br><span class="line">        case UIImageOrientationUpMirrored:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    switch (self.imageOrientation) &#123;</span><br><span class="line">        case UIImageOrientationUpMirrored:</span><br><span class="line">        case UIImageOrientationDownMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, self.size.width, 0);</span><br><span class="line">            transform = CGAffineTransformScale(transform, -1, 1);</span><br><span class="line">            break;</span><br><span class="line">            </span><br><span class="line">        case UIImageOrientationLeftMirrored:</span><br><span class="line">        case UIImageOrientationRightMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, self.size.height, 0);</span><br><span class="line">            transform = CGAffineTransformScale(transform, -1, 1);</span><br><span class="line">            break;</span><br><span class="line">        case UIImageOrientationUp:</span><br><span class="line">        case UIImageOrientationDown:</span><br><span class="line">        case UIImageOrientationLeft:</span><br><span class="line">        case UIImageOrientationRight:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    CGContextRef ctx = CGBitmapContextCreate(NULL, self.size.width, self.size.height,</span><br><span class="line">                                             CGImageGetBitsPerComponent(self.CGImage), 0,</span><br><span class="line">                                             CGImageGetColorSpace(self.CGImage),</span><br><span class="line">                                             CGImageGetBitmapInfo(self.CGImage));</span><br><span class="line">    CGContextConcatCTM(ctx, transform);</span><br><span class="line">    switch (self.imageOrientation) &#123;</span><br><span class="line">        case UIImageOrientationLeft:</span><br><span class="line">        case UIImageOrientationLeftMirrored:</span><br><span class="line">        case UIImageOrientationRight:</span><br><span class="line">        case UIImageOrientationRightMirrored:</span><br><span class="line">            CGContextDrawImage(ctx, CGRectMake(0,0,self.size.height,self.size.width), self.CGImage);</span><br><span class="line">            break;</span><br><span class="line">            </span><br><span class="line">        default:</span><br><span class="line">            CGContextDrawImage(ctx, CGRectMake(0,0,self.size.width,self.size.height), self.CGImage);</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);</span><br><span class="line">    UIImage *img = [UIImage imageWithCGImage:cgimg];</span><br><span class="line">    CGContextRelease(ctx);</span><br><span class="line">    CGImageRelease(cgimg);</span><br><span class="line">    return img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取图片类型"><a href="#获取图片类型" class="headerlink" title="获取图片类型"></a>获取图片类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/** 获取图片类型 */</span><br><span class="line">- (NSString *) imageSuffix</span><br><span class="line">&#123;</span><br><span class="line">    return [self imageHasAlpha] ? @&quot;png&quot; : @&quot;jpg&quot; ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (BOOL)imageHasAlpha</span><br><span class="line">&#123;</span><br><span class="line">    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(self.CGImage);</span><br><span class="line">    return (alpha == kCGImageAlphaFirst ||</span><br><span class="line">            alpha == kCGImageAlphaLast ||</span><br><span class="line">            alpha == kCGImageAlphaPremultipliedFirst ||</span><br><span class="line">            alpha == kCGImageAlphaPremultipliedLast);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过图片的透明度信息来判断图片是否是png还是jpg。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图片压缩</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/22/iOS图片压缩方式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jenkins实现持续集成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -185,18 +272,54 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：25字 | 预计阅读时长：1分钟
+        字数：1.3k字 | 预计阅读时长：6分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="jenkins实现移动持续集成"><a href="#jenkins实现移动持续集成" class="headerlink" title="jenkins实现移动持续集成"></a>jenkins实现移动持续集成</h1><h2 id="集成环境"><a href="#集成环境" class="headerlink" title="集成环境"></a>集成环境</h2><ul>
-<li>macBook 10.13.3</li>
-<li>java8</li>
-<li>xcode9</li>
-<li>jenkins</li>
+        <h2 id="集成环境"><a href="#集成环境" class="headerlink" title="集成环境"></a>集成环境</h2><ul>
+<li>macBook </li>
+<li>java环境 1.8</li>
+<li>tomcat 7.0</li>
+<li>xcode环境 9.0</li>
+<li>jenkins(.war) v2.6+</li>
 </ul>
-<h3 id="java环境安装"><a href="#java环境安装" class="headerlink" title="java环境安装"></a>java环境安装</h3>
+<h3 id="java环境安装"><a href="#java环境安装" class="headerlink" title="java环境安装"></a>java环境安装</h3><p>1.从orcale官网下载macOS对应的java版本进行下载</p>
+<p>建议下载jdk-8u201-macosx-x64_bin.dmg</p>
+<p>2.双击下载文件，继续双击出现图标</p>
+<p>3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成</p>
+<p><code>java -version</code></p>
+<p>如果能正常显示java版本说明java安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jjava version &quot;1.8.0_201&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_201-b09)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)</span><br></pre></td></tr></table></figure>
+<p>4.配置PATH和CLASS_PATH，打开终端输入以下指令，打开profile文件（需要sudo超级权限）</p>
+<p><code>sudo vim ~/.bash_profile</code></p>
+<p>按提示输入密码即可，正常情况vim编辑器会打开一个文件，在英文输入下，按“i”进入编辑模式，在文件最后添加一下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=&quot;/Library/Java/JavaVirtualMachines/jdk-1.8.0.jdk/Contents/Home&quot;</span><br><span class="line"> </span><br><span class="line">CLASS_PATH=&quot;$JAVA_HOME/lib&quot;</span><br><span class="line"> </span><br><span class="line">PATH=&quot;.:$PATH:$JAVA_HOME.bin&quot;</span><br></pre></td></tr></table></figure>
+<p>添加完上述内容后，按‘esc’键退出编辑模式，输入‘：wq’保存并退出profile，需要配置生效，需要在终端执行如下指令：</p>
+<p><code>source ~/.bash_profile</code></p>
+<h3 id="tomcat安装"><a href="#tomcat安装" class="headerlink" title="tomcat安装"></a>tomcat安装</h3><p>下载需要的版本进行解压，文件随便放哪里都可以执行的，我放在/User/用户/Library下面。</p>
+<p>为了方便操作，把Tomcat的/bin路径放入环境变量里面，更新上面的.bash_profile文件，在最后添加</p>
+<p><code>export PATH=$JAVA_HOME/bin:$PATH:/Users/用户/Library/Tomcat7/bin</code></p>
+<p>然后完成后在终端执行以下指令让文件生效</p>
+<p><code>source ~/.bash_profile</code></p>
+<p>如果tomcat路径没有操作权限，可以通过以下命令分配权限</p>
+<p><code>sudo chmod 755 tomcat路径/bin/*.sh</code> </p>
+<p>终端中输入startup.sh启动tomat，启动完毕后，可以通过浏览器输入’<a href="http://loalhost:8080&#39;,成功可以看到tomcat页面" target="_blank" rel="noopener">http://loalhost:8080&#39;,成功可以看到tomcat页面</a></p>
+<p>关闭tomcat可以在终端输入shutdown.sh</p>
+<h3 id="xcode安装"><a href="#xcode安装" class="headerlink" title="xcode安装"></a>xcode安装</h3><p>xcode可以从mac的app store下载安装，具体就不说了。</p>
+<h3 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h3><p>下载需要的版本war包，放入之前Tomcat文件夹下/webapps文件夹中。</p>
+<p>通过浏览器输入’<a href="http://loalhost:8080/jinkens&#39;打开可以看到jinkens页面" target="_blank" rel="noopener">http://loalhost:8080/jinkens&#39;打开可以看到jinkens页面</a></p>
+<p>第一次打开根据页面在输入指定路径下文件密码进行激活，安装进入安装页面，一般就选推荐安装，选择需要的插件安装，如果插件安装失败可以在jinkens上手动安装。</p>
+<p>安装完需要设置第一个管理员账号，设置完就进入jinkens界面</p>
+<p>插件安装，点击系统管理&gt;管理插件&gt;，这里就不逐个说明了，每个插件点进去都有介绍，下面的插件列表没有的在可选插件里面搜索出来，选中安装完重启jenkins就可以了<br>比如github、xcode、git、Gradle、NodeJs、Keychains and ProvisioningProfiles Mangement、Persistent Parameter 、PostBuildScript等插件</p>
+<h2 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h2><p>通过jenkins新建任务，选择构建一个自由风格的项目，点击ok。</p>
+<p><img src="/images/jinkens/jinkens_01.jpg" alt="Git分支参数和自定义环境参数"></p>
+<p><img src="/images/jinkens/jinkens_02.jpg" alt="Git仓库参数设置"></p>
+<p><img src="/images/jinkens/jinkens_03.jpg" alt="构建脚本和构建后脚本配置"></p>
+<h2 id="打包脚本"><a href="#打包脚本" class="headerlink" title="打包脚本"></a>打包脚本</h2><p>iOS打包脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"></span><br><span class="line">#工程名</span><br><span class="line">projectnmae=$1</span><br><span class="line">#targetName</span><br><span class="line">targetname=$2</span><br><span class="line"># 导出路径</span><br><span class="line">exportpath=$3</span><br><span class="line">#打包模式</span><br><span class="line">mode=$4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 是否 传入工程名</span><br><span class="line">if [ -z &quot;$projectnmae&quot; ]; then</span><br><span class="line">    echo &apos;$&#123;projectnmae&#125; : 无效&apos; </span><br><span class="line">    echo &quot;请将projectNmae作为脚本第一个参数传入&quot;; exit 1;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># 是否 传入target名称</span><br><span class="line">if [ -z &quot;$targetname&quot; ]; then</span><br><span class="line">    echo &apos;$&#123;projectnmae&#125; : 无效&apos; </span><br><span class="line">    echo &quot;请将projectNmae作为脚本第一个参数传入&quot;; exit 1;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#工程绝对路径</span><br><span class="line">project_path=$&#123;PWD&#125;</span><br><span class="line"></span><br><span class="line">echo &apos;项目路径====&apos;$project_path</span><br><span class="line"></span><br><span class="line">#工程名</span><br><span class="line"></span><br><span class="line">project_name=$&#123;projectnmae&#125;</span><br><span class="line"></span><br><span class="line">#打包模式 Debug/Release</span><br><span class="line">development_mode=$&#123;mode&#125;</span><br><span class="line"></span><br><span class="line">#scheme名</span><br><span class="line">scheme_name=$&#123;targetname&#125;</span><br><span class="line"></span><br><span class="line">#build文件夹路径</span><br><span class="line">build_path=$&#123;project_path&#125;/build</span><br><span class="line"></span><br><span class="line">#plist文件所在路径</span><br><span class="line">exportOptionsPlistPath=$&#123;project_path&#125;/ExportOptions.plist</span><br><span class="line">DistributionSPlistPath=$&#123;project_path&#125;/DistributionSummary.plist</span><br><span class="line"></span><br><span class="line">#导出.ipa文件所在路径</span><br><span class="line">if [ -z &quot;$exportpath&quot; ]; then</span><br><span class="line">    exportFilePath=$&#123;project_path&#125;/ipa/$&#123;development_mode&#125;</span><br><span class="line">else  </span><br><span class="line">    exportFilePath=$&#123;exportpath&#125;</span><br><span class="line">fi  </span><br><span class="line"></span><br><span class="line">echo &apos;导出文件路径 ==== &apos; $&#123;exportFilePath&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo &apos;*** 正在 清理工程 ***&apos;</span><br><span class="line">xcodebuild \</span><br><span class="line">clean -configuration $&#123;development_mode&#125; -quiet  || exit </span><br><span class="line">echo &apos;*** 清理完成 ***&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo &apos;*** 正在 编译工程 For &apos;$&#123;development_mode&#125;</span><br><span class="line">security unlock-keychain -p $&#123;KEYCHAIN_PASSWORD&#125; ~/Library/Keychains/login.keychain-db</span><br><span class="line">#security unlock-keychain -p $&#123;KEYCHAIN_PASSWORD&#125; $&#123;KEYCHAIN_PATH&#125;</span><br><span class="line">echo $&#123;project_path&#125;/$&#123;project_name&#125;.xcworkspace</span><br><span class="line">xcodebuild \</span><br><span class="line">archive -workspace $&#123;project_path&#125;/$&#123;project_name&#125;.xcworkspace \</span><br><span class="line">-scheme $&#123;scheme_name&#125; \</span><br><span class="line">-configuration $&#123;development_mode&#125; \</span><br><span class="line">-archivePath $&#123;build_path&#125;/$&#123;project_name&#125;.xcarchive -quiet  || exit</span><br><span class="line">echo &apos;*** 编译完成 ***&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo &apos;*** 正在 打包 ***&apos;</span><br><span class="line"></span><br><span class="line">if [ &quot;$&#123;development_mode&#125;&quot; == &quot;Debug&quot; ];then</span><br><span class="line">  echo $&#123;exportOptionsPlistPath&#125;</span><br><span class="line">  xcodebuild -exportArchive -archivePath $&#123;build_path&#125;/$&#123;project_name&#125;.xcarchive \</span><br><span class="line">  -configuration $&#123;development_mode&#125; \</span><br><span class="line">  -exportPath $&#123;exportFilePath&#125; \</span><br><span class="line">  -exportOptionsPlist $&#123;exportOptionsPlistPath&#125; \</span><br><span class="line">  -quiet || exit</span><br><span class="line">elif [ &quot;$&#123;development_mode&#125;&quot; == &quot;Release&quot; ];then</span><br><span class="line">  echo $&#123;DistributionSPlistPath&#125;</span><br><span class="line">  xcodebuild -exportArchive -archivePath $&#123;build_path&#125;/$&#123;project_name&#125;.xcarchive \</span><br><span class="line">  -configuration $&#123;development_mode&#125; \</span><br><span class="line">  -exportPath $&#123;exportFilePath&#125; \</span><br><span class="line">  -exportOptionsPlist $&#123;DistributionSPlistPath&#125; \</span><br><span class="line">  -quiet || exit</span><br><span class="line">else</span><br><span class="line">  echo &apos;***没有plist***&apos;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ -e $exportFilePath/$scheme_name.ipa ]; then</span><br><span class="line">    # mv $exportFilePath/$scheme_name.ipa $exportFilePath/$scheme_name&apos;_&apos;$&#123;development_mode&#125;&apos;_&apos;`date +%Y%m%d-%H/%M`.ipa</span><br><span class="line">    #unzip $exportFilePath/$scheme_name.ipa  #解压ipa文件</span><br><span class="line">    mv /Users/macserver/jenkinsconfig/workspace/CLS.ipa /Users/macserver/jenkinsconfig/workspace/CheDai-iOS/</span><br><span class="line">    echo &quot;*** .ipa文件已导出 ***&quot;</span><br><span class="line">    #open $exportFilePath</span><br><span class="line">else</span><br><span class="line">    echo &quot;*** 创建.ipa文件失败 ***&quot;</span><br><span class="line">fi</span><br><span class="line">echo &apos;*** 打包完成 ***&apos;</span><br></pre></td></tr></table></figure>
+<p>打包后钉钉群通知脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">posturl=&quot;https://oapi.dingtalk.com/robot/send?access_token=xxxxx&quot;</span><br><span class="line"></span><br><span class="line">a=$&#123;BUILD_ENV&#125;</span><br><span class="line">b=$&#123;a/Debug/测试环境&#125;</span><br><span class="line">c=$&#123;b/Release/正式环境&#125;</span><br><span class="line"></span><br><span class="line">postdata=`cat &lt;&lt; EOF</span><br><span class="line">&#123;</span><br><span class="line">&quot;msgtype&quot;: &quot;text&quot;,</span><br><span class="line">&quot;text&quot;: &#123;</span><br><span class="line">&quot;content&quot;: &quot;【$c】CLS工程iOS打包失败！！&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;at&quot;: &#123;</span><br><span class="line">&quot;atMobiles&quot;: [</span><br><span class="line">&quot;xxxxxx&quot;</span><br><span class="line">],</span><br><span class="line">&quot;isAtAll&quot;: &quot;false&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">`</span><br><span class="line">curl -H &quot;Content-Type:application/json&quot; -X POST -d &quot;$postdata&quot;  $posturl</span><br></pre></td></tr></table></figure>
       
 
       
@@ -271,12 +394,12 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：670字 | 预计阅读时长：2分钟
+        字数：665字 | 预计阅读时长：2分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SceneKit-基础碰撞"><a href="#SceneKit-基础碰撞" class="headerlink" title="SceneKit 基础碰撞"></a>SceneKit 基础碰撞</h1><p>2D中的碰撞检查大家都能能理解，涉及到的数学知识并不复杂。但在3D中碰撞检测要涉及到更复杂的数学知识了，很多人数学功底不好的同学就犯难了，我也是。幸好SceneKit框架 提供了方便的方法去判断碰撞检测。</p>
+        <p>2D中的碰撞检查大家都能能理解，涉及到的数学知识并不复杂。但在3D中碰撞检测要涉及到更复杂的数学知识了，很多人数学功底不好的同学就犯难了，我也是。幸好SceneKit框架 提供了方便的方法去判断碰撞检测。</p>
 <p>要想让SCNNode 模拟碰撞检测，首先要设置它的Physics Body，Physics Body有三种类型： </p>
 <ul>
 <li>Dynamic：动态的物体，受力的影响(applyForce)。 </li>
@@ -364,7 +487,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SCNAction"><a href="#SCNAction" class="headerlink" title="SCNAction"></a>SCNAction</h1><p>前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。</p>
+        <p>前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。</p>
 <p>一个简单的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SCNAction *shipMoveAction = [SCNAction moveTo:SCNVector3Make(10,10,5) duration:4];</span><br><span class="line"></span><br><span class="line">[shipRotationNode runAction:shipMoveAction];</span><br></pre></td></tr></table></figure></p>
 <p>上面代码很容易理解shipRotationNode 动画移动到(10,10,5)这个位置，时间间隔为4s。</p>
 <p>我们下面简单介绍一下 SCNAction 主要的API：</p>
@@ -448,7 +571,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h1><p>旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。</p>
+        <p>旋转模型是经常遇到了，我们之前用CABasicAnimation 可以旋转一个view，其实它也可以旋转一个SCNNode。</p>
 <p>首先我们要明白一个概念，每个SCNNode 都有自身的三维坐标系，用CABasicAnimation就是让SCNNode绕自身的三维坐标轴旋转，所以要特别注意是坐标轴，不是这个SCNNode的几何中心。一般SceneKit 的自带的几个几何体的坐标系原点(0,0,0)就是这个它的几何中心，比如说SCNBox；SCNSphere等等，所以看上去跟绕几何中心旋转一模一样。</p>
 <p>我们先从Demo 入手，这里是模拟 太阳-地球-月球 天体运动的demo，分以下几点：</p>
 <p>1， 地球，月球自转<br>2， 月球绕着地球转<br>3， 地月系统绕着太阳转</p>
@@ -622,7 +745,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="SceneKit"><a href="#SceneKit" class="headerlink" title="SceneKit"></a>SceneKit</h2><p> ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。</p>
+        <p>ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。</p>
 <p>与SpriteKit一样，SceneKit通过场景（SCNScene）来显示物体，场景包涵在SCNView。场景内同样是以节点的结构来呈现物体。场景里可以包含这些类型的项目：</p>
 <ul>
 <li><p>几何体 代码建立的3D对象或从文件加载的3D模型，在它们上可以附加不同的材料来达成控制颜色，纹理，反光等效果。</p>
@@ -718,7 +841,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p> 框架中所有的API 本篇主要翻译自苹果官方文档，适当加上一些笔者的见解.</p>
-<p>  <img src="/images/arkit／arkit_03_01.png" alt="ARKit与SceneKit"></p>
+<p>  <img src="/images/arkit/arkit_03_01.png" alt="ARKit与SceneKit"></p>
 <h2 id="ARAnchor"><a href="#ARAnchor" class="headerlink" title="ARAnchor"></a>ARAnchor</h2><p>  ARAnchor表示一个物体在3D空间的位置和方向（ARAnchor通常称为物体的3D锚点，有点像UIKit框架中CALayer的Anchor） 也就是说ARFrame用于捕捉相机的移动，其他虚拟物体用ARAnchor ARFrame表示的也是物体的位置和方向，但是ARFrame通常表示的是AR相机的位置和方向以及追踪相机的时间，还可以捕捉相机的帧图片.</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@interface ARAnchor : NSObject </span><br><span class="line">/**标识符*/</span><br><span class="line">@property (nonatomic, readonly) NSUUID *identifier;</span><br><span class="line">/**锚点的旋转变换矩阵，定义了锚点的旋转、位置、缩放。是一个4x4的矩阵（读者可以自行科普什么叫4x4矩阵）*/</span><br><span class="line">@property (nonatomic, readonly) matrix_float4x4 transform;</span><br><span class="line">/**构造方法,一般我们无需构造。因为添加一个3D物体时ARKit会有代理告知我们物体的锚点*/</span><br><span class="line">- (instancetype)initWithTransform:(matrix_float4x4)transform;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 <h2 id="ARCamera"><a href="#ARCamera" class="headerlink" title="ARCamera"></a>ARCamera</h2><p>  ARCamera是一个相机，它是连接虚拟场景与现实场景之间的枢纽。在ARKit中，它是捕捉现实图像的相机，在SceneKit中它又是3D虚拟世界中的相机。（一般第一人称3D游戏，主角其实就是一个3D相机，我们电脑屏幕看到的画面就是这个相机捕捉的画面）。</p>
@@ -802,15 +925,60 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：2k字 | 预计阅读时长：7分钟
+        字数：2.1k字 | 预计阅读时长：7分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SceneKit"><a href="#SceneKit" class="headerlink" title="SceneKit"></a>SceneKit</h1><p> 苹果自家的3D 引擎 <code>SceneKit</code>,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：</p>
+        <p> 苹果自家的3D 引擎 <code>SceneKit</code>,是一个OC 框架，开始之前，先熟悉一下SceneKit 的三维坐标系：</p>
 <p> <img src="/images/arkit/arkit_02_01.jpeg" alt="ARKit与SceneKit"></p>
 <p>  很清楚的看到，SceneKit 中的坐标系是右手坐标系(笛卡尔坐标系)，如果需要与其他3D框架共享数据，先了解其框架是右手坐标系还是左手坐标系。其实也很好转化，就是Z 轴的正负不一样而已。</p>
-<p>  在开始开发之前，一定要了解下面这几个非常重要的类<br>|    类 / 协议         |  描述      |    备注            |<br>|————-|—————-|——————-|<br>| SCNView &amp; SCNSceneRenderer | 类似UIView，用来显示 SceneKit 的内容，定义了一些代理方法，可以用 addSubView 方法添加到UiView 中. | |<br>| SCNScene | SceneKit 内容的容器. 你可以从3D建模工具生成的.dae文件中加载一个场景，或者用代码创建一个 ，然后把它显示在视图上. | |<br>| SCNNode | 一个场景的基本构建块，你可以把摄像机，灯光，几何体附加到节点上 | |<br>| SCNGeometry | 一个可以连接到一个节点的三维物体。一个几何体（有时称为模型或网格）只定义了一个可见物体的形状。要定义对象的表面颜色图案，你必需要给几何体要附加材料。然后给材料贴图，或者上色，这个几何体表面才会有颜色，或者图案。你可以从3D建模工具生成的.dae文件中加载一个几何体，也可以用代码创建，SceneKit 提供了几种常见几何体，是SCNGeometry 的子类，比如长方体，球，圆柱球等等，后面我们会写一个demo会把官方提供的几何体给大家列出来，给大家一个直观的感受。 当然我们也可以用三维坐标，法向量自定义几何体，也可以讲一个2D 图案转化成一个具有深度(厚度)的三维几何体。后面应该专门有一篇会讲到利用贝塞尔曲线将一个2D 图案转化成一个具有深度(厚度)的三维几何体。| |<br>| CNMaterial | 材质，由于在3D建模工具中呈现球形，所以也叫材质球。上色，贴图全靠它。| |<br>| SCNLight |光源可以附加到节点上，在渲染场景中提供着色. | |<br>| SCNCamera | 虚拟摄像机可以附加到节点上，提供了一个场景的视图。| |</p>
+<p>  在开始开发之前，一定要了解下面这几个非常重要的类</p>
+<table>
+<thead>
+<tr>
+<th>类 / 协议</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCNView &amp; SCNSceneRenderer</td>
+<td>类似UIView，用来显示 SceneKit 的内容，定义了一些代理方法，可以用 addSubView 方法添加到UiView 中.</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNScene</td>
+<td>SceneKit 内容的容器. 你可以从3D建模工具生成的.dae文件中加载一个场景，或者用代码创建一个 ，然后把它显示在视图上.</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNNode</td>
+<td>一个场景的基本构建块，你可以把摄像机，灯光，几何体附加到节点上</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNGeometry</td>
+<td>一个可以连接到一个节点的三维物体。一个几何体（有时称为模型或网格）只定义了一个可见物体的形状。要定义对象的表面颜色图案，你必需要给几何体要附加材料。然后给材料贴图，或者上色，这个几何体表面才会有颜色，或者图案。你可以从3D建模工具生成的.dae文件中加载一个几何体，也可以用代码创建，SceneKit 提供了几种常见几何体，是SCNGeometry 的子类，比如长方体，球，圆柱球等等，后面我们会写一个demo会把官方提供的几何体给大家列出来，给大家一个直观的感受。 当然我们也可以用三维坐标，法向量自定义几何体，也可以讲一个2D 图案转化成一个具有深度(厚度)的三维几何体。后面应该专门有一篇会讲到利用贝塞尔曲线将一个2D 图案转化成一个具有深度(厚度)的三维几何体。</td>
+<td></td>
+</tr>
+<tr>
+<td>CNMaterial</td>
+<td>材质，由于在3D建模工具中呈现球形，所以也叫材质球。上色，贴图全靠它。</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNLight</td>
+<td>光源可以附加到节点上，在渲染场景中提供着色.</td>
+<td></td>
+</tr>
+<tr>
+<td>SCNCamera</td>
+<td>虚拟摄像机可以附加到节点上，提供了一个场景的视图。</td>
+</tr>
+</tbody>
+</table>
         
       
 
@@ -891,7 +1059,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="AR技术介绍"><a href="#AR技术介绍" class="headerlink" title="AR技术介绍"></a>AR技术介绍</h1><blockquote>
+        <blockquote>
 <p>增强现实技术（Augmented Reality，简称 AR），是一种实时地计算摄影机影像的位置及角度并加上相应图像、视频、3D模型的技术，这种技术的目标是在屏幕上把虚拟世界套在现实世界并进行互动。</p>
 </blockquote>
 <p> AR场景实现所需要的技术和步骤一般包括以下几部分：</p>
@@ -931,102 +1099,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/19/ARKit入门系列一ARKit介绍/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-iOS延时执行的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/27/iOS延时执行的几种方式/">iOS延时执行的几种方式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/27/iOS延时执行的几种方式/" class="archive-article-date">
-  	<time datetime="2017-09-27T11:32:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-27</time>
-</a>
-        
-      </header>
-      <div align="center" class="post-count">
-        字数：213字 | 预计阅读时长：1分钟
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>延时执行方法定义如下</p>
-<p><code>-(void)delayMethod
-{
-    NSLog(@&quot;delayMehtod run&quot;);
-}</code></p>
-<h2 id="performSelect方法"><a href="#performSelect方法" class="headerlink" title="performSelect方法"></a>performSelect方法</h2><p><code>[self performSelector:@selector(delayMethod) withObject:nil
- afterDelay:2.0];</code></p>
-<p>注：此方法是一种非阻塞的执行方式，未找到取消执行的方法,withObject可以传任何类型参数</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">延时执行</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">NSTimer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/27/iOS延时执行的几种方式/">展开全文 >></a>
         </p>
       
 
@@ -1177,10 +1249,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -1193,15 +1261,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1229,6 +1301,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -1241,19 +1321,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1262,10 +1334,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1278,6 +1346,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1317,15 +1397,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1381,11 +1461,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

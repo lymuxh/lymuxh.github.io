@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>UIView的生命周期 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="创建视图 initWithFrame:(CGRect)frame initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。  initWithCoder:(NSCoder *)aDecoder 实际编程中，我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是不会被调用的">
+  <meta name="description" content="创建视图1.initWithFrame:(CGRect)frame   initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。 2.initWithCoder:(NSCoder *)aDecoder   实际编程中，我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是">
 <meta name="keywords" content="UIView,布局,CALayer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIView的生命周期">
 <meta property="og:url" content="http://yoursite.com/2016/11/28/UIView的生命周期/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="创建视图 initWithFrame:(CGRect)frame initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。  initWithCoder:(NSCoder *)aDecoder 实际编程中，我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是不会被调用的">
+<meta property="og:description" content="创建视图1.initWithFrame:(CGRect)frame   initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。 2.initWithCoder:(NSCoder *)aDecoder   实际编程中，我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2016-12-05T03:29:08.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:26:19.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIView的生命周期">
-<meta name="twitter:description" content="创建视图 initWithFrame:(CGRect)frame initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。  initWithCoder:(NSCoder *)aDecoder 实际编程中，我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是不会被调用的">
+<meta name="twitter:description" content="创建视图1.initWithFrame:(CGRect)frame   initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。 2.initWithCoder:(NSCoder *)aDecoder   实际编程中，我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -185,27 +185,20 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：2.6k字 | 预计阅读时长：10分钟
+        字数：2.7k字 | 预计阅读时长：10分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h1><ol>
-<li><p>initWithFrame:(CGRect)frame</p>
-<p>initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。</p>
-</li>
-<li><p>initWithCoder:(NSCoder *)aDecoder</p>
-<p>实际编程中，<strong>我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是不会被调用的。</strong> 因为nib文件已经知道如何初始化该View。（因为，我们在拖该view的时候，就定义好了长、宽、背景等属性）。</p>
-<p>这时候，会调用initWithCoder方法，我们可以用initWithCoder方法来重新定义我们在nib中已经设置的各项属性。</p>
-</li>
-</ol>
+        <h1 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h1><p>1.initWithFrame:(CGRect)frame</p>
+<p>  initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。</p>
+<p>2.initWithCoder:(NSCoder *)aDecoder</p>
+<p>  实际编程中，<strong>我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是不会被调用的。</strong> 因为nib文件已经知道如何初始化该View。（因为，我们在拖该view的时候，就定义好了长、宽、背景等属性）。</p>
+<p>  这时候，会调用initWithCoder方法，我们可以用initWithCoder方法来重新定义我们在nib中已经设置的各项属性。</p>
 <a id="more"></a>
-<ol start="3">
-<li><p>如何选择使用？</p>
-<p>当我们所写的程序里没用用Nib文件(XIB)时,用代码控制视图内容，需要调用initWithFrame去初始化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (id)initWithFrame:(CGRect)frame</span><br><span class="line">&#123;</span><br><span class="line">  if (self =[superinitWithFrame:frame]) &#123;</span><br><span class="line">      // 初始化代码</span><br><span class="line">  &#125;</span><br><span class="line">  return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>3.如何选择使用？</p>
+<p>  当我们所写的程序里没用用Nib文件(XIB)时,用代码控制视图内容，需要调用initWithFrame去初始化</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (id)initWithFrame:(CGRect)frame</span><br><span class="line">&#123;</span><br><span class="line">  if (self =[superinitWithFrame:frame]) &#123;</span><br><span class="line">      // 初始化代码</span><br><span class="line">  &#125;</span><br><span class="line">  return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>用于视图加载nib文件，从nib中加载对象实例时，使用 initWithCoder初始化这些实例对象</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (id)initWithCoder:(NSCoder*)coder</span><br><span class="line">&#123;</span><br><span class="line">  if (self =[superinitWithcoder:coder]) &#123;</span><br><span class="line">      // 初始化代码</span><br><span class="line">  &#125;</span><br><span class="line">  return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -214,12 +207,9 @@
 <li><p>initWithFrame: 非.xib的手动编码，视图加载时默认调用的是该方法。是由自己调用，来初始化对象的</p>
 </li>
 </ul>
-<h1 id="UIView的layoutSubviews和drawRect方法"><a href="#UIView的layoutSubviews和drawRect方法" class="headerlink" title="UIView的layoutSubviews和drawRect方法"></a>UIView的layoutSubviews和drawRect方法</h1><ol>
-<li><p>layoutSubviews</p>
-<p>在UIView里面有一个方法layoutSubviews，这个方法具体作用是什么呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)layoutSubviews;    // override point. called by layoutIfNeeded automatically. As of iOS 6.0, when constraints-based layout is used the base implementation applies the constraints-based layout, otherwise it does nothing.</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="UIView的layoutSubviews和drawRect方法"><a href="#UIView的layoutSubviews和drawRect方法" class="headerlink" title="UIView的layoutSubviews和drawRect方法"></a>UIView的layoutSubviews和drawRect方法</h1><p> 1.layoutSubviews</p>
+<p> 在UIView里面有一个方法layoutSubviews，这个方法具体作用是什么呢？</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)layoutSubviews;    // override point. called by layoutIfNeeded automatically. As of iOS 6.0, when constraints-based layout is used the base implementation applies the constraints-based layout, otherwise it does nothing.</span><br></pre></td></tr></table></figure>
 <p>苹果介绍如下:</p>
 <blockquote>
 <p>The default implementation of this method does nothing on iOS 5.1 and earlier. Otherwise, the default implementation uses any constraints you have set to determine the size and position of any subviews.</p>
@@ -246,9 +236,7 @@
 <li><p>旋转Screen会触发父UIView上的layoutSubviews事件。</p>
 <p>我简单测试了一下，上面基本都会被调用。 注意：</p>
 <p><strong>当view的fram的值为0的时候，<code>addSubview</code>也不会调用<code>layoutSubviews</code>的。</strong></p>
-<ol start="2">
-<li>drawRect:</li>
-</ol>
+<p>2.drawRect:</p>
 <p>这个方法是用来重绘的。</p>
 <p>drawRect在以下情况下会被调用：</p>
 <ul>
@@ -271,9 +259,7 @@
 <li><p>若要实时画图，不能使用gestureRecognizer，只能使用touchbegan等方法来掉用setNeedsDisplay实时刷新屏幕</p>
 </li>
 </ul>
-<ol start="3">
-<li>sizeToFit</li>
-</ol>
+<p>3.sizeToFit</p>
 <ul>
 <li><p>sizeToFit会自动调用sizeThatFits方法；</p>
 </li>
@@ -286,68 +272,51 @@
 </ul>
 </li>
 </ul>
-<h1 id="UIView和CALayer"><a href="#UIView和CALayer" class="headerlink" title="UIView和CALayer"></a>UIView和CALayer</h1><ol>
-<li><p>首先UIView可以响应事件，Layer不可以，父类不同。</p>
-<p>UIKit使用UIResponder作为响应对象，来响应系统传递过来的事件并进行处理。UIApplication、UIViewController、UIView、和所有从UIView派生出来的UIKit类（包括UIWindow）都直接或间接地继承自UIResponder类。</p>
-<p>在 UIResponder中定义了处理各种事件和事件传递的接口, 而 CALayer直接继承 NSObject，并没有相应的处理事件的接口。</p>
-<p>UIView它真正的绘图部分，是由一个叫CALayer（Core Animation Layer）的类来管理。UIView本身，更像是一个CALayer的管理器，访问它的跟绘图和跟坐标有关的属性，例如frame，bounds等等，实际上内部都是在访问它所包含的CALayer的相关属性。</p>
-<p>UIView有个layer属性，可以返回它的主CALayer实例，UIView有一个layerClass方法，返回主layer所使用的类，UIView的子类，可以通过重载这个方法，来让UIView使用不同的CALayer来显示。</p>
-</li>
-<li><p>图层不会直接渲染到屏幕上。</p>
-<p>在模型-视图-控制器（model-view-controller）概念里面NSView和UIView是典型的视图部分，但是在核心动画里面图层是模型部分。图层封装了几何、时间、可视化属性，同时它提供了图层现实的内容，但是实际显示的过程则不是由它来完成。</p>
-<p>每个可见的图层树由两个相应的树组成:一个是呈现树，一个是渲染树。</p>
-</li>
-<li><p>UIView的CALayer类似UIView的子View树形结构，也可以向它的layer上添加子layer，来完成某些特殊的表示。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> grayCover = [[CALayer alloc] init];</span><br><span class="line">grayCover.backgroundColor = [[[UIColor blackColor] colorWithAlphaComponent:0.2] CGColor];</span><br><span class="line">[self.layer addSubLayer: grayCover];</span><br><span class="line">//会在目标View上敷上一层黑色的透明薄膜。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>UIView的layer树形在系统内部，被维护着三份copy。分别是逻辑树，这里是代码可以操纵的；动画树，是一个中间层，系统就在这一层上更改属性，进行各种渲染操作；显示树，其内容就是当前正被显示在屏幕上得内容。</p>
-</li>
-<li><p>动画的运作：对UIView的subLayer（非主Layer）属性进行更改，系统将自动进行动画生成，动画持续时间的缺省值似乎是0.25秒。</p>
-<p>在 Core Animation 编程指南的 “How to Animate Layer-Backed Views” 中，对为什么会这样做出了一个解释：</p>
+<h1 id="UIView和CALayer"><a href="#UIView和CALayer" class="headerlink" title="UIView和CALayer"></a>UIView和CALayer</h1><p>1.首先UIView可以响应事件，Layer不可以，父类不同。</p>
+<p>  UIKit使用UIResponder作为响应对象，来响应系统传递过来的事件并进行处理。UIApplication、UIViewController、UIView、和所有从UIView派生出来的UIKit类（包括UIWindow）都直接或间接地继承自UIResponder类。</p>
+<p>  在 UIResponder中定义了处理各种事件和事件传递的接口, 而 CALayer直接继承 NSObject，并没有相应的处理事件的接口。</p>
+<p>  UIView它真正的绘图部分，是由一个叫CALayer（Core Animation Layer）的类来管理。UIView本身，更像是一个CALayer的管理器，访问它的跟绘图和跟坐标有关的属性，例如frame，bounds等等，实际上内部都是在访问它所包含的CALayer的相关属性。</p>
+<p>  UIView有个layer属性，可以返回它的主CALayer实例，UIView有一个layerClass方法，返回主layer所使用的类，UIView的子类，可以通过重载这个方法，来让UIView使用不同的CALayer来显示。</p>
+<p>2.图层不会直接渲染到屏幕上。</p>
+<p> 在模型-视图-控制器（model-view-controller）概念里面NSView和UIView是典型的视图部分，但是在核心动画里面图层是模型部分。图层封装了几何、时间、可视化属性，同时它提供了图层现实的内容，但是实际显示的过程则不是由它来完成。</p>
+<p> 每个可见的图层树由两个相应的树组成:一个是呈现树，一个是渲染树。</p>
+<p>3.UIView的CALayer类似UIView的子View树形结构，也可以向它的layer上添加子layer，来完成某些特殊的表示。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> grayCover = [[CALayer alloc] init];</span><br><span class="line">grayCover.backgroundColor = [[[UIColor blackColor] colorWithAlphaComponent:0.2] CGColor];</span><br><span class="line">[self.layer addSubLayer: grayCover];</span><br><span class="line">//会在目标View上敷上一层黑色的透明薄膜。</span><br></pre></td></tr></table></figure>
+<p>4.UIView的layer树形在系统内部，被维护着三份copy。分别是逻辑树，这里是代码可以操纵的；动画树，是一个中间层，系统就在这一层上更改属性，进行各种渲染操作；显示树，其内容就是当前正被显示在屏幕上得内容。</p>
+<p>5.动画的运作：对UIView的subLayer（非主Layer）属性进行更改，系统将自动进行动画生成，动画持续时间的缺省值似乎是0.25秒。</p>
+<p> 在 Core Animation 编程指南的 “How to Animate Layer-Backed Views” 中，对为什么会这样做出了一个解释：</p>
 <blockquote>
 <p>UIView 默认情况下禁止了 layer 动画，但是在 animation block 中又重新启用了它们</p>
 </blockquote>
-<p>是因为任何可动画的 layer 属性改变时，layer 都会寻找并运行合适的 ‘action’ 来实行这个改变。在 Core Animation 的专业术语中就把这样的动画统称为动作 (action，或者 CAAction)。</p>
-<p>layer 通过向它的 delegate 发送 actionForLayer:forKey: 消息来询问提供一个对应属性变化的 action。delegate 可以通过返回以下三者之一来进行响应：</p>
+<p> 是因为任何可动画的 layer 属性改变时，layer 都会寻找并运行合适的 ‘action’ 来实行这个改变。在 Core Animation 的专业术语中就把这样的动画统称为动作 (action，或者 CAAction)。</p>
+<p> layer 通过向它的 delegate 发送 actionForLayer:forKey: 消息来询问提供一个对应属性变化的 action。delegate 可以通过返回以下三者之一来进行响应：</p>
 <ul>
 <li><p>它可以返回一个动作对象，这种情况下 layer 将使用这个动作。</p>
 </li>
 <li><p>它可以返回一个 nil， 这样 layer 就会到其他地方继续寻找。</p>
 </li>
 <li><p>它可以返回一个 NSNull 对象，告诉 layer 这里不需要执行一个动作，搜索也会就此停止。</p>
-</li>
-</ul>
 <p>当 layer 在背后支持一个 view 的时候，view 就是它的 delegate；</p>
 </li>
-<li><p>坐标系统：CALayer的坐标系统比UIView多了一个anchorPoint属性，使用CGPoint结构表示，值域是0~1，是个比例值。这个点是各种图形变换的坐标原点，同时会更改layer的position的位置，它的缺省值是{0.5,0.5}，即在layer的中央。</p>
-<p>某layer.anchorPoint = CGPointMake(0.f,0.f);<br>如果这么设置，只会将layer的左上角被挪到原来的中间位置，必须加上这一句：<br>某layer.position = CGPointMake(0.f,0.f);</p>
-<p>最后：</p>
-<p>layer可以设置圆角显示（cornerRadius），也可以设置阴影 (shadowColor)。但是如果layer树中某个layer设置了圆角，树种所有layer的阴影效果都将不显示了。因此若是要有圆角又要阴影，变通方法只能做两个重叠的UIView，一个的layer显示圆角，一个layer显示阴影……</p>
-</li>
-<li><p>渲染：当更新层，改变不能立即显示在屏幕上。当所有的层都准备好时，可以调用setNeedsDisplay方法来重绘显示。</p>
-<p><code>[gameLayer setNeedsDisplay];</code></p>
-<p>若要重绘部分屏幕区域，请使用setNeedsDisplayInRect:方法，通过在CGRect结构的区域更新：</p>
-<p><code>[gameLayer setNeedsDisplayInRect:CGRectMake(150.0,100.0,50.0,75.0)];</code></p>
-<p>如果是用的Core Graphics框架来执行渲染的话，可以直接渲染Core Graphics的内容。用renderInContext:来做这个事。</p>
-<p><code>[gameLayer renderInContext:UIGraphicsGetCurrentContext()];</code></p>
-</li>
-<li><p>变换：要在一个层中添加一个3D或仿射变换，可以分别设置层的transform或affineTransform属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">characterView.layer.transform = CATransform3DMakeScale(-1.0,-1.0,1.0);</span><br><span class="line"></span><br><span class="line">CGAffineTransform transform = CGAffineTransformMakeRotation(45.0);</span><br><span class="line">backgroundView.layer.affineTransform = transform;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>变形：Quartz Core的渲染能力，使二维图像可以被自由操纵，就好像是三维的。图像可以在一个三维坐标系中以任意角度被旋转，缩放和倾斜。CATransform3D的一套方法提供了一些魔术般的变换效果。</p>
-</li>
-</ol>
-<h1 id="UIView-autoLayout"><a href="#UIView-autoLayout" class="headerlink" title="UIView autoLayout"></a>UIView autoLayout</h1><ol>
-<li><p>iOS Autolayout</p>
-<p><a href="http://www.jianshu.com/p/d7a4790090f1" target="_blank" rel="noopener">iOS Autolayout</a></p>
-</li>
-<li><p>storyboard autolayout</p>
-</li>
-</ol>
+</ul>
+<p>6.坐标系统：CALayer的坐标系统比UIView多了一个anchorPoint属性，使用CGPoint结构表示，值域是0~1，是个比例值。这个点是各种图形变换的坐标原点，同时会更改layer的position的位置，它的缺省值是{0.5,0.5}，即在layer的中央。</p>
+<p> 某layer.anchorPoint = CGPointMake(0.f,0.f);<br>如果这么设置，只会将layer的左上角被挪到原来的中间位置，必须加上这一句：<br>某layer.position = CGPointMake(0.f,0.f);</p>
+<p> 最后：</p>
+<p> layer可以设置圆角显示（cornerRadius），也可以设置阴影 (shadowColor)。但是如果layer树中某个layer设置了圆角，树种所有layer的阴影效果都将不显示了。因此若是要有圆角又要阴影，变通方法只能做两个重叠的UIView，一个的layer显示圆角，一个layer显示阴影……</p>
+<p>7.渲染：当更新层，改变不能立即显示在屏幕上。当所有的层都准备好时，可以调用setNeedsDisplay方法来重绘显示。</p>
+<p> <code>[gameLayer setNeedsDisplay];</code></p>
+<p> 若要重绘部分屏幕区域，请使用setNeedsDisplayInRect:方法，通过在CGRect结构的区域更新：</p>
+<p> <code>[gameLayer setNeedsDisplayInRect:CGRectMake(150.0,100.0,50.0,75.0)];</code></p>
+<p> 如果是用的Core Graphics框架来执行渲染的话，可以直接渲染Core Graphics的内容。用renderInContext:来做这个事。</p>
+<p> <code>[gameLayer renderInContext:UIGraphicsGetCurrentContext()];</code></p>
+<p>8.变换：要在一个层中添加一个3D或仿射变换，可以分别设置层的transform或affineTransform属性。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">characterView.layer.transform = CATransform3DMakeScale(-1.0,-1.0,1.0);</span><br><span class="line"></span><br><span class="line">CGAffineTransform transform = CGAffineTransformMakeRotation(45.0);</span><br><span class="line">backgroundView.layer.affineTransform = transform;</span><br></pre></td></tr></table></figure>
+<p>9.变形：Quartz Core的渲染能力，使二维图像可以被自由操纵，就好像是三维的。图像可以在一个三维坐标系中以任意角度被旋转，缩放和倾斜。CATransform3D的一套方法提供了一些魔术般的变换效果。</p>
+<h1 id="UIView-autoLayout"><a href="#UIView-autoLayout" class="headerlink" title="UIView autoLayout"></a>UIView autoLayout</h1><p>1.iOS Autolayout</p>
+<p> <a href="http://www.jianshu.com/p/d7a4790090f1" target="_blank" rel="noopener">iOS Autolayout</a></p>
+<p>2.storyboard autolayout</p>
 <p><a href="http://blog.csdn.net/liangliang103377/article/details/40082255" target="_blank" rel="noopener">storyboard中autolayout和size class的使用详解</a></p>
-<ol start="3">
-<li>iOS Autolayout之Masonry</li>
-</ol>
+<p>3.iOS Autolayout之Masonry</p>
 <p><a href="http://www.jianshu.com/p/10a250cc5018" target="_blank" rel="noopener">iOS Autolayout之Masonry</a></p>
 <p> 参考目录：</p>
 <ol>
@@ -668,10 +637,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -684,15 +649,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,6 +689,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -732,19 +709,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,10 +722,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,6 +734,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -808,15 +785,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,11 +849,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

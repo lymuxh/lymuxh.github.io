@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="穆小灰灰的博客">
 <meta property="og:description" content="就iOS开发来说，UIViewController就最核心的类型之一。而iOS的整个UI开发的核心思想也是MVC的架构，从UIViewController的命名就可以看出它在MVC中所扮演的角色，那就是Controller啦。 创建控制器的三种方式 alloc init方式纯代码创建 1234567// 1.创建window self.window是强指针self.window = [[UIWin">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2016-12-05T03:27:58.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:24:08.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIViewController生命周期">
 <meta name="twitter:description" content="就iOS开发来说，UIViewController就最核心的类型之一。而iOS的整个UI开发的核心思想也是MVC的架构，从UIViewController的命名就可以看出它在MVC中所扮演的角色，那就是Controller啦。 创建控制器的三种方式 alloc init方式纯代码创建 1234567// 1.创建window self.window是强指针self.window = [[UIWin">
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -228,23 +228,13 @@
 <p>在需要用到控制器的view的时候才调用（当调用UIWindow对象的makeKeyAndVisible方法时，就需要显示该view了, 此时就表示用到View了。）, 这个就叫做”延迟加载”。 比如当使用self.view.backgroundColor , 要设置控制器的view的背景色时（这时需要用到view了）, 那么此时才会开始创建该控制器的view, 也就是说要调用loadView方法了。所以, 如果在loadView方法内部调用self.view.backgroundColor, 就发生死循环了。</p>
 <p> 可以通过调用控制器的self.isViewLoaded 方法来判断当前控制器的view是否已经加载完毕了。</p>
 <p>并且当控制器的view加载完毕后, 会调用viewDidLoad方法(系统自己调用)。</p>
-<h1 id="Controller的view的生命周期"><a href="#Controller的view的生命周期" class="headerlink" title="Controller的view的生命周期"></a>Controller的view的生命周期</h1><p>下面是代表控制器视图的生命周期的7个方法</p>
-<ol>
-<li><p>viewDidLoad</p>
-</li>
-<li><p>viewWillAppear</p>
-</li>
-<li><p>viewDidAppear</p>
-</li>
-<li><p>viewWillDisappear</p>
-</li>
-<li><p>viewDidDisappear</p>
-</li>
-<li><p>viewWillUnload</p>
-</li>
-<li><p>viewDidUnload</p>
-</li>
-</ol>
+<h1 id="Controller的view的生命周期"><a href="#Controller的view的生命周期" class="headerlink" title="Controller的view的生命周期"></a>Controller的view的生命周期</h1><p>下面是代表控制器视图的生命周期的7个方法<br>viewDidLoad</p>
+<p>viewWillAppear</p>
+<p>viewDidAppear</p>
+<p>viewWillDisappear</p>
+<p>viewDidDisappear</p>
+<p>viewWillUnload</p>
+<p>viewDidUnload</p>
 <p>下面是这些方法的调用顺序图：</p>
 <p>假设有两个控制器：</p>
 <p>程序启动后：OneController的viewDidLoad—&gt;OneController的viewWillAppear—&gt;OneController的viewDidAppear</p>
@@ -584,10 +574,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -600,15 +586,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,6 +626,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -648,19 +646,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,10 +659,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -685,6 +671,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,15 +722,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,11 +786,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

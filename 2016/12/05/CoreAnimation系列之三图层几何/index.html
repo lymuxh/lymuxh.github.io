@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>CoreAnimation系列之三图层几何 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="图层几何图层内部是如何根据父图层和兄弟图层来控制位置和尺寸的。如何管理图层的几何结构，以及如何自动调整和自动布局。 布局UIView有三个比较重要的布局属性：frame，bounds和center，CALayer对应地叫做frame，bounds和position。为了能清楚区分，图层用了“position”，视图用了“center”，但是他们都代表同样的值。">
+  <meta name="description" content="图层内部是如何根据父图层和兄弟图层来控制位置和尺寸的。如何管理图层的几何结构，以及如何自动调整和自动布局。 布局UIView有三个比较重要的布局属性：frame，bounds和center，CALayer对应地叫做frame，bounds和position。为了能清楚区分，图层用了“position”，视图用了“center”，但是他们都代表同样的值。">
 <meta name="keywords" content="CoreAnimation,图层几何">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CoreAnimation系列之三图层几何">
 <meta property="og:url" content="http://yoursite.com/2016/12/05/CoreAnimation系列之三图层几何/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="图层几何图层内部是如何根据父图层和兄弟图层来控制位置和尺寸的。如何管理图层的几何结构，以及如何自动调整和自动布局。 布局UIView有三个比较重要的布局属性：frame，bounds和center，CALayer对应地叫做frame，bounds和position。为了能清楚区分，图层用了“position”，视图用了“center”，但是他们都代表同样的值。">
+<meta property="og:description" content="图层内部是如何根据父图层和兄弟图层来控制位置和尺寸的。如何管理图层的几何结构，以及如何自动调整和自动布局。 布局UIView有三个比较重要的布局属性：frame，bounds和center，CALayer对应地叫做frame，bounds和position。为了能清楚区分，图层用了“position”，视图用了“center”，但是他们都代表同样的值。">
 <meta property="og:locale" content="Zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/clock_01.jpeg">
 <meta property="og:image" content="http://yoursite.com/images/clock_02.jpeg">
 <meta property="og:image" content="http://yoursite.com/images/clock_03.jpeg">
-<meta property="og:updated_time" content="2016-12-08T09:56:11.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:44:18.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CoreAnimation系列之三图层几何">
-<meta name="twitter:description" content="图层几何图层内部是如何根据父图层和兄弟图层来控制位置和尺寸的。如何管理图层的几何结构，以及如何自动调整和自动布局。 布局UIView有三个比较重要的布局属性：frame，bounds和center，CALayer对应地叫做frame，bounds和position。为了能清楚区分，图层用了“position”，视图用了“center”，但是他们都代表同样的值。">
+<meta name="twitter:description" content="图层内部是如何根据父图层和兄弟图层来控制位置和尺寸的。如何管理图层的几何结构，以及如何自动调整和自动布局。 布局UIView有三个比较重要的布局属性：frame，bounds和center，CALayer对应地叫做frame，bounds和position。为了能清楚区分，图层用了“position”，视图用了“center”，但是他们都代表同样的值。">
 <meta name="twitter:image" content="http://yoursite.com/images/clock_01.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
@@ -73,10 +73,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -189,12 +189,12 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：2.9k字 | 预计阅读时长：11分钟
+        字数：2.8k字 | 预计阅读时长：11分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="图层几何"><a href="#图层几何" class="headerlink" title="图层几何"></a>图层几何</h1><p>图层内部是如何根据父图层和兄弟图层来控制位置和尺寸的。如何管理图层的几何结构，以及如何自动调整和自动布局。</p>
+        <p>图层内部是如何根据父图层和兄弟图层来控制位置和尺寸的。如何管理图层的几何结构，以及如何自动调整和自动布局。</p>
 <h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p><code>UIView</code>有三个比较重要的布局属性：<code>frame</code>，<code>bounds</code>和<code>center</code>，<code>CALayer</code>对应地叫做<code>frame</code>，<code>bounds</code>和<code>position</code>。为了能清楚区分，图层用了“position”，视图用了“center”，但是他们都代表同样的值。</p>
  <a id="more"></a>
 <p><code>frame</code>代表了图层的外部坐标（也就是在父图层上占据的空间），<code>bounds</code>是内部坐标（{0, 0}通常是图层的左上角），<code>center</code>和<code>position</code>都代表了相对于父图层<code>anchorPoint</code>所在的位置。<code>anchorPoint</code>的属性将会在后续介绍到，现在把它想成图层的中心点就好了。</p>
@@ -399,7 +399,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#图层几何"><span class="toc-number">1.</span> <span class="toc-text">图层几何</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#布局"><span class="toc-number">1.1.</span> <span class="toc-text">布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锚点"><span class="toc-number">1.2.</span> <span class="toc-text">锚点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#坐标系"><span class="toc-number">1.3.</span> <span class="toc-text">坐标系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#翻转的几何结构"><span class="toc-number">1.3.1.</span> <span class="toc-text">翻转的几何结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Z坐标轴"><span class="toc-number">1.3.2.</span> <span class="toc-text">Z坐标轴</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hit-Testing"><span class="toc-number">1.4.</span> <span class="toc-text">Hit Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动布局"><span class="toc-number">1.5.</span> <span class="toc-text">自动布局</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#布局"><span class="toc-number">1.</span> <span class="toc-text">布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锚点"><span class="toc-number">2.</span> <span class="toc-text">锚点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#坐标系"><span class="toc-number">3.</span> <span class="toc-text">坐标系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#翻转的几何结构"><span class="toc-number">3.1.</span> <span class="toc-text">翻转的几何结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Z坐标轴"><span class="toc-number">3.2.</span> <span class="toc-text">Z坐标轴</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hit-Testing"><span class="toc-number">4.</span> <span class="toc-text">Hit Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动布局"><span class="toc-number">5.</span> <span class="toc-text">自动布局</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -551,10 +551,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -567,15 +563,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,6 +603,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -615,19 +623,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,10 +636,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,6 +648,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -691,15 +699,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -755,11 +763,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>iphoneX和iOS11适配遇到问题 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iphoneX和iOS11适配遇到问题1.底部tabbar 选中效果下移self.tabBar.backgroundImage =[UIColor createImageWithColor:RGB(38.0, 50.0, 56.0)]； self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayCo">
+  <meta name="description" content="1.底部tabbar 选中效果下移1self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.boun">
 <meta name="keywords" content="iOS11,iPhoneX">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iphoneX和iOS11适配遇到问题">
 <meta property="og:url" content="http://yoursite.com/2017/09/26/iphoneX和iOS11适配遇到问题/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="iphoneX和iOS11适配遇到问题1.底部tabbar 选中效果下移self.tabBar.backgroundImage =[UIColor createImageWithColor:RGB(38.0, 50.0, 56.0)]； self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayCo">
+<meta property="og:description" content="1.底部tabbar 选中效果下移1self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.boun">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2017-09-27T10:39:18.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:49:58.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iphoneX和iOS11适配遇到问题">
-<meta name="twitter:description" content="iphoneX和iOS11适配遇到问题1.底部tabbar 选中效果下移self.tabBar.backgroundImage =[UIColor createImageWithColor:RGB(38.0, 50.0, 56.0)]； self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayCo">
+<meta name="twitter:description" content="1.底部tabbar 选中效果下移1self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.boun">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -185,56 +185,23 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：375字 | 预计阅读时长：2分钟
+        字数：329字 | 预计阅读时长：1分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="iphoneX和iOS11适配遇到问题"><a href="#iphoneX和iOS11适配遇到问题" class="headerlink" title="iphoneX和iOS11适配遇到问题"></a>iphoneX和iOS11适配遇到问题</h1><h2 id="1-底部tabbar-选中效果下移"><a href="#1-底部tabbar-选中效果下移" class="headerlink" title="1.底部tabbar 选中效果下移"></a>1.底部tabbar 选中效果下移</h2><p><code>self.tabBar.backgroundImage =[UIColor createImageWithColor:RGB(38.0, 50.0, 56.0)]；
-self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.bounds.size.height)];</code></p>
+        <h2 id="1-底部tabbar-选中效果下移"><a href="#1-底部tabbar-选中效果下移" class="headerlink" title="1.底部tabbar 选中效果下移"></a>1.底部tabbar 选中效果下移</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.tabBar.selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.bounds.size.height)];</span><br></pre></td></tr></table></figure>
 <p>改为</p>
-<p> <code>UITabBar *appearance = [UITabBar appearance];
-    [appearance setBackgroundImage:[UIColor createImageWithColor:RGB(38.0, 50.0, 56.0)]];
-    UIImage *selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.frame.size.height)];
-    selectionIndicatorImage = [selectionIndicatorImage resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 0, 0)];
-    [appearance setSelectionIndicatorImage:selectionIndicatorImage];</code></p>
+<figure class="highlight plain"><figcaption><span>*appearance </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[appearance setBackgroundImage:[UIColor createImageWithColor:RGB(38.0, 50.0, 56.0)]];</span><br><span class="line">UIImage *selectionIndicatorImage = [UIColor createImageWithColor:CLSMainGrayColor size:CGSizeMake([UIScreen mainScreen].bounds.size.width/[_tabControllers count], self.tabBar.frame.size.height)];</span><br><span class="line">selectionIndicatorImage = [selectionIndicatorImage resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 0, 0)];</span><br><span class="line">[appearance setSelectionIndicatorImage:selectionIndicatorImage];</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="2-iphoneX下面collectionView显示下移"><a href="#2-iphoneX下面collectionView显示下移" class="headerlink" title="2. iphoneX下面collectionView显示下移"></a>2. iphoneX下面collectionView显示下移</h2><p><code>self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-StatusRect.size.height-44-48) collectionViewLayout:flowLayout];</code></p>
+<h2 id="2-iphoneX下面collectionView显示下移"><a href="#2-iphoneX下面collectionView显示下移" class="headerlink" title="2. iphoneX下面collectionView显示下移"></a>2. iphoneX下面collectionView显示下移</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">改为</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// iPhone X</span><br><span class="line"></span><br><span class="line">`#define  LL_iPhoneX (LL_ScreenWidth == 375.f &amp;&amp;LL_ScreenHeight == 812.f ? YES : NO)`</span><br><span class="line"></span><br><span class="line">// Status bar height.</span><br><span class="line"></span><br><span class="line">`#define  LL_StatusBarHeight      (LL_iPhoneX ? 44.f : 20.f)`</span><br><span class="line"></span><br><span class="line">// Navigation bar height.</span><br><span class="line"></span><br><span class="line">`#define  LL_NavigationBarHeight  44.f`</span><br><span class="line"></span><br><span class="line">// Tabbar height.</span><br><span class="line"></span><br><span class="line">`#define  LL_TabbarHeight         (LL_iPhoneX ? (49.f+34.f) : 49.f)`</span><br><span class="line"></span><br><span class="line">// Tabbar safe bottom margin.</span><br><span class="line"></span><br><span class="line">`#define  LL_TabbarSafeBottomMargin         (LL_iPhoneX ? 34.f : 0.f)`</span><br><span class="line"></span><br><span class="line">// Status bar &amp; navigation bar height.</span><br><span class="line"></span><br><span class="line">`#define  LL_StatusBarAndNavigationBarHeight  (LL_iPhoneX ? 88.f : 64.f)`</span><br><span class="line"></span><br><span class="line">`</span><br><span class="line"> self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, LL_ScreenWidth,LL_ScreenHeight-LL_StatusBarAndNavigationBarHeight-LL_TabbarHeight) collectionViewLayout:flowLayout];</span><br><span class="line">`</span><br><span class="line"></span><br><span class="line">## 3.UIToolbar 上面UIButton 点击没响应</span><br><span class="line"></span><br><span class="line"> ```UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];</span><br><span class="line">    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth-60, 7, 50, 30)];</span><br><span class="line">    [button setTitle:@&quot;完成&quot;forState:UIControlStateNormal];</span><br><span class="line">    button.layer.cornerRadius = 4.0;</span><br><span class="line">    button.backgroundColor = CLSMainGreenColor;</span><br><span class="line">    button.titleLabel.font = CFFontLevel3;</span><br><span class="line">    [button addTarget:self action:@selector(finished) forControlEvents:UIControlEventTouchUpInside];</span><br><span class="line">    [bar addSubview:button];</span><br><span class="line">    self.contentField.inputAccessoryView = bar;</span><br></pre></td></tr></table></figure>
 <p>改为</p>
-<p>// iPhone X</p>
-<p><code>#define  LL_iPhoneX (LL_ScreenWidth == 375.f &amp;&amp;LL_ScreenHeight == 812.f ? YES : NO)</code></p>
-<p>// Status bar height.</p>
-<p><code>#define  LL_StatusBarHeight      (LL_iPhoneX ? 44.f : 20.f)</code></p>
-<p>// Navigation bar height.</p>
-<p><code>#define  LL_NavigationBarHeight  44.f</code></p>
-<p>// Tabbar height.</p>
-<p><code>#define  LL_TabbarHeight         (LL_iPhoneX ? (49.f+34.f) : 49.f)</code></p>
-<p>// Tabbar safe bottom margin.</p>
-<p><code>#define  LL_TabbarSafeBottomMargin         (LL_iPhoneX ? 34.f : 0.f)</code></p>
-<p>// Status bar &amp; navigation bar height.</p>
-<p><code>#define  LL_StatusBarAndNavigationBarHeight  (LL_iPhoneX ? 88.f : 64.f)</code></p>
-<p><code>self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, LL_ScreenWidth,LL_ScreenHeight-LL_StatusBarAndNavigationBarHeight-LL_TabbarHeight) collectionViewLayout:flowLayout];</code></p>
-<h2 id="3-UIToolbar-上面UIButton-点击没响应"><a href="#3-UIToolbar-上面UIButton-点击没响应" class="headerlink" title="3.UIToolbar 上面UIButton 点击没响应"></a>3.UIToolbar 上面UIButton 点击没响应</h2><p> <code>UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth-60, 7, 50, 30)];
-    [button setTitle:@&quot;完成&quot;forState:UIControlStateNormal];
-    button.layer.cornerRadius = 4.0;
-    button.backgroundColor = CLSMainGreenColor;
-    button.titleLabel.font = CFFontLevel3;
-    [button addTarget:self action:@selector(finished) forControlEvents:UIControlEventTouchUpInside];
-    [bar addSubview:button];
-    self.contentField.inputAccessoryView = bar;</code></p>
-<p>改为</p>
-<p><code>UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, LL_ScreenWidth, 44)];
-    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *finish = [[UIBarButtonItem alloc]initWithTitle:@&quot;完成&quot; style:UIBarButtonItemStyleDone target:self action:@selector(finished)];
-    [bar setItems:@[space,space,finish]];
-    self.contentField.inputAccessoryView = bar;</code></p>
+<figure class="highlight plain"><figcaption><span>*bar </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];</span><br><span class="line">UIBarButtonItem *finish = [[UIBarButtonItem alloc]initWithTitle:@&quot;完成&quot; style:UIBarButtonItemStyleDone target:self action:@selector(finished)];</span><br><span class="line">[bar setItems:@[space,space,finish]];</span><br><span class="line">self.contentField.inputAccessoryView = bar;</span><br></pre></td></tr></table></figure>
 <h2 id="4-navigationBar里面自定义titleView上的按钮点击没有效果"><a href="#4-navigationBar里面自定义titleView上的按钮点击没有效果" class="headerlink" title="4.navigationBar里面自定义titleView上的按钮点击没有效果"></a>4.navigationBar里面自定义titleView上的按钮点击没有效果</h2><p><code>self.navigationItem.titleView = _titleView;</code></p>
 <p>改为</p>
 <p>在自定义titleview 里重写 intrinsicContentSize 属性，代码如下：</p>
 <p><code>@property(nonatomic, assign) CGSize intrinsicContentSize;</code><br>然后在使用地方添加</p>
-<p><code>self.navigationItem.titleView = _titleView; 
-_titleView.intrinsicContentSize=CGSizeMake(200,40);</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.navigationItem.titleView = _titleView; </span><br><span class="line">_titleView.intrinsicContentSize=CGSizeMake(200,40);</span><br></pre></td></tr></table></figure>
 
       
 
@@ -391,7 +358,7 @@ _titleView.intrinsicContentSize=CGSizeMake(200,40);</code></p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iphoneX和iOS11适配遇到问题"><span class="toc-number">1.</span> <span class="toc-text">iphoneX和iOS11适配遇到问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-底部tabbar-选中效果下移"><span class="toc-number">1.1.</span> <span class="toc-text">1.底部tabbar 选中效果下移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-iphoneX下面collectionView显示下移"><span class="toc-number">1.2.</span> <span class="toc-text">2. iphoneX下面collectionView显示下移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-UIToolbar-上面UIButton-点击没响应"><span class="toc-number">1.3.</span> <span class="toc-text">3.UIToolbar 上面UIButton 点击没响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-navigationBar里面自定义titleView上的按钮点击没有效果"><span class="toc-number">1.4.</span> <span class="toc-text">4.navigationBar里面自定义titleView上的按钮点击没有效果</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-底部tabbar-选中效果下移"><span class="toc-number">1.</span> <span class="toc-text">1.底部tabbar 选中效果下移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-iphoneX下面collectionView显示下移"><span class="toc-number">2.</span> <span class="toc-text">2. iphoneX下面collectionView显示下移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-navigationBar里面自定义titleView上的按钮点击没有效果"><span class="toc-number">3.</span> <span class="toc-text">4.navigationBar里面自定义titleView上的按钮点击没有效果</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -543,10 +510,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -559,15 +522,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,6 +562,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -607,19 +582,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,10 +595,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,6 +607,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,15 +658,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -747,11 +722,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

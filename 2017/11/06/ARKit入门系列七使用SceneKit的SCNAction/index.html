@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ARKit入门系列七使用SceneKit的SCNAction | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SCNAction前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。 一个简单的例子：123SCNAction *shipMoveAction = [SCNAction moveTo:SCNVector3Make(10,10,5) duration:4];[s">
+  <meta name="description" content="前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。 一个简单的例子：123SCNAction *shipMoveAction = [SCNAction moveTo:SCNVector3Make(10,10,5) duration:4];[shipRotati">
 <meta name="keywords" content="SceneKit,SCNAction">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARKit入门系列七使用SceneKit的SCNAction">
 <meta property="og:url" content="http://yoursite.com/2017/11/06/ARKit入门系列七使用SceneKit的SCNAction/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="SCNAction前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。 一个简单的例子：123SCNAction *shipMoveAction = [SCNAction moveTo:SCNVector3Make(10,10,5) duration:4];[s">
+<meta property="og:description" content="前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。 一个简单的例子：123SCNAction *shipMoveAction = [SCNAction moveTo:SCNVector3Make(10,10,5) duration:4];[shipRotati">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2017-11-13T09:39:33.000Z">
+<meta property="og:updated_time" content="2019-03-22T09:00:05.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARKit入门系列七使用SceneKit的SCNAction">
-<meta name="twitter:description" content="SCNAction前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。 一个简单的例子：123SCNAction *shipMoveAction = [SCNAction moveTo:SCNVector3Make(10,10,5) duration:4];[s">
+<meta name="twitter:description" content="前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。 一个简单的例子：123SCNAction *shipMoveAction = [SCNAction moveTo:SCNVector3Make(10,10,5) duration:4];[shipRotati">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SCNAction"><a href="#SCNAction" class="headerlink" title="SCNAction"></a>SCNAction</h1><p>前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。</p>
+        <p>前面关于旋转我们利用CABasicAnimation来实现旋转动画，其实在SceneKit中，有一种更为简单的方法去实现一些基础动画，那就是SCNAction，它的执行对象是SCNNode。</p>
 <p>一个简单的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SCNAction *shipMoveAction = [SCNAction moveTo:SCNVector3Make(10,10,5) duration:4];</span><br><span class="line"></span><br><span class="line">[shipRotationNode runAction:shipMoveAction];</span><br></pre></td></tr></table></figure></p>
 <p>上面代码很容易理解shipRotationNode 动画移动到(10,10,5)这个位置，时间间隔为4s。</p>
 <p>我们下面简单介绍一下 SCNAction 主要的API：</p>
@@ -357,7 +357,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SCNAction"><span class="toc-number">1.</span> <span class="toc-text">SCNAction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#飞船3D旋转"><span class="toc-number">1.1.</span> <span class="toc-text">飞船3D旋转</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#飞船3D旋转"><span class="toc-number">1.</span> <span class="toc-text">飞船3D旋转</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -509,10 +509,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -525,15 +521,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,6 +561,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -573,19 +581,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,10 +594,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,6 +606,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,15 +657,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,11 +721,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

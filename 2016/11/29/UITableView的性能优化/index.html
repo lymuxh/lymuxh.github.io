@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>UITableView的性能优化 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="UITableView介绍在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。 UITableView有两种风格：UITableViewStylePlain和UITableViewS">
+  <meta name="description" content="在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。 UITableView有两种风格：UITableViewStylePlain和UITableViewStyleGrouped。这">
 <meta name="keywords" content="随笔,UITableView,性能优化,文档">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UITableView的性能优化">
 <meta property="og:url" content="http://yoursite.com/2016/11/29/UITableView的性能优化/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="UITableView介绍在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。 UITableView有两种风格：UITableViewStylePlain和UITableViewS">
+<meta property="og:description" content="在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。 UITableView有两种风格：UITableViewStylePlain和UITableViewStyleGrouped。这">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2016-12-05T03:24:39.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:26:45.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableView的性能优化">
-<meta name="twitter:description" content="UITableView介绍在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。 UITableView有两种风格：UITableViewStylePlain和UITableViewS">
+<meta name="twitter:description" content="在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。 UITableView有两种风格：UITableViewStylePlain和UITableViewStyleGrouped。这">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="UITableView介绍"><a href="#UITableView介绍" class="headerlink" title="UITableView介绍"></a>UITableView介绍</h1><p>在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。</p>
+        <p>在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。</p>
 <p>UITableView有两种风格：UITableViewStylePlain和UITableViewStyleGrouped。这两者操作起来其实并没有本质区别，只是后者按分组样式显示前者按照普通样式显示而已。</p>
 <p>UITableView中每行数据都是一个UITableViewCell，在这个控件中为了显示更多的信息，iOS已经在其内部设置好了多个子控件以供开发者使用。如果我们查看UITableViewCell的声明文件可以发现在内部有一个UIView控件（contentView，作为其他元素的父控件）、两个UILable控件（textLabel、detailTextLabel）、一个UIImage控件（imageView），分别用于容器、显示内容、详情和图片。</p>
 <a id="more"></a>
@@ -393,7 +393,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView介绍"><span class="toc-number">1.</span> <span class="toc-text">UITableView介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView-数据源"><span class="toc-number">2.</span> <span class="toc-text">UITableView 数据源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView-代理"><span class="toc-number">3.</span> <span class="toc-text">UITableView 代理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView大量数据滚动性能优化"><span class="toc-number">4.</span> <span class="toc-text">UITableView大量数据滚动性能优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView中NSTime停止的问题"><span class="toc-number">5.</span> <span class="toc-text">UITableView中NSTime停止的问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView-数据源"><span class="toc-number">1.</span> <span class="toc-text">UITableView 数据源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView-代理"><span class="toc-number">2.</span> <span class="toc-text">UITableView 代理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView大量数据滚动性能优化"><span class="toc-number">3.</span> <span class="toc-text">UITableView大量数据滚动性能优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView中NSTime停止的问题"><span class="toc-number">4.</span> <span class="toc-text">UITableView中NSTime停止的问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -545,10 +545,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -561,15 +557,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,6 +597,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -609,19 +617,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,10 +630,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,6 +642,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -685,15 +693,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,11 +757,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="穆小灰灰的博客">
 <meta property="og:description" content="UIView 动画在开发APP中，我们会经常用到动画。使用动画会让我们的APP更炫酷，更重要是优化用户体验。在APP开发中实现动画效果有很多种方式，对于简单的应用场景，我们就选择用UIKit提供的动画来实现。 UIView 动画简介 UIView动画实质上是对CoreAnimation的封装，提供简洁的动画接口。">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2016-12-05T03:26:45.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:40:52.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIView 动画">
 <meta name="twitter:description" content="UIView 动画在开发APP中，我们会经常用到动画。使用动画会让我们的APP更炫酷，更重要是优化用户体验。在APP开发中实现动画效果有很多种方式，对于简单的应用场景，我们就选择用UIKit提供的动画来实现。 UIView 动画简介 UIView动画实质上是对CoreAnimation的封装，提供简洁的动画接口。">
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -194,54 +194,39 @@
 <h2 id="UIView-动画简介"><a href="#UIView-动画简介" class="headerlink" title="UIView 动画简介"></a>UIView 动画简介</h2><p> UIView动画实质上是对CoreAnimation的封装，提供简洁的动画接口。</p>
  <a id="more"></a>
 <p> UIView动画可以设置的动画属性有:</p>
-<ol>
-<li><p>大小变化(frame)</p>
-</li>
-<li><p>拉伸变化(bounds)</p>
-</li>
-<li><p>中心位置(center)</p>
-</li>
-<li><p>旋转(transform)</p>
-</li>
-<li><p>透明度(alpha)</p>
-</li>
-<li><p>背景颜色(backgroundColor)</p>
-</li>
-<li><p>拉伸内容(contentStretch)</p>
-</li>
-</ol>
-<h2 id="UIView动画方法"><a href="#UIView动画方法" class="headerlink" title="UIView动画方法"></a>UIView动画方法</h2><ol>
-<li><p>动画开始和结束方法</p>
-<p><code>[UIViewbeginAnimations:(nullableNSString*)context:(nullablevoid*)];</code></p>
-<p>参数一：动画标识</p>
-<p>参数二：动画上下文，附加参数，大部分情况下，我们设置为nil即可。</p>
-<p>通过UIView 的<code>setAnimationDelegate:</code>类方法来设置委托， 并通过 <code>setAnimationWillStartSelector:</code>和<br><code>setAnimationDidStopSelector:</code>方法来指定接收消息的选择器方法。消息处理方法的形式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> - (void)animationWillStart:(NSString *)animationID context:(void *)context;</span><br><span class="line"> - (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void</span><br><span class="line">*)context;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p> 大小变化(frame)</p>
+<p> 拉伸变化(bounds)</p>
+<p> 中心位置(center)</p>
+<p> 旋转(transform)</p>
+<p> 透明度(alpha)</p>
+<p> 背景颜色(backgroundColor)</p>
+<p> 拉伸内容(contentStretch)</p>
+<h2 id="UIView动画方法"><a href="#UIView动画方法" class="headerlink" title="UIView动画方法"></a>UIView动画方法</h2><p>1.动画开始和结束方法</p>
+<p>   <code>[UIViewbeginAnimations:(nullableNSString*)context:(nullablevoid*)];</code></p>
+<p> 参数一：动画标识</p>
+<p> 参数二：动画上下文，附加参数，大部分情况下，我们设置为nil即可。</p>
+<p> 通过UIView 的<code>setAnimationDelegate:</code>类方法来设置委托， 并通过 <code>setAnimationWillStartSelector:</code>和<br><code>setAnimationDidStopSelector:</code>方法来指定接收消息的选择器方法。消息处理方法的形式如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> - (void)animationWillStart:(NSString *)animationID context:(void *)context;</span><br><span class="line"> - (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void</span><br><span class="line">*)context;</span><br></pre></td></tr></table></figure>
 <p>上面两个方法的animationID 和context 参数和动画块开始时传 <code>beginAnimations:context:</code>方法的参数相同：</p>
 <p> animationID - 应用程序提供的字符串，用于标识一个动画块中的动画。</p>
 <p> context - 也是应用程序提供的对象，用于向委托对象传递额外的信息。</p>
 <p> <code>setAnimationDidStopSelector:</code>选择器方法还有一个参数—即一个布尔值。如果动画顺利完成，没有被其它动画取消或停止，则该值为YES。<br> 在设置了代理的情况下，此参数将发送到<code>setAnimationWillStartSelector</code>和<code>setAnimationDidStopSelector</code>所指定的方法。</p>
 <p> <code>[UIView commitAnimations];</code></p>
 <p> 动画提交。</p>
-<ol start="2">
-<li><p>动画参数设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> //动画持续时间</span><br><span class="line">[UIView setAnimationDuration:(NSTimeInterval)];</span><br><span class="line">//动画的代理对象</span><br><span class="line">[UIView setAnimationDelegate:(nullableid)];</span><br><span class="line">//设置动画将开始时代理对象执行的SEL(必须先设置代理)</span><br><span class="line">[UIView setAnimationWillStartSelector:(nullableSEL)];</span><br><span class="line">//设置动画结束时代理对象执行的SEL(必须先设置代理)</span><br><span class="line">[UIView setAnimationDidStopSelector:(nullableSEL)];</span><br><span class="line">//设置动画延迟执行的时间</span><br><span class="line">[UIView setAnimationDelay:(NSTimeInterval)];</span><br><span class="line">//设置动画的重复次数</span><br><span class="line">[UIView setAnimationRepeatCount:(float)];</span><br><span class="line">//设置动画的曲线</span><br><span class="line">[UIView setAnimationCurve:(UIViewAnimationCurve)];</span><br></pre></td></tr></table></figure>
-<p>UIViewAnimationCurve的枚举值如下：<br>UIViewAnimationCurveEaseInOut,//慢进慢出（默认值）<br>UIViewAnimationCurveEaseIn,//慢进<br>UIViewAnimationCurveEaseOut,//慢出<br>UIViewAnimationCurveLinear//匀速</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//设置是否从当前状态开始播放动画</span><br><span class="line">[UIView setAnimationBeginsFromCurrentState:YES];</span><br></pre></td></tr></table></figure>
-<p>假设上一个动画正在播放，且尚未播放完毕，我们将要进行一个新的动画：</p>
-<p>当为YES时：动画将从上一个动画所在的状态开始播放.</p>
-<p>当为NO时：动画将从上一个动画所指定的最终状态开始播放.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> //设置动画是否继续执行相反的动画</span><br><span class="line">[UIView setAnimationRepeatAutoreverses:(BOOL)];</span><br><span class="line">//是否禁用动画效果（对象属性依然会被改变，只是没有动画效果）</span><br><span class="line">[UIView setAnimationsEnabled:(BOOL)];</span><br><span class="line">//设置视图的过渡效果</span><br><span class="line">[UIView setAnimationTransition:(UIViewAnimationTransition)forView:(nonnullUIView*)cache:(BOOL)];</span><br></pre></td></tr></table></figure>
-<p>第一个参数：UIViewAnimationTransition的枚举值如下</p>
-<p>UIViewAnimationTransitionNone,//不使用动画<br>UIViewAnimationTransitionFlipFromLeft,//从左向右旋转翻页<br>UIViewAnimationTransitionFlipFromRight,//从右向左旋转翻页<br>UIViewAnimationTransitionCurlUp,//从下往上卷曲翻页<br>UIViewAnimationTransitionCurlDown,//从上往下卷曲翻页</p>
-<p>第二个参数：需要过渡效果的View</p>
-<p>第三个参数：是否使用视图缓存，YES：视图在开始和结束时渲染一次；NO：视图在每一帧都渲染</p>
-<p><code>-(void)removeAllAnimations;</code></p>
-<p>删除所有动画层，注意：层指的layer。例如：<br><code>[_imageView.layer removeAllAnimations];</code></p>
-</li>
-</ol>
+<p>2.动画参数设置</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> //动画持续时间</span><br><span class="line">[UIView setAnimationDuration:(NSTimeInterval)];</span><br><span class="line">//动画的代理对象</span><br><span class="line">[UIView setAnimationDelegate:(nullableid)];</span><br><span class="line">//设置动画将开始时代理对象执行的SEL(必须先设置代理)</span><br><span class="line">[UIView setAnimationWillStartSelector:(nullableSEL)];</span><br><span class="line">//设置动画结束时代理对象执行的SEL(必须先设置代理)</span><br><span class="line">[UIView setAnimationDidStopSelector:(nullableSEL)];</span><br><span class="line">//设置动画延迟执行的时间</span><br><span class="line">[UIView setAnimationDelay:(NSTimeInterval)];</span><br><span class="line">//设置动画的重复次数</span><br><span class="line">[UIView setAnimationRepeatCount:(float)];</span><br><span class="line">//设置动画的曲线</span><br><span class="line">[UIView setAnimationCurve:(UIViewAnimationCurve)];</span><br></pre></td></tr></table></figure>
+<p> UIViewAnimationCurve的枚举值如下：<br> UIViewAnimationCurveEaseInOut,//慢进慢出（默认值）<br> UIViewAnimationCurveEaseIn,//慢进<br> UIViewAnimationCurveEaseOut,//慢出<br> UIViewAnimationCurveLinear//匀速</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//设置是否从当前状态开始播放动画</span><br><span class="line">[UIView setAnimationBeginsFromCurrentState:YES];</span><br></pre></td></tr></table></figure>
+<p>   假设上一个动画正在播放，且尚未播放完毕，我们将要进行一个新的动画：</p>
+<p>   当为YES时：动画将从上一个动画所在的状态开始播放.</p>
+<p>   当为NO时：动画将从上一个动画所指定的最终状态开始播放.</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> //设置动画是否继续执行相反的动画</span><br><span class="line">[UIView setAnimationRepeatAutoreverses:(BOOL)];</span><br><span class="line">//是否禁用动画效果（对象属性依然会被改变，只是没有动画效果）</span><br><span class="line">[UIView setAnimationsEnabled:(BOOL)];</span><br><span class="line">//设置视图的过渡效果</span><br><span class="line">[UIView setAnimationTransition:(UIViewAnimationTransition)forView:(nonnullUIView*)cache:(BOOL)];</span><br></pre></td></tr></table></figure>
+<p> 第一个参数：UIViewAnimationTransition的枚举值如下</p>
+<p> UIViewAnimationTransitionNone,//不使用动画<br> UIViewAnimationTransitionFlipFromLeft,//从左向右旋转翻页<br> UIViewAnimationTransitionFlipFromRight,//从右向左旋转翻页<br> UIViewAnimationTransitionCurlUp,//从下往上卷曲翻页<br> UIViewAnimationTransitionCurlDown,//从上往下卷曲翻页</p>
+<p> 第二个参数：需要过渡效果的View</p>
+<p> 第三个参数：是否使用视图缓存，YES：视图在开始和结束时渲染一次；NO：视图在每一帧都渲染</p>
+<p> <code>-(void)removeAllAnimations;</code></p>
+<p>  删除所有动画层，注意：层指的layer。例如：<br>  <code>[_imageView.layer removeAllAnimations];</code></p>
 <h2 id="UIView-Block动画"><a href="#UIView-Block动画" class="headerlink" title="UIView Block动画"></a>UIView Block动画</h2><p> iOS4.0以后，增加了Block动画块，提供更简洁的方式来实现动画。</p>
 <ul>
 <li><p>最简洁的Block动画：包含时间和动画</p>
@@ -308,30 +293,22 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[fromView.superview addSubview:toView];</span><br><span class="line">[fromView removeFromSuperview];</span><br></pre></td></tr></table></figure>
 <p>单个视图的过渡效果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[UIView transitionWithView:(nonnullUIView*)</span><br><span class="line">duration:(NSTimeInterval)</span><br><span class="line">options:(UIViewAnimationOptions)</span><br><span class="line">animations:^&#123;</span><br><span class="line">//执行的动画</span><br><span class="line">&#125;</span><br><span class="line">completion:^(BOOLfinished)&#123;</span><br><span class="line">//动画执行完毕后的操作</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<h1 id="UIView-动画实例"><a href="#UIView-动画实例" class="headerlink" title="UIView 动画实例"></a>UIView 动画实例</h1></li>
-</ul>
-<ol>
-<li><p>普通动画</p>
+<h1 id="UIView-动画实例"><a href="#UIView-动画实例" class="headerlink" title="UIView 动画实例"></a>UIView 动画实例</h1><p>1.普通动画</p>
 <p>下面三段代码都实现了相同的视图frame的变化，不同之处只在于其延迟时间、过渡效果和结束回调。</p>
 </li>
-</ol>
+</ul>
    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    -(void)blockAni&#123;</span><br><span class="line">[UIView animateWithDuration:1.0 animations:^&#123;</span><br><span class="line">self.cartCenter.frame=self.centerShow.frame;</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(void)blockAni&#123;</span><br><span class="line">[UIView animateWithDuration:1.0 animations:^&#123;</span><br><span class="line">self.cartCenter.frame=self.centerShow.frame;</span><br><span class="line">&#125;completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(void)blockAni&#123;</span><br><span class="line">[UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^&#123;</span><br><span class="line">self.cartCenter.frame=self.centerShow.frame;</span><br><span class="line">&#125;completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><p>Spring动画</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   -(void)blockAni&#123;</span><br><span class="line">[UIView animateWithDuration:1.0 delay:0.f usingSpringWithDamping:0.5 initialSpringVelocity:5.0 options:UIViewAnimationOptionCurveLinear animations:^&#123;</span><br><span class="line">self.cartCenter.frame=self.centerShow.frame;</span><br><span class="line">&#125;completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>keyFrames动画</p>
-<p>这里以实现视图背景颜色变化（红-绿-蓝-紫）的过程来演示关键帧动画。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">   -(void)blockAni&#123;</span><br><span class="line">self.centerShow.image=nil;</span><br><span class="line">[UIView animateKeyframesWithDuration:9.0 delay:0.f options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^&#123;</span><br><span class="line">[UIView addKeyframeWithRelativeStartTime:0.f relativeDuration:1.0/4 animations:^&#123;</span><br><span class="line">self.centerShow.backgroundColor=[UIColor colorWithRed:0.9475 green:0.1921 blue:0.1746 alpha:1.0];</span><br><span class="line">&#125;];</span><br><span class="line">[UIView addKeyframeWithRelativeStartTime:1.0/4 relativeDuration:1.0/4 animations:^&#123;</span><br><span class="line">self.centerShow.backgroundColor=[UIColor colorWithRed:0.1064 green:0.6052 blue:0.0334 alpha:1.0];</span><br><span class="line">&#125;];</span><br><span class="line">[UIView addKeyframeWithRelativeStartTime:2.0/4 relativeDuration:1.0/4 animations:^&#123;</span><br><span class="line">self.centerShow.backgroundColor=[UIColor colorWithRed:0.1366 green:0.3017 blue:0.8411 alpha:1.0];</span><br><span class="line">&#125;];</span><br><span class="line">[UIView addKeyframeWithRelativeStartTime:3.0/4 relativeDuration:1.0/4 animations:^&#123;</span><br><span class="line">self.centerShow.backgroundColor=[UIColor colorWithRed:0.619 green:0.037 blue:0.6719 alpha:1.0];</span><br><span class="line">&#125;];</span><br><span class="line">&#125;completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>转场动画</p>
-<p>单个视图转场</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-(void)blockAni&#123;</span><br><span class="line">[UIView transitionWithView:self.centerShow duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^&#123;</span><br><span class="line">self.centerShow.image=[UIImage imageNamed:@&quot;Service&quot;];</span><br><span class="line">&#125;completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>多个视图转场</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   -(void)blockAni&#123;</span><br><span class="line">UIImageView* newCenterShow =[[UIImageView alloc]initWithFrame:self.centerShow.frame];</span><br><span class="line">newCenterShow.image=[UIImage imageNamed:@&quot;Service&quot;];</span><br><span class="line">[UIView transitionFromView:self.centerShow toView:newCenterShow duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>UIView实现动画的方法有很多种。简单的动画效果你可以随意写。比较复杂的动画可以选用KeyFrames。</p>
-</li>
-</ol>
+<p>   2.Spring动画</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   -(void)blockAni&#123;</span><br><span class="line">[UIView animateWithDuration:1.0 delay:0.f usingSpringWithDamping:0.5 initialSpringVelocity:5.0 options:UIViewAnimationOptionCurveLinear animations:^&#123;</span><br><span class="line">self.cartCenter.frame=self.centerShow.frame;</span><br><span class="line">&#125;completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   3.keyFrames动画</p>
+<p>  这里以实现视图背景颜色变化（红-绿-蓝-紫）的过程来演示关键帧动画。</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">   -(void)blockAni&#123;</span><br><span class="line">self.centerShow.image=nil;</span><br><span class="line">[UIView animateKeyframesWithDuration:9.0 delay:0.f options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^&#123;</span><br><span class="line">[UIView addKeyframeWithRelativeStartTime:0.f relativeDuration:1.0/4 animations:^&#123;</span><br><span class="line">self.centerShow.backgroundColor=[UIColor colorWithRed:0.9475 green:0.1921 blue:0.1746 alpha:1.0];</span><br><span class="line">&#125;];</span><br><span class="line">[UIView addKeyframeWithRelativeStartTime:1.0/4 relativeDuration:1.0/4 animations:^&#123;</span><br><span class="line">self.centerShow.backgroundColor=[UIColor colorWithRed:0.1064 green:0.6052 blue:0.0334 alpha:1.0];</span><br><span class="line">&#125;];</span><br><span class="line">[UIView addKeyframeWithRelativeStartTime:2.0/4 relativeDuration:1.0/4 animations:^&#123;</span><br><span class="line">self.centerShow.backgroundColor=[UIColor colorWithRed:0.1366 green:0.3017 blue:0.8411 alpha:1.0];</span><br><span class="line">&#125;];</span><br><span class="line">[UIView addKeyframeWithRelativeStartTime:3.0/4 relativeDuration:1.0/4 animations:^&#123;</span><br><span class="line">self.centerShow.backgroundColor=[UIColor colorWithRed:0.619 green:0.037 blue:0.6719 alpha:1.0];</span><br><span class="line">&#125;];</span><br><span class="line">&#125;completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.转场动画</p>
+<p>  单个视图转场</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-(void)blockAni&#123;</span><br><span class="line">[UIView transitionWithView:self.centerShow duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^&#123;</span><br><span class="line">self.centerShow.image=[UIImage imageNamed:@&quot;Service&quot;];</span><br><span class="line">&#125;completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   多个视图转场</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   -(void)blockAni&#123;</span><br><span class="line">UIImageView* newCenterShow =[[UIImageView alloc]initWithFrame:self.centerShow.frame];</span><br><span class="line">newCenterShow.image=[UIImage imageNamed:@&quot;Service&quot;];</span><br><span class="line">[UIView transitionFromView:self.centerShow toView:newCenterShow duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished)&#123;</span><br><span class="line">NSLog(@&quot;动画结束&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   UIView实现动画的方法有很多种。简单的动画效果你可以随意写。比较复杂的动画可以选用KeyFrames。</p>
 <p>参考文档：</p>
 <p><a href="http://www.cnblogs.com/superYou/p/4634422.html" target="_blank" rel="noopener">http://www.cnblogs.com/superYou/p/4634422.html</a></p>
 
@@ -642,10 +619,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -658,15 +631,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,6 +671,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -706,19 +691,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,10 +704,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,6 +716,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,15 +767,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,11 +831,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

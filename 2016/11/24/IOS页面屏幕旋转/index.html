@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>IOS页面屏幕旋转 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IOS应用在使用过程中手机的方向不一定一直是正面竖直状态的，交互好的应用会根据手机的方向动态的调整界面的布局。Apple对手机app的多方向适配没有强制要求，对IPAD应用要求必须适配竖直和水平状态。 全局屏幕旋转适配 在AppDelegate回调中添加 - (UIInterfaceOrientationMask)application:(UIApplication *)application s">
+  <meta name="description" content="IOS应用在使用过程中手机的方向不一定一直是正面竖直状态的，交互好的应用会根据手机的方向动态的调整界面的布局。Apple对手机app的多方向适配没有强制要求，对IPAD应用要求必须适配竖直和水平状态。 全局屏幕旋转适配1.在AppDelegate回调中添加   - (UIInterfaceOrientationMask)application:(UIApplication *)applicatio">
 <meta name="keywords" content="iOS,屏幕旋转">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IOS页面屏幕旋转">
 <meta property="og:url" content="http://yoursite.com/2016/11/24/IOS页面屏幕旋转/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="IOS应用在使用过程中手机的方向不一定一直是正面竖直状态的，交互好的应用会根据手机的方向动态的调整界面的布局。Apple对手机app的多方向适配没有强制要求，对IPAD应用要求必须适配竖直和水平状态。 全局屏幕旋转适配 在AppDelegate回调中添加 - (UIInterfaceOrientationMask)application:(UIApplication *)application s">
+<meta property="og:description" content="IOS应用在使用过程中手机的方向不一定一直是正面竖直状态的，交互好的应用会根据手机的方向动态的调整界面的布局。Apple对手机app的多方向适配没有强制要求，对IPAD应用要求必须适配竖直和水平状态。 全局屏幕旋转适配1.在AppDelegate回调中添加   - (UIInterfaceOrientationMask)application:(UIApplication *)applicatio">
 <meta property="og:locale" content="Zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/viewControllerAutorotate.jpg">
-<meta property="og:updated_time" content="2016-12-05T03:22:48.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:22:51.026Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOS页面屏幕旋转">
-<meta name="twitter:description" content="IOS应用在使用过程中手机的方向不一定一直是正面竖直状态的，交互好的应用会根据手机的方向动态的调整界面的布局。Apple对手机app的多方向适配没有强制要求，对IPAD应用要求必须适配竖直和水平状态。 全局屏幕旋转适配 在AppDelegate回调中添加 - (UIInterfaceOrientationMask)application:(UIApplication *)application s">
+<meta name="twitter:description" content="IOS应用在使用过程中手机的方向不一定一直是正面竖直状态的，交互好的应用会根据手机的方向动态的调整界面的布局。Apple对手机app的多方向适配没有强制要求，对IPAD应用要求必须适配竖直和水平状态。 全局屏幕旋转适配1.在AppDelegate回调中添加   - (UIInterfaceOrientationMask)application:(UIApplication *)applicatio">
 <meta name="twitter:image" content="http://yoursite.com/images/viewControllerAutorotate.jpg">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
@@ -71,10 +71,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -187,19 +187,15 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：927字 | 预计阅读时长：3分钟
+        字数：929字 | 预计阅读时长：3分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>IOS应用在使用过程中手机的方向不一定一直是正面竖直状态的，交互好的应用会根据手机的方向动态的调整界面的布局。Apple对手机app的多方向适配没有强制要求，对IPAD应用要求必须适配竖直和水平状态。</p>
-<h1 id="全局屏幕旋转适配"><a href="#全局屏幕旋转适配" class="headerlink" title="全局屏幕旋转适配"></a>全局屏幕旋转适配</h1><ol>
-<li><p>在AppDelegate回调中添加</p>
-<p><code>- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window</code></p>
-</li>
-<li><p>通过info.plist文件进行配置</p>
-</li>
-</ol>
+<h1 id="全局屏幕旋转适配"><a href="#全局屏幕旋转适配" class="headerlink" title="全局屏幕旋转适配"></a>全局屏幕旋转适配</h1><p>1.在AppDelegate回调中添加</p>
+<p>  <code>- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window</code></p>
+<p>2.通过info.plist文件进行配置</p>
 <h1 id="单个ViewController屏幕旋转适配"><a href="#单个ViewController屏幕旋转适配" class="headerlink" title="单个ViewController屏幕旋转适配"></a>单个ViewController屏幕旋转适配</h1><a id="more"></a>
 <h2 id="自动旋转"><a href="#自动旋转" class="headerlink" title="自动旋转"></a>自动旋转</h2><p>在iOS6之前的版本中，通常使用 shouldAutorotateToInterfaceOrientation 来单独控制某个UIViewController的方向，需要哪个viewController支持旋转，只需要重写shouldAutorotateToInterfaceOrientation方法。<br>但是iOS 6里屏幕旋转改变了很多，之前的 shouldAutorotateToInterfaceOrientation 被列为 DEPRECATED 方法，查看UIViewController.h文件也可以看到：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation NS_DEPRECATED_IOS(2_0, 6_0);</span><br></pre></td></tr></table></figure>
@@ -542,10 +538,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -558,15 +550,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,6 +590,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -606,19 +610,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,10 +623,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,6 +635,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,15 +686,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,11 +750,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

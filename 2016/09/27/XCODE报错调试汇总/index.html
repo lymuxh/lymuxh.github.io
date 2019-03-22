@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>XCODE报错调试汇总 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="XCODE报错调试汇总crash report 获取分析 在提交新版本到AppStore时候一定要保留每个版本的.dSYM文件。无法定位crash的代码肯定是.dSYM文件和crash report对应的程序版本不一致。  由用户反馈的当前版本的crash report可以在iTunesConnect下载。如果是存在设备上的，可以用Organizer导出。  打开.crash文件，参考Hardwa">
+  <meta name="description" content="crash report 获取分析 在提交新版本到AppStore时候一定要保留每个版本的.dSYM文件。无法定位crash的代码肯定是.dSYM文件和crash report对应的程序版本不一致。 1.由用户反馈的当前版本的crash report可以在iTunesConnect下载。如果是存在设备上的，可以用Organizer导出。 2.打开.crash文件，参考Hardware Model确">
 <meta name="keywords" content="Crash,XCODE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XCODE报错调试汇总">
 <meta property="og:url" content="http://yoursite.com/2016/09/27/XCODE报错调试汇总/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="XCODE报错调试汇总crash report 获取分析 在提交新版本到AppStore时候一定要保留每个版本的.dSYM文件。无法定位crash的代码肯定是.dSYM文件和crash report对应的程序版本不一致。  由用户反馈的当前版本的crash report可以在iTunesConnect下载。如果是存在设备上的，可以用Organizer导出。  打开.crash文件，参考Hardwa">
+<meta property="og:description" content="crash report 获取分析 在提交新版本到AppStore时候一定要保留每个版本的.dSYM文件。无法定位crash的代码肯定是.dSYM文件和crash report对应的程序版本不一致。 1.由用户反馈的当前版本的crash report可以在iTunesConnect下载。如果是存在设备上的，可以用Organizer导出。 2.打开.crash文件，参考Hardware Model确">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2016-12-05T03:29:35.000Z">
+<meta property="og:updated_time" content="2019-03-22T07:52:00.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XCODE报错调试汇总">
-<meta name="twitter:description" content="XCODE报错调试汇总crash report 获取分析 在提交新版本到AppStore时候一定要保留每个版本的.dSYM文件。无法定位crash的代码肯定是.dSYM文件和crash report对应的程序版本不一致。  由用户反馈的当前版本的crash report可以在iTunesConnect下载。如果是存在设备上的，可以用Organizer导出。  打开.crash文件，参考Hardwa">
+<meta name="twitter:description" content="crash report 获取分析 在提交新版本到AppStore时候一定要保留每个版本的.dSYM文件。无法定位crash的代码肯定是.dSYM文件和crash report对应的程序版本不一致。 1.由用户反馈的当前版本的crash report可以在iTunesConnect下载。如果是存在设备上的，可以用Organizer导出。 2.打开.crash文件，参考Hardware Model确">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -190,16 +190,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="XCODE报错调试汇总"><a href="#XCODE报错调试汇总" class="headerlink" title="XCODE报错调试汇总"></a>XCODE报错调试汇总</h1><h2 id="crash-report-获取分析"><a href="#crash-report-获取分析" class="headerlink" title="crash report 获取分析"></a>crash report 获取分析</h2><ol>
-<li><p>在提交新版本到AppStore时候一定要保留每个版本的.dSYM文件。无法定位crash的代码肯定是.dSYM文件和crash report对应的程序版本不一致。</p>
-</li>
-<li><p>由用户反馈的当前版本的crash report可以在iTunesConnect下载。如果是存在设备上的，可以用Organizer导出。</p>
-</li>
-<li><p>打开.crash文件，参考Hardware Model确定故障设备是armv6还是armv7架构。</p>
-</li>
-<li><p>利用.dSYM定位调用栈记录中未确定的offset。</p>
-</li>
-</ol>
+        <h2 id="crash-report-获取分析"><a href="#crash-report-获取分析" class="headerlink" title="crash report 获取分析"></a>crash report 获取分析</h2><p> 在提交新版本到AppStore时候一定要保留每个版本的.dSYM文件。无法定位crash的代码肯定是.dSYM文件和crash report对应的程序版本不一致。</p>
+<p>1.由用户反馈的当前版本的crash report可以在iTunesConnect下载。如果是存在设备上的，可以用Organizer导出。</p>
+<p>2.打开.crash文件，参考Hardware Model确定故障设备是armv6还是armv7架构。</p>
+<p>3.利用.dSYM定位调用栈记录中未确定的offset。</p>
 <a id="more"></a>
 <p>比如有如下记录:</p>
 <p>　　Last Exception Backtrace:</p>
@@ -218,7 +212,7 @@
 <p>　　-[MyDelegate bar:] (in MyApp) (MyDelegate.m:441)</p>
 <p>　　这样就确定了调用栈中offset对应的源代码位置。注意如果此时.dSYM文件版本不对，会得到完全无用的错误结果。之后就可以根据所有信息综合分析，确定crash的原因并修正。
 　　</p>
-<h2 id="常见IOS-Crash-原因"><a href="#常见IOS-Crash-原因" class="headerlink" title="常见IOS Crash 原因"></a>常见IOS Crash 原因</h2><h3 id="内存管理错误"><a href="#内存管理错误" class="headerlink" title="内存管理错误"></a>内存管理错误</h3><p>内存管理是iPhone开发所要掌握的最基本问题，特别是使用引用计数手动管理内存的情况。内存管理错误包括：</p>
+<h2 id="常见iOS-Crash-原因"><a href="#常见iOS-Crash-原因" class="headerlink" title="常见iOS Crash 原因"></a>常见iOS Crash 原因</h2><h3 id="内存管理错误"><a href="#内存管理错误" class="headerlink" title="内存管理错误"></a>内存管理错误</h3><p>内存管理是iPhone开发所要掌握的最基本问题，特别是使用引用计数手动管理内存的情况。内存管理错误包括：</p>
 <p>内存泄漏：未释放不会再使用对象。比如alloc忘记release,malloc忘记free。可用Xcode的Product菜单下的Analyze功能来解决该问题；</p>
 <p>引用出错：引用已经被释放的对象指针。很多“莫名其妙”的Crash都是由于窗体经历的生命周期所导致的（viewDidUnload、viewDidLoad），在iOSSimulator里模拟内存警告就可以解决该问题；</p>
 <p>内存警告：App使用的内存超出设备的限制，iOS将强制挂起App，强制挂起iOS是不会记录Crashlog，Flurry也无法记录。内存泄漏、快速/大量的分配内存都可能导致内存警告，这时候应该尽可能的释放不需要的资源。通过Instruments-&gt;Allocations里的Heapshot功能能够找出哪些资源未被释放。</p>
@@ -416,7 +410,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#XCODE报错调试汇总"><span class="toc-number">1.</span> <span class="toc-text">XCODE报错调试汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#crash-report-获取分析"><span class="toc-number">1.1.</span> <span class="toc-text">crash report 获取分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见IOS-Crash-原因"><span class="toc-number">1.2.</span> <span class="toc-text">常见IOS Crash 原因</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存管理错误"><span class="toc-number">1.2.1.</span> <span class="toc-text">内存管理错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序逻辑错误"><span class="toc-number">1.2.2.</span> <span class="toc-text">程序逻辑错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SDK错误-（部署版本-lt-编译版本）"><span class="toc-number">1.2.3.</span> <span class="toc-text">SDK错误 （部署版本&lt; 编译版本）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主线程阻塞"><span class="toc-number">1.2.4.</span> <span class="toc-text">主线程阻塞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决Crash"><span class="toc-number">1.3.</span> <span class="toc-text">解决Crash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">1.4.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加收集IOSCrash框架"><span class="toc-number">1.5.</span> <span class="toc-text">添加收集IOSCrash框架</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#crash-report-获取分析"><span class="toc-number">1.</span> <span class="toc-text">crash report 获取分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见iOS-Crash-原因"><span class="toc-number">2.</span> <span class="toc-text">常见iOS Crash 原因</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存管理错误"><span class="toc-number">2.1.</span> <span class="toc-text">内存管理错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序逻辑错误"><span class="toc-number">2.2.</span> <span class="toc-text">程序逻辑错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SDK错误-（部署版本-lt-编译版本）"><span class="toc-number">2.3.</span> <span class="toc-text">SDK错误 （部署版本&lt; 编译版本）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主线程阻塞"><span class="toc-number">2.4.</span> <span class="toc-text">主线程阻塞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决Crash"><span class="toc-number">3.</span> <span class="toc-text">解决Crash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">4.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加收集IOSCrash框架"><span class="toc-number">5.</span> <span class="toc-text">添加收集IOSCrash框架</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -568,10 +562,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -584,15 +574,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,6 +614,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -632,19 +634,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,10 +647,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,6 +659,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -708,15 +710,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -772,11 +774,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="穆小灰灰的博客">
 <meta property="og:description" content="CocoaPods 是什么当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit，AFNetWorking等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总之就是，手动一个个去下载所需类库十分麻烦，尤其是不同版本类库依赖的不同版本类库。另外一种常见情况是，你项目中用到的类库有更新，你必">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2016-12-01T02:10:27.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:01:34.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CocoaPods">
 <meta name="twitter:description" content="CocoaPods 是什么当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit，AFNetWorking等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总之就是，手动一个个去下载所需类库十分麻烦，尤其是不同版本类库依赖的不同版本类库。另外一种常见情况是，你项目中用到的类库有更新，你必">
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -190,17 +190,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CocoaPods-是什么"><a href="#CocoaPods-是什么" class="headerlink" title="CocoaPods 是什么"></a>CocoaPods 是什么</h1><p>当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit，AFNetWorking等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总之就是，手动一个个去下载所需类库十分麻烦，尤其是不同版本类库依赖的不同版本类库。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。如果能有什么工具能解决这些恼人的问题，那将“善莫大焉”。所以，你需要 CocoaPods。</p>
+        <h2 id="CocoaPods-是什么"><a href="#CocoaPods-是什么" class="headerlink" title="CocoaPods 是什么"></a>CocoaPods 是什么</h2><p>当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit，AFNetWorking等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总之就是，手动一个个去下载所需类库十分麻烦，尤其是不同版本类库依赖的不同版本类库。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。如果能有什么工具能解决这些恼人的问题，那将“善莫大焉”。所以，你需要 CocoaPods。</p>
 <p>CocoaPods应该是iOS最常用最有名的类库管理工具了，上述两个烦人的问题，通过cocoaPods，只需要一行命令就可以完全解决，当然前提是你必须正确设置它。重要的是，绝大部分有名的开源类库，都支持CocoaPods。所以，作为iOS程序员的我们，掌握CocoaPods的使用是必不可少的基本技能了。</p>
  <a id="more"></a>
-<h1 id="如何下载和安装-CocoaPods"><a href="#如何下载和安装-CocoaPods" class="headerlink" title="如何下载和安装 CocoaPods"></a>如何下载和安装 CocoaPods</h1><p>在安装CocoaPods之前，首先要在本地安装好Ruby环境。Mac中带有安装好的Ruby环境，如果安装CocoaPods时显示版本过低，参考<a href="http://blog.csdn.net/archer_sc/article/details/52043305" target="_blank" rel="noopener">mac下升级ruby环境版本</a></p>
+<h2 id="如何下载和安装-CocoaPods"><a href="#如何下载和安装-CocoaPods" class="headerlink" title="如何下载和安装 CocoaPods"></a>如何下载和安装 CocoaPods</h2><p>在安装CocoaPods之前，首先要在本地安装好Ruby环境。Mac中带有安装好的Ruby环境，如果安装CocoaPods时显示版本过低，参考<a href="http://blog.csdn.net/archer_sc/article/details/52043305" target="_blank" rel="noopener">mac下升级ruby环境版本</a></p>
 <p>假如你在本地已经安装好Ruby环境，那么下载和安装CocoaPods将十分简单，只需要一行命令。在Terminator（也就是终端）中输入以下命令（注意，本文所有命令都是在终端中输入并运行的）</p>
 <p><code>sudo gem install cocoapods</code></p>
 <p>如果在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。<br>但是，我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端中敲入依次敲入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --remove https://rubygems.org/</span><br><span class="line"></span><br><span class="line">//等有反应之后再敲入以下命令</span><br><span class="line"></span><br><span class="line">$ gem sources -a https://ruby.taobao.org/</span><br></pre></td></tr></table></figure>
 <p>为了验证你的Ruby镜像是并且仅是taobao，可以用以下命令查看：</p>
 <p><code>$ gem sources -l</code></p>
-<h1 id="如何使用-CocoaPods"><a href="#如何使用-CocoaPods" class="headerlink" title="如何使用 CocoaPods"></a>如何使用 CocoaPods</h1><p>例如使用CocoaPods，在项目中导入AFNetworking类库</p>
+<h2 id="如何使用-CocoaPods"><a href="#如何使用-CocoaPods" class="headerlink" title="如何使用 CocoaPods"></a>如何使用 CocoaPods</h2><p>例如使用CocoaPods，在项目中导入AFNetworking类库</p>
 <p>AFNetworking类库在GitHub地址是：<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="noopener">https://github.com/AFNetworking/AFNetworking</a></p>
 <p>为了确定AFNetworking是否支持CocoaPods，可以用CocoaPods的搜索功能验证一下。在终端中输入：</p>
 <p><code>$ pod search AFNetworking</code></p>
@@ -223,7 +223,7 @@
 <p><code>#import &lt;AFNetworking.h&gt;</code> 或者<br><code>#import &quot;AFNetworking.h&quot;</code></p>
 </li>
 </ol>
-<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol>
 <li><p>如何导入多个第三方库</p>
 <p>这就需要修改Podfile了，就是用vim编辑的那个保存在项目根目录中的文件，修改完了Podfile文件，需要重新执行一次pod install命令。</p>
 <p>例如：</p>
@@ -408,7 +408,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CocoaPods-是什么"><span class="toc-number">1.</span> <span class="toc-text">CocoaPods 是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何下载和安装-CocoaPods"><span class="toc-number">2.</span> <span class="toc-text">如何下载和安装 CocoaPods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何使用-CocoaPods"><span class="toc-number">3.</span> <span class="toc-text">如何使用 CocoaPods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见问题"><span class="toc-number">4.</span> <span class="toc-text">常见问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CocoaPods-是什么"><span class="toc-number">1.</span> <span class="toc-text">CocoaPods 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何下载和安装-CocoaPods"><span class="toc-number">2.</span> <span class="toc-text">如何下载和安装 CocoaPods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用-CocoaPods"><span class="toc-number">3.</span> <span class="toc-text">如何使用 CocoaPods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题"><span class="toc-number">4.</span> <span class="toc-text">常见问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -560,10 +560,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -576,15 +572,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,6 +612,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -624,19 +632,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,10 +645,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,6 +657,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,15 +708,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -764,11 +772,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ARKit入门系列四SceneKit简介 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SceneKit ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。 与SpriteKit一样，SceneKit通过场景（SCNScene）">
+  <meta name="description" content="ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。 与SpriteKit一样，SceneKit通过场景（SCNScene）来显示物体，场景包">
 <meta name="keywords" content="ARKit,SceneKit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARKit入门系列四SceneKit简介">
 <meta property="og:url" content="http://yoursite.com/2017/11/06/ARKit入门系列四SceneKit简介/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="SceneKit ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。 与SpriteKit一样，SceneKit通过场景（SCNScene）">
+<meta property="og:description" content="ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。 与SpriteKit一样，SceneKit通过场景（SCNScene）来显示物体，场景包">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2017-11-07T06:13:51.000Z">
+<meta property="og:updated_time" content="2019-03-22T08:59:17.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARKit入门系列四SceneKit简介">
-<meta name="twitter:description" content="SceneKit ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。 与SpriteKit一样，SceneKit通过场景（SCNScene）">
+<meta name="twitter:description" content="ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。 与SpriteKit一样，SceneKit通过场景（SCNScene）来显示物体，场景包">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="SceneKit"><a href="#SceneKit" class="headerlink" title="SceneKit"></a>SceneKit</h2><p> ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。</p>
+        <p>ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。</p>
 <p>与SpriteKit一样，SceneKit通过场景（SCNScene）来显示物体，场景包涵在SCNView。场景内同样是以节点的结构来呈现物体。场景里可以包含这些类型的项目：</p>
 <ul>
 <li><p>几何体 代码建立的3D对象或从文件加载的3D模型，在它们上可以附加不同的材料来达成控制颜色，纹理，反光等效果。</p>
@@ -402,7 +402,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SceneKit"><span class="toc-number">1.</span> <span class="toc-text">SceneKit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加场景"><span class="toc-number">2.</span> <span class="toc-text">添加场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加照相机"><span class="toc-number">3.</span> <span class="toc-text">添加照相机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加3D对象"><span class="toc-number">4.</span> <span class="toc-text">添加3D对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加光源"><span class="toc-number">5.</span> <span class="toc-text">添加光源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用材料"><span class="toc-number">6.</span> <span class="toc-text">使用材料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命中检测"><span class="toc-number">7.</span> <span class="toc-text">命中检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为节点添加约束"><span class="toc-number">8.</span> <span class="toc-text">为节点添加约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从COLLADA文件中加载文件"><span class="toc-number">9.</span> <span class="toc-text">从COLLADA文件中加载文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加物理仿真"><span class="toc-number">10.</span> <span class="toc-text">添加物理仿真</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加场景"><span class="toc-number">1.</span> <span class="toc-text">添加场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加照相机"><span class="toc-number">2.</span> <span class="toc-text">添加照相机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加3D对象"><span class="toc-number">3.</span> <span class="toc-text">添加3D对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加光源"><span class="toc-number">4.</span> <span class="toc-text">添加光源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用材料"><span class="toc-number">5.</span> <span class="toc-text">使用材料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命中检测"><span class="toc-number">6.</span> <span class="toc-text">命中检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为节点添加约束"><span class="toc-number">7.</span> <span class="toc-text">为节点添加约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从COLLADA文件中加载文件"><span class="toc-number">8.</span> <span class="toc-text">从COLLADA文件中加载文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加物理仿真"><span class="toc-number">9.</span> <span class="toc-text">添加物理仿真</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -554,10 +554,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -570,15 +566,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,6 +606,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -618,19 +626,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,10 +639,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,6 +651,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,15 +702,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,11 +766,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">

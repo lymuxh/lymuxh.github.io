@@ -67,10 +67,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 41
+			总文章数 42
 		</nav>
 		<nav>
-			总字数 <span class="post-count">127.9k</span>
+			总字数 <span class="post-count">130.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -166,6 +166,90 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-iOS绘图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/01/iOS绘图/">iOS绘图</a>
+    </h1>
+  
+
+        
+        <a href="/2016/12/01/iOS绘图/" class="archive-article-date">
+  	<time datetime="2016-12-01T05:46:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-01</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：3.6k字 | 预计阅读时长：14分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Core Graphics Framework是一套基于C的API框架，使用了Quartz作为绘图引擎。它提供了低级别、轻量级、高保真度的2D渲染。该框架可以用于基于路径的绘图、变换、颜色管理、脱屏渲染，模板、渐变、遮蔽、图像数据管理、图像的创建、遮罩以及PDF文档的创建、显示和分析。</p>
+</blockquote>
+<p>iOS支持两套图形API族：Core Graphics/QuartZ 2D 和OpenGL ES。OpenGL ES是跨平台的图形API，属于OpenGL的一个简化版本。QuartZ 2D是苹果公司开发的一套API，它是Core Graphics Framework的一部分。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Core Graphics</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/01/iOS绘图/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-UIView-动画" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -272,7 +356,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="UITableView介绍"><a href="#UITableView介绍" class="headerlink" title="UITableView介绍"></a>UITableView介绍</h1><p>在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。</p>
+        <p>在iOS开发中UITableView可以说是使用最广泛的控件，我们平时使用的软件中到处都可以看到它的影子，类似于微信、QQ、新浪微博等软件基本上随处都是UITableView。当然它的广泛使用自然离不开它强大的功能，今天这篇文章将针对UITableView重点展开讨论。</p>
 <p>UITableView有两种风格：UITableViewStylePlain和UITableViewStyleGrouped。这两者操作起来其实并没有本质区别，只是后者按分组样式显示前者按照普通样式显示而已。</p>
 <p>UITableView中每行数据都是一个UITableViewCell，在这个控件中为了显示更多的信息，iOS已经在其内部设置好了多个子控件以供开发者使用。如果我们查看UITableViewCell的声明文件可以发现在内部有一个UIView控件（contentView，作为其他元素的父控件）、两个UILable控件（textLabel、detailTextLabel）、一个UIImage控件（imageView），分别用于容器、显示内容、详情和图片。</p>
         
@@ -358,20 +442,16 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：2.6k字 | 预计阅读时长：10分钟
+        字数：2.7k字 | 预计阅读时长：10分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h1><ol>
-<li><p>initWithFrame:(CGRect)frame</p>
-<p>initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。</p>
-</li>
-<li><p>initWithCoder:(NSCoder *)aDecoder</p>
-<p>实际编程中，<strong>我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是不会被调用的。</strong> 因为nib文件已经知道如何初始化该View。（因为，我们在拖该view的时候，就定义好了长、宽、背景等属性）。</p>
-<p>这时候，会调用initWithCoder方法，我们可以用initWithCoder方法来重新定义我们在nib中已经设置的各项属性。</p>
-</li>
-</ol>
+        <h1 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h1><p>1.initWithFrame:(CGRect)frame</p>
+<p>  initWithFrame方法用来初始化并返回一个新的视图对象,根据指定的CGRect（尺寸）。</p>
+<p>2.initWithCoder:(NSCoder *)aDecoder</p>
+<p>  实际编程中，<strong>我们如果用Interface Builder 方式创建了UIView对象。（也就是，用拖控件的方式）那么，initWithFrame方法方法是不会被调用的。</strong> 因为nib文件已经知道如何初始化该View。（因为，我们在拖该view的时候，就定义好了长、宽、背景等属性）。</p>
+<p>  这时候，会调用initWithCoder方法，我们可以用initWithCoder方法来重新定义我们在nib中已经设置的各项属性。</p>
         
       
 
@@ -537,19 +617,15 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：927字 | 预计阅读时长：3分钟
+        字数：929字 | 预计阅读时长：3分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>IOS应用在使用过程中手机的方向不一定一直是正面竖直状态的，交互好的应用会根据手机的方向动态的调整界面的布局。Apple对手机app的多方向适配没有强制要求，对IPAD应用要求必须适配竖直和水平状态。</p>
-<h1 id="全局屏幕旋转适配"><a href="#全局屏幕旋转适配" class="headerlink" title="全局屏幕旋转适配"></a>全局屏幕旋转适配</h1><ol>
-<li><p>在AppDelegate回调中添加</p>
-<p><code>- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window</code></p>
-</li>
-<li><p>通过info.plist文件进行配置</p>
-</li>
-</ol>
+<h1 id="全局屏幕旋转适配"><a href="#全局屏幕旋转适配" class="headerlink" title="全局屏幕旋转适配"></a>全局屏幕旋转适配</h1><p>1.在AppDelegate回调中添加</p>
+<p>  <code>- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window</code></p>
+<p>2.通过info.plist文件进行配置</p>
 <h1 id="单个ViewController屏幕旋转适配"><a href="#单个ViewController屏幕旋转适配" class="headerlink" title="单个ViewController屏幕旋转适配"></a>单个ViewController屏幕旋转适配</h1>
         
       
@@ -626,7 +702,7 @@
         
       </header>
       <div align="center" class="post-count">
-        字数：3.1k字 | 预计阅读时长：12分钟
+        字数：3.2k字 | 预计阅读时长：12分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -873,10 +949,240 @@
 <tr>
 <td>MKenshin Cui’s Blog</td>
 <td><a href="http://www.cnblogs.com/kenshincui" target="_blank" rel="noopener">http://www.cnblogs.com/kenshincui</a></td>
+<td></td>
+</tr>
+<tr>
+<td>技术哥的博客</td>
+<td><a href="http://suenblog.duapp.com" target="_blank" rel="noopener">http://suenblog.duapp.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>老谭笔记</td>
+<td><a href="http://www.tanhao.me" target="_blank" rel="noopener">http://www.tanhao.me</a></td>
+<td></td>
+</tr>
+<tr>
+<td>coderyi</td>
+<td><a href="http://www.coderyi.com" target="_blank" rel="noopener">http://www.coderyi.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>雷纯锋的技术博客</td>
+<td><a href="http://blog.leichunfeng.com" target="_blank" rel="noopener">http://blog.leichunfeng.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>玉令天下的Blog</td>
+<td><a href="http://yulingtianxia.com" target="_blank" rel="noopener">http://yulingtianxia.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>不掏蜂窝的熊</td>
+<td><a href="http://www.hotobear.com" target="_blank" rel="noopener">http://www.hotobear.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>猫·仁波切</td>
+<td><a href="https://andelf.github.io" target="_blank" rel="noopener">https://andelf.github.io</a></td>
+<td></td>
+</tr>
+<tr>
+<td>煲仔饭</td>
+<td><a href="http://ivoryxiong.org" target="_blank" rel="noopener">http://ivoryxiong.org</a></td>
+<td></td>
+</tr>
+<tr>
+<td>里脊串的开发随笔</td>
+<td><a href="http://adad184.com" target="_blank" rel="noopener">http://adad184.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Chun Tips</td>
+<td><a href="http://chun.tips" target="_blank" rel="noopener">http://chun.tips</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Why’s blog - 汪海的实验室</td>
+<td><a href="http://blog.callmewhy.com" target="_blank" rel="noopener">http://blog.callmewhy.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Luke’s Homepage</td>
+<td><a href="http://geeklu.com" target="_blank" rel="noopener">http://geeklu.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>萧宸宇</td>
+<td><a href="http://iiiyu.com" target="_blank" rel="noopener">http://iiiyu.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Yuan博客</td>
+<td><a href="http://www.heyuan110.com" target="_blank" rel="noopener">http://www.heyuan110.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Shining IO</td>
+<td><a href="http://shiningio.com" target="_blank" rel="noopener">http://shiningio.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>YIFEIYANG–易飞扬的博客</td>
+<td><a href="http://www.yifeiyang.net" target="_blank" rel="noopener">http://www.yifeiyang.net</a></td>
+<td></td>
+</tr>
+<tr>
+<td>KooFrank’s Blog</td>
+<td><a href="http://koofrank.com" target="_blank" rel="noopener">http://koofrank.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>hello it works</td>
+<td><a href="http://helloitworks.com" target="_blank" rel="noopener">http://helloitworks.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>码农人生</td>
+<td><a href="http://msching.github.io" target="_blank" rel="noopener">http://msching.github.io</a></td>
+<td></td>
+</tr>
+<tr>
+<td>唐巧的技术博客</td>
+<td><a href="http://blog.devtang.com" target="_blank" rel="noopener">http://blog.devtang.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Lex Tang</td>
+<td><a href="http://lexrus.com" target="_blank" rel="noopener">http://lexrus.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>念茜的博客</td>
+<td><a href="http://nianxi.net" target="_blank" rel="noopener">http://nianxi.net</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Xcode Dev</td>
+<td><a href="http://blog.xcodev.com" target="_blank" rel="noopener">http://blog.xcodev.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Ted’s Homepage</td>
+<td><a href="http://wufawei.com" target="_blank" rel="noopener">http://wufawei.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>txx’s blog</td>
+<td><a href="http://blog.t-xx.me" target="_blank" rel="noopener">http://blog.t-xx.me</a></td>
+<td></td>
+</tr>
+<tr>
+<td>sunnyxx的技术博客</td>
+<td><a href="http://blog.sunnyxx.com" target="_blank" rel="noopener">http://blog.sunnyxx.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Kevin Blog</td>
+<td><a href="http://zhowkev.in" target="_blank" rel="noopener">http://zhowkev.in</a></td>
+<td></td>
+</tr>
+<tr>
+<td>阿毛的蛋疼地</td>
+<td><a href="http://www.xiangwangfeng.com" target="_blank" rel="noopener">http://www.xiangwangfeng.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>亚庆的 Blog</td>
+<td><a href="http://billwang1990.github.io" target="_blank" rel="noopener">http://billwang1990.github.io</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Nonomori</td>
+<td><a href="http://nonomori.farbox.com" target="_blank" rel="noopener">http://nonomori.farbox.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>言无不尽</td>
+<td><a href="http://tang3w.com" target="_blank" rel="noopener">http://tang3w.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Wonderffee’s Blog</td>
+<td><a href="http://wonderffee.github.io" target="_blank" rel="noopener">http://wonderffee.github.io</a></td>
+<td></td>
+</tr>
+<tr>
+<td>I’m TualatriX</td>
+<td><a href="http://imtx.me" target="_blank" rel="noopener">http://imtx.me</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Cocoabit</td>
+<td><a href="http://blog.cocoabit.com" target="_blank" rel="noopener">http://blog.cocoabit.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>nixzhu on scriptogr.am</td>
+<td><a href="http://nixzhu.me" target="_blank" rel="noopener">http://nixzhu.me</a></td>
+<td></td>
+</tr>
+<tr>
+<td>不会开机的男孩</td>
+<td><a href="http://studentdeng.github.io" target="_blank" rel="noopener">http://studentdeng.github.io</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Nico</td>
+<td><a href="http://blog.inico.me" target="_blank" rel="noopener">http://blog.inico.me</a></td>
+<td></td>
+</tr>
+<tr>
+<td>阿峰的技术窝窝</td>
+<td><a href="http://hufeng825.github.io" target="_blank" rel="noopener">http://hufeng825.github.io</a></td>
+<td></td>
+</tr>
+<tr>
+<td>answer_huang</td>
+<td><a href="http://answerhuang.duapp.com/index.php" target="_blank" rel="noopener">http://answerhuang.duapp.com/index.php</a></td>
+<td></td>
+</tr>
+<tr>
+<td>webfrogs</td>
+<td><a href="http://blog.nswebfrog.com" target="_blank" rel="noopener">http://blog.nswebfrog.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>代码手工艺人</td>
+<td><a href="http://joeyio.com" target="_blank" rel="noopener">http://joeyio.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Lancy’s Blog</td>
+<td><a href="http://gracelancy.com" target="_blank" rel="noopener">http://gracelancy.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>I’m Allen</td>
+<td><a href="http://www.imallen.com" target="_blank" rel="noopener">http://www.imallen.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Travis’ Blog</td>
+<td><a href="http://imi.im" target="_blank" rel="noopener">http://imi.im</a></td>
+<td></td>
+</tr>
+<tr>
+<td>王中周的技术博客</td>
+<td><a href="http://wangzz.github.io" target="_blank" rel="noopener">http://wangzz.github.io</a></td>
+<td></td>
+</tr>
+<tr>
+<td>会写代码的猪</td>
+<td><a href="http://gaosboy.com" target="_blank" rel="noopener">http://gaosboy.com</a></td>
 </tr>
 </tbody>
 </table>
-        
+
       
 
       
@@ -1029,88 +1335,6 @@
 
 
   
-    <article id="post-CocoaPods" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/11/CocoaPods/">CocoaPods</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/11/CocoaPods/" class="archive-article-date">
-  	<time datetime="2016-10-11T06:12:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-11</time>
-</a>
-        
-      </header>
-      <div align="center" class="post-count">
-        字数：1.1k字 | 预计阅读时长：4分钟
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="CocoaPods-是什么"><a href="#CocoaPods-是什么" class="headerlink" title="CocoaPods 是什么"></a>CocoaPods 是什么</h1><p>当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit，AFNetWorking等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总之就是，手动一个个去下载所需类库十分麻烦，尤其是不同版本类库依赖的不同版本类库。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。如果能有什么工具能解决这些恼人的问题，那将“善莫大焉”。所以，你需要 CocoaPods。</p>
-<p>CocoaPods应该是iOS最常用最有名的类库管理工具了，上述两个烦人的问题，通过cocoaPods，只需要一行命令就可以完全解决，当然前提是你必须正确设置它。重要的是，绝大部分有名的开源类库，都支持CocoaPods。所以，作为iOS程序员的我们，掌握CocoaPods的使用是必不可少的基本技能了。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CocoaPods</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/11/CocoaPods/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1232,10 +1456,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
@@ -1248,15 +1468,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">碰撞检测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旋转</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1284,6 +1508,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -1296,19 +1528,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1317,10 +1541,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1333,6 +1553,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1372,15 +1604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1436,11 +1668,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">
