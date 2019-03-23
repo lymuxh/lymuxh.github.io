@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="穆小灰灰的博客">
 <meta property="og:description" content="通过UIImageJPEGRepresentation进行压缩1234/**  return image as JPEG. May return nil if image has no CGImageRef or invalid bitmap format. compression is 0(most)..1(least)*let imageData :Data = UIImageJPEGRepr">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2019-03-22T07:16:29.676Z">
+<meta property="og:updated_time" content="2019-03-23T02:41:27.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS图片压缩方式">
 <meta name="twitter:description" content="通过UIImageJPEGRepresentation进行压缩1234/**  return image as JPEG. May return nil if image has no CGImageRef or invalid bitmap format. compression is 0(most)..1(least)*let imageData :Data = UIImageJPEGRepr">
@@ -69,10 +69,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 42
+			总文章数 44
 		</nav>
 		<nav>
-			总字数 <span class="post-count">130.1k</span>
+			总字数 <span class="post-count">132.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -192,6 +192,7 @@
       
         <h2 id="通过UIImageJPEGRepresentation进行压缩"><a href="#通过UIImageJPEGRepresentation进行压缩" class="headerlink" title="通过UIImageJPEGRepresentation进行压缩"></a>通过UIImageJPEGRepresentation进行压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  return image as JPEG. May return nil if image has no CGImageRef or invalid bitmap format. compression is 0(most)..1(least)</span><br><span class="line">*</span><br><span class="line">let imageData :Data = UIImageJPEGRepresentation(image, 0.1)!</span><br></pre></td></tr></table></figure>
 <p>上面就是把图片压缩十分之一大小，需要注意是只针对jpg图片，对于png图片不适用，该压缩不修改图片尺寸大小进行压缩，循环调用并不会一直压缩。如果压缩后依然不能满足大小就只能通过修改图尺寸进行压缩了。</p>
+<a id="more"></a>
 <h2 id="指定宽高同比压缩"><a href="#指定宽高同比压缩" class="headerlink" title="指定宽高同比压缩"></a>指定宽高同比压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">- (UIImage *)scaleToWidth:(CGFloat)width&#123;</span><br><span class="line">    </span><br><span class="line">    // 如果传入的宽度比当前宽度还要大,就直接返回</span><br><span class="line">    </span><br><span class="line">    if (width &gt; self.size.width) &#123;</span><br><span class="line">        return  self;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 计算缩放之后的高度</span><br><span class="line">    CGFloat height = (width / self.size.width) * self.size.height;</span><br><span class="line">    </span><br><span class="line">    // 初始化要画的大小</span><br><span class="line">    CGRect  rect = CGRectMake(0, 0, width, height);</span><br><span class="line"></span><br><span class="line">    // 1. 开启图形上下文</span><br><span class="line">    UIGraphicsBeginImageContext(rect.size);</span><br><span class="line">    </span><br><span class="line">    // 2. 画到上下文中 (会把当前image里面的所有内容都画到上下文)</span><br><span class="line">    [self drawInRect:rect];</span><br><span class="line">    </span><br><span class="line">    // 3. 取到图片</span><br><span class="line">    </span><br><span class="line">    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();</span><br><span class="line">    </span><br><span class="line">    // 4. 关闭上下文</span><br><span class="line">    UIGraphicsEndImageContext();</span><br><span class="line">    // 5. 返回</span><br><span class="line">    return image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="按制定尺寸进行压缩"><a href="#按制定尺寸进行压缩" class="headerlink" title="按制定尺寸进行压缩"></a>按制定尺寸进行压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">- (UIImage *)imageByScalingToSize:(CGSize)targetSize&#123;</span><br><span class="line">    </span><br><span class="line">    UIImage *sourceImage = self;</span><br><span class="line">    UIImage *newImage = nil;</span><br><span class="line">    </span><br><span class="line">    CGSize imageSize = sourceImage.size;</span><br><span class="line">    CGFloat width = imageSize.width;</span><br><span class="line">    CGFloat height = imageSize.height;</span><br><span class="line">    </span><br><span class="line">    CGFloat targetWidth = targetSize.width;</span><br><span class="line">    CGFloat targetHeight = targetSize.height;</span><br><span class="line">    </span><br><span class="line">    CGFloat scaleFactor = 0.0;</span><br><span class="line">    CGFloat scaledWidth = targetWidth;</span><br><span class="line">    CGFloat scaledHeight = targetHeight;</span><br><span class="line">    </span><br><span class="line">    CGPoint thumbnailPoint = CGPointMake(0.0,0.0);</span><br><span class="line">    </span><br><span class="line">    if (!CGSizeEqualToSize(imageSize, targetSize)) &#123;</span><br><span class="line">        CGFloat widthFactor = targetWidth / width;</span><br><span class="line">        CGFloat heightFactor = targetHeight / height;</span><br><span class="line">        if (widthFactor &gt; heightFactor)</span><br><span class="line">            scaleFactor = widthFactor;</span><br><span class="line">        else</span><br><span class="line">            scaleFactor = heightFactor;</span><br><span class="line">        scaledWidth  = width * scaleFactor;</span><br><span class="line">        scaledHeight = height * scaleFactor;</span><br><span class="line">        </span><br><span class="line">        // center the image</span><br><span class="line">    </span><br><span class="line">        if (widthFactor &gt; heightFactor) &#123;</span><br><span class="line">            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;</span><br><span class="line">        &#125; else if (widthFactor &gt; heightFactor) &#123;</span><br><span class="line">            thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // this is actually the interesting part:</span><br><span class="line">    </span><br><span class="line">    UIGraphicsBeginImageContext(targetSize);</span><br><span class="line">    </span><br><span class="line">    CGRect thumbnailRect = CGRectZero;</span><br><span class="line">    thumbnailRect.origin = thumbnailPoint;</span><br><span class="line">    thumbnailRect.size.width  = scaledWidth;</span><br><span class="line">    thumbnailRect.size.height = scaledHeight;</span><br><span class="line">    </span><br><span class="line">    [sourceImage drawInRect:thumbnailRect];</span><br><span class="line">    </span><br><span class="line">    newImage = UIGraphicsGetImageFromCurrentImageContext();</span><br><span class="line">    UIGraphicsEndImageContext();</span><br><span class="line">    </span><br><span class="line">    if(newImage == nil) DDLog(@&quot;could not scale image&quot;);</span><br><span class="line">    return newImage ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="其他图片常用方法"><a href="#其他图片常用方法" class="headerlink" title="其他图片常用方法"></a>其他图片常用方法</h2><h3 id="图片根据朝向旋转"><a href="#图片根据朝向旋转" class="headerlink" title="图片根据朝向旋转"></a>图片根据朝向旋转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">- (UIImage *)fixOrientation&#123;</span><br><span class="line">    </span><br><span class="line">    if (self.imageOrientation == UIImageOrientationUp) return self;</span><br><span class="line">    CGAffineTransform transform = CGAffineTransformIdentity;</span><br><span class="line">    switch (self.imageOrientation) &#123;</span><br><span class="line">        case UIImageOrientationDown:</span><br><span class="line">        case UIImageOrientationDownMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, self.size.width, self.size.height);</span><br><span class="line">            transform = CGAffineTransformRotate(transform, M_PI);</span><br><span class="line">            break;</span><br><span class="line">            </span><br><span class="line">        case UIImageOrientationLeft:</span><br><span class="line">        case UIImageOrientationLeftMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, self.size.width, 0);</span><br><span class="line">            transform = CGAffineTransformRotate(transform, M_PI_2);</span><br><span class="line">            break;</span><br><span class="line">            </span><br><span class="line">        case UIImageOrientationRight:</span><br><span class="line">        case UIImageOrientationRightMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, 0, self.size.height);</span><br><span class="line">            transform = CGAffineTransformRotate(transform, -M_PI_2);</span><br><span class="line">            break;</span><br><span class="line">        case UIImageOrientationUp:</span><br><span class="line">        case UIImageOrientationUpMirrored:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    switch (self.imageOrientation) &#123;</span><br><span class="line">        case UIImageOrientationUpMirrored:</span><br><span class="line">        case UIImageOrientationDownMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, self.size.width, 0);</span><br><span class="line">            transform = CGAffineTransformScale(transform, -1, 1);</span><br><span class="line">            break;</span><br><span class="line">            </span><br><span class="line">        case UIImageOrientationLeftMirrored:</span><br><span class="line">        case UIImageOrientationRightMirrored:</span><br><span class="line">            transform = CGAffineTransformTranslate(transform, self.size.height, 0);</span><br><span class="line">            transform = CGAffineTransformScale(transform, -1, 1);</span><br><span class="line">            break;</span><br><span class="line">        case UIImageOrientationUp:</span><br><span class="line">        case UIImageOrientationDown:</span><br><span class="line">        case UIImageOrientationLeft:</span><br><span class="line">        case UIImageOrientationRight:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    CGContextRef ctx = CGBitmapContextCreate(NULL, self.size.width, self.size.height,</span><br><span class="line">                                             CGImageGetBitsPerComponent(self.CGImage), 0,</span><br><span class="line">                                             CGImageGetColorSpace(self.CGImage),</span><br><span class="line">                                             CGImageGetBitmapInfo(self.CGImage));</span><br><span class="line">    CGContextConcatCTM(ctx, transform);</span><br><span class="line">    switch (self.imageOrientation) &#123;</span><br><span class="line">        case UIImageOrientationLeft:</span><br><span class="line">        case UIImageOrientationLeftMirrored:</span><br><span class="line">        case UIImageOrientationRight:</span><br><span class="line">        case UIImageOrientationRightMirrored:</span><br><span class="line">            CGContextDrawImage(ctx, CGRectMake(0,0,self.size.height,self.size.width), self.CGImage);</span><br><span class="line">            break;</span><br><span class="line">            </span><br><span class="line">        default:</span><br><span class="line">            CGContextDrawImage(ctx, CGRectMake(0,0,self.size.width,self.size.height), self.CGImage);</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);</span><br><span class="line">    UIImage *img = [UIImage imageWithCGImage:cgimg];</span><br><span class="line">    CGContextRelease(ctx);</span><br><span class="line">    CGImageRelease(cgimg);</span><br><span class="line">    return img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -314,6 +315,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/03/23/zsh下配置-bash-profile重启失效/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          zsh下配置.bash_profile重启失效
+        
+      </div>
+    </a>
   
   
     <a href="/2018/02/11/jenkins实现持续集成/" id="article-nav-older" class="article-nav-link-wrap">
@@ -480,11 +490,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
+                <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS11</a>
+                <a href="javascript:void(0)" class="js-tag color1">3dmax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DAE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,15 +510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AR</a>
+                <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">3dmax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DAE</a>
+                <a href="javascript:void(0)" class="js-tag color1">iOS11</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,6 +558,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -560,11 +578,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">zsh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bash_profile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,14 +607,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,14 +623,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,6 +679,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">CALayer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">gitment</a>
               </li>
              
               <li class="article-tag-list-item">

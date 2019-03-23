@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>jenkins实现持续集成 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="集成环境 macBook  java环境 1.8 tomcat 7.0 xcode环境 9.0 jenkins(.war) v2.6+  java环境安装1.从orcale官网下载macOS对应的java版本进行下载 建议下载jdk-8u201-macosx-x64_bin.dmg 2.双击下载文件，继续双击出现图标 3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成 j">
+  <meta name="description" content="集成环境 macBook  java环境 1.8 tomcat 7.0 xcode环境 9.0 jenkins(.war) v2.6+  java环境安装1.从orcale官网下载macOS对应的java版本进行下载 建议下载jdk-8u201-macosx-x64_bin.dmg 2.双击下载文件，继续双击出现图标 3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成">
 <meta name="keywords" content="jenkins,继续集成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jenkins实现持续集成">
 <meta property="og:url" content="http://yoursite.com/2018/02/11/jenkins实现持续集成/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="集成环境 macBook  java环境 1.8 tomcat 7.0 xcode环境 9.0 jenkins(.war) v2.6+  java环境安装1.从orcale官网下载macOS对应的java版本进行下载 建议下载jdk-8u201-macosx-x64_bin.dmg 2.双击下载文件，继续双击出现图标 3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成 j">
+<meta property="og:description" content="集成环境 macBook  java环境 1.8 tomcat 7.0 xcode环境 9.0 jenkins(.war) v2.6+  java环境安装1.从orcale官网下载macOS对应的java版本进行下载 建议下载jdk-8u201-macosx-x64_bin.dmg 2.双击下载文件，继续双击出现图标 3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成">
 <meta property="og:locale" content="Zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/jinkens/jinkens_01.jpg">
 <meta property="og:image" content="http://yoursite.com/images/jinkens/jinkens_02.jpg">
 <meta property="og:image" content="http://yoursite.com/images/jinkens/jinkens_03.jpg">
-<meta property="og:updated_time" content="2019-03-22T11:09:13.673Z">
+<meta property="og:updated_time" content="2019-03-23T05:02:41.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jenkins实现持续集成">
-<meta name="twitter:description" content="集成环境 macBook  java环境 1.8 tomcat 7.0 xcode环境 9.0 jenkins(.war) v2.6+  java环境安装1.从orcale官网下载macOS对应的java版本进行下载 建议下载jdk-8u201-macosx-x64_bin.dmg 2.双击下载文件，继续双击出现图标 3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成 j">
+<meta name="twitter:description" content="集成环境 macBook  java环境 1.8 tomcat 7.0 xcode环境 9.0 jenkins(.war) v2.6+  java环境安装1.从orcale官网下载macOS对应的java版本进行下载 建议下载jdk-8u201-macosx-x64_bin.dmg 2.双击下载文件，继续双击出现图标 3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成">
 <meta name="twitter:image" content="http://yoursite.com/images/jinkens/jinkens_01.jpg">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
@@ -73,10 +73,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 42
+			总文章数 44
 		</nav>
 		<nav>
-			总字数 <span class="post-count">130.1k</span>
+			总字数 <span class="post-count">132.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -205,6 +205,7 @@
 <p>建议下载jdk-8u201-macosx-x64_bin.dmg</p>
 <p>2.双击下载文件，继续双击出现图标</p>
 <p>3.依次点击继续等安装完成，通过终端terminal，输入以下指令看是否完成</p>
+<a id="more"></a>
 <p><code>java -version</code></p>
 <p>如果能正常显示java版本说明java安装成功</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jjava version &quot;1.8.0_201&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_201-b09)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)</span><br></pre></td></tr></table></figure>
@@ -528,11 +529,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
+                <a href="javascript:void(0)" class="js-tag color3">AR</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS11</a>
+                <a href="javascript:void(0)" class="js-tag color1">3dmax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DAE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,15 +549,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AR</a>
+                <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">3dmax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DAE</a>
+                <a href="javascript:void(0)" class="js-tag color1">iOS11</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,6 +597,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -608,11 +617,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Crash</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">XCODE</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">zsh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bash_profile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,14 +646,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,14 +662,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,6 +718,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">CALayer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">gitment</a>
               </li>
              
               <li class="article-tag-list-item">
