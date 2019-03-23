@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="穆小灰灰的博客">
 <meta property="og:description" content="前言hexo博客之前搭建时选择了yilia主题，因为平时比较懒，博客一直也没怎么更新，最近事情不是很多，就想重新整理以下博客，顺便集成以下评论和打赏功能。看了国内几个第三方评论系统，如：多说，友言，畅言，不是关闭就是需要进行备案，看到有人提供gitmeng，还是基于GitHub的，就选择了Gitment。 升级博客主题之前实用的是yilia主题3.0版本,看了以下最新的是4.0的版本虽然作者貌似已">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2019-03-23T05:01:41.339Z">
+<meta property="og:updated_time" content="2019-03-23T05:08:29.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客yilia主题集成gitment">
 <meta name="twitter:description" content="前言hexo博客之前搭建时选择了yilia主题，因为平时比较懒，博客一直也没怎么更新，最近事情不是很多，就想重新整理以下博客，顺便集成以下评论和打赏功能。看了国内几个第三方评论系统，如：多说，友言，畅言，不是关闭就是需要进行备案，看到有人提供gitmeng，还是基于GitHub的，就选择了Gitment。 升级博客主题之前实用的是yilia主题3.0版本,看了以下最新的是4.0的版本虽然作者貌似已">
@@ -209,19 +209,22 @@
 <p>定义处：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192:function(e,t,n)&#123;&quot;use strict&quot;;function o(e)&#123;var t=new RegExp(&quot;(^|&amp;)&quot;+e+&quot;=([^&amp;]*)(&amp;|$)&quot;,&quot;i&quot;),n=window.location.search.substr(1).match(t);return null!=n?unescape(n[2]):null&#125;var r=n(388);if(n(197),window.BJ_REPORT)&#123;BJ_REPORT.init(&#123;id:1&#125;),BJ_REPORT.init(&#123;id:1,uin:window.location.origin,combo:0,delay:1e3,url:&quot;//litten.me:9005/badjs/&quot;,ignore:[/Script error/i],random:1,repeat:5e5,onReport:function(e,t)&#123;&#125;,ext:&#123;&#125;&#125;);var i=window.location.host,a=top===window,u=!(/localhost/i.test(i)||/127.0.0.1/i.test(i)||/0.0.0.0/i.test(i));a&amp;&amp;u&amp;&amp;BJ_REPORT.report(&quot;yilia-&quot;+window.location.host);var l=o(&quot;f&quot;),c=&quot;yilia-from&quot;;l?(a&amp;&amp;BJ_REPORT.report(&quot;from-&quot;+l),r.set(c,l)):document.referrer.indexOf(window.location.host)&gt;=0?(l=r.get(c),l&amp;&amp;a&amp;&amp;BJ_REPORT.report(&quot;from-&quot;+l)):r.remove(c)&#125;e.exports=&#123;init:function()&#123;&#125;&#125;&#125;,</span><br></pre></td></tr></table></figure>
 <p>删除调用处：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">,n(192)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### share_jia微信分享报错</span><br><span class="line"></span><br><span class="line">原因百度云盘生成二维码接口关闭了</span><br><span class="line"></span><br><span class="line">修改yilia/layout/_partial/post/share.ejs 文件中</span><br><span class="line"></span><br><span class="line">`</span><br><span class="line">&lt;img src=&quot;&lt;%- &apos;qrcode&apos; in locals ? qrcode(sUrl) : &apos;//pan.baidu.com/share/qrcode?url=&apos; + sUrl  %&gt;&quot; alt=&quot;微信分享二维码&quot;&gt;</span><br><span class="line">`</span><br><span class="line"></span><br><span class="line">为</span><br><span class="line"></span><br><span class="line">` &lt;img src=&quot;&lt;%- &apos;qrcode&apos; in locals ? qrcode(sUrl) : &apos;//api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=&apos; + sUrl  %&gt;&quot; alt=&quot;微信分享二维码&quot;&gt;</span><br><span class="line">`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 设置首页点击所有文章右滑动出现文章目录</span><br><span class="line"></span><br><span class="line"> 1.请确保node版本大于6.2，输入node -v查看版本号，不符合的自己百度修改！</span><br><span class="line"> 2.在博客根目录（注意不是yilia根目录）执行以下命令：</span><br><span class="line"></span><br><span class="line">` npm i hexo-generator-json-content --save`</span><br><span class="line"></span><br><span class="line">3.在根目录_config.yml里添加配置：</span><br></pre></td></tr></table></figure>
-<p>jsonContent:<br>    meta: false<br>    pages: false<br>    posts:<br>      title: true<br>      date: true<br>      path: true<br>      text: false<br>      raw: false<br>      content: false<br>      slug: false<br>      updated: false<br>      comments: false<br>      link: false<br>      permalink: false<br>      excerpt: false<br>      categories: false<br>      tags: true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 设置添加文字统计</span><br><span class="line"></span><br><span class="line">在博客根目录（注意不是yilia根目录）执行以下命令：</span><br><span class="line"></span><br><span class="line">` npm i hexo-wordcount --save`</span><br><span class="line"></span><br><span class="line">在yilia/layout/_partial/left-col.ejs 文件header-menu组件下面添加</span><br></pre></td></tr></table></figure></p>
-<pre><code>  &lt;nav&gt;
-      总文章数 &lt;%=site.posts.length%&gt;
-  &lt;/nav&gt;
-  &lt;nav&gt;
-      总字数 &lt;span class=&quot;post-count&quot;&gt;&lt;%= totalcount(site, &apos;0,0.0a&apos;) %&gt;&lt;/span&gt;
-&lt;/nav&gt;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在yilia/layout/_partial/article.ejs 文件中head组件下面添加</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;div align=&quot;center&quot; class=&quot;post-count&quot;&gt;
-  字数：&lt;%= wordcount(post.content) %&gt;字 | 预计阅读时长：&lt;%= min2read(post.content) %&gt;分钟
-&lt;/div&gt;
-</code></pre><p><code>`</code></p>
+<p><code>,n(192)</code> </p>
+<h3 id="share-jia微信分享报错"><a href="#share-jia微信分享报错" class="headerlink" title="share_jia微信分享报错"></a>share_jia微信分享报错</h3><p>原因百度云盘生成二维码接口关闭了</p>
+<p>修改yilia/layout/_partial/post/share.ejs 文件中</p>
+<p><code>&lt;img src=&quot;&lt;%- &#39;qrcode&#39; in locals ? qrcode(sUrl) : &#39;//pan.baidu.com/share/qrcode?url=&#39; + sUrl  %&gt;&quot; alt=&quot;微信分享二维码&quot;&gt;</code></p>
+<p>为</p>
+<p><code>&lt;img src=&quot;&lt;%- &#39;qrcode&#39; in locals ? qrcode(sUrl) : &#39;//api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=&#39; + sUrl  %&gt;&quot; alt=&quot;微信分享二维码&quot;&gt;</code></p>
+<h3 id="设置首页点击所有文章右滑动出现文章目录"><a href="#设置首页点击所有文章右滑动出现文章目录" class="headerlink" title="设置首页点击所有文章右滑动出现文章目录"></a>设置首页点击所有文章右滑动出现文章目录</h3><p> 1.请确保node版本大于6.2，输入node -v查看版本号，不符合的自己百度修改！<br> 2.在博客根目录（注意不是yilia根目录）执行以下命令：</p>
+<p><code>npm i hexo-generator-json-content --save</code></p>
+<p>3.在根目录_config.yml里添加配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">jsonContent:</span><br><span class="line">    meta: false</span><br><span class="line">    pages: false</span><br><span class="line">    posts:</span><br><span class="line">      title: true</span><br><span class="line">      date: true</span><br><span class="line">      path: true</span><br><span class="line">      text: false</span><br><span class="line">      raw: false</span><br><span class="line">      content: false</span><br><span class="line">      slug: false</span><br><span class="line">      updated: false</span><br><span class="line">      comments: false</span><br><span class="line">      link: false</span><br><span class="line">      permalink: false</span><br><span class="line">      excerpt: false</span><br><span class="line">      categories: false</span><br><span class="line">      tags: true</span><br></pre></td></tr></table></figure>
+<h3 id="设置添加文字统计"><a href="#设置添加文字统计" class="headerlink" title="设置添加文字统计"></a>设置添加文字统计</h3><p>在博客根目录（注意不是yilia根目录）执行以下命令：</p>
+<p><code>npm i hexo-wordcount --save</code></p>
+<p>在yilia/layout/_partial/left-col.ejs 文件header-menu组件下面添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav&gt;</span><br><span class="line">	总文章数 &lt;%=site.posts.length%&gt;</span><br><span class="line">&lt;/nav&gt;</span><br><span class="line">&lt;nav&gt;</span><br><span class="line">	总字数 &lt;span class=&quot;post-count&quot;&gt;&lt;%= totalcount(site, &apos;0,0.0a&apos;) %&gt;&lt;/span&gt;</span><br><span class="line"> &lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+<p>在yilia/layout/_partial/article.ejs 文件中head组件下面添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align=&quot;center&quot; class=&quot;post-count&quot;&gt;</span><br><span class="line">  字数：&lt;%= wordcount(post.content) %&gt;字 | 预计阅读时长：&lt;%= min2read(post.content) %&gt;分钟</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p><a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="noopener">gitment作者博客</a></p>
 
       
@@ -374,7 +377,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#升级博客主题"><span class="toc-number">2.</span> <span class="toc-text">升级博客主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册Oauth-Appliatin"><span class="toc-number">2.1.</span> <span class="toc-text">注册Oauth Appliatin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化评论"><span class="toc-number">2.2.</span> <span class="toc-text">初始化评论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yilia-支付头像等图片配置"><span class="toc-number">2.3.</span> <span class="toc-text">yilia 支付头像等图片配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yilia-主题修改"><span class="toc-number">3.</span> <span class="toc-text">yilia 主题修改</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#升级博客主题"><span class="toc-number">2.</span> <span class="toc-text">升级博客主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册Oauth-Appliatin"><span class="toc-number">2.1.</span> <span class="toc-text">注册Oauth Appliatin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化评论"><span class="toc-number">2.2.</span> <span class="toc-text">初始化评论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yilia-支付头像等图片配置"><span class="toc-number">2.3.</span> <span class="toc-text">yilia 支付头像等图片配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yilia-主题修改"><span class="toc-number">3.</span> <span class="toc-text">yilia 主题修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#share-jia微信分享报错"><span class="toc-number">3.1.</span> <span class="toc-text">share_jia微信分享报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置首页点击所有文章右滑动出现文章目录"><span class="toc-number">3.2.</span> <span class="toc-text">设置首页点击所有文章右滑动出现文章目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置添加文字统计"><span class="toc-number">3.3.</span> <span class="toc-text">设置添加文字统计</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -502,11 +505,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS11</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SceneKit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SCNAction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,22 +538,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DAE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SceneKit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SCNAction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS11</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,6 +589,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">延时执行</a>
               </li>
              
@@ -598,11 +609,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,18 +634,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">bash_profile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
