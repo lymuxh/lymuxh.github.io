@@ -67,10 +67,10 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 45
+			总文章数 46
 		</nav>
 		<nav>
-			总字数 <span class="post-count">134.3k</span>
+			总字数 <span class="post-count">137.5k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -166,6 +166,101 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-ARKit入门系列四SceneKit简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/06/ARKit入门系列四SceneKit简介/">ARKit入门系列四SceneKit简介</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/06/ARKit入门系列四SceneKit简介/" class="archive-article-date">
+  	<time datetime="2017-11-06T09:36:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-06</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：1.6k字 | 预计阅读时长：6分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ARSCNView 继承自SceneKit的 SCNView，SceneKit展示的内容在ARSCNView上也可以展示，SceneKit作为构建3D场景的框架，且可以与Core Animation和SpriteKit无缝交互。在SceneKit中可以直接引入COLLADA行业标准文件制作好的3D模型或场景。</p>
+<p>与SpriteKit一样，SceneKit通过场景（SCNScene）来显示物体，场景包涵在SCNView。场景内同样是以节点的结构来呈现物体。场景里可以包含这些类型的项目：</p>
+<ul>
+<li><p>几何体 代码建立的3D对象或从文件加载的3D模型，在它们上可以附加不同的材料来达成控制颜色，纹理，反光等效果。</p>
+</li>
+<li><p>照相机 这是你观察这个场景的入口，可以设置位置和视角。</p>
+</li>
+<li><p>光源 有各种光源后面会提到。</p>
+</li>
+<li><p>物理实体 受物理特效控制的各种有实体的物体，也有许多种。</p>
+</li>
+</ul>
+<p>使用SceneKit的方法不止有在SCNView内部来使用。还可以在Core Animation层的层次结构中使用SCNLayer。使用SCNRender来渲染你自己的OpenGL渲染器。</p>
+<h2 id="添加场景"><a href="#添加场景" class="headerlink" title="添加场景"></a>添加场景</h2><p>首先要做的当然是添加场景。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//获取SCNView</span><br><span class="line">let scnView = self.view as! SCNView</span><br><span class="line">//我自己的场景</span><br><span class="line">let myScenes = myScene()</span><br><span class="line">//将SCNView的场景设置为我的场景</span><br><span class="line">scnView.scene = myScenes</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ARKit</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SceneKit</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/06/ARKit入门系列四SceneKit简介/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-ARKit入门系列三ARAPI大全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -998,87 +1093,6 @@
 
 
   
-    <article id="post-CoreAnimation系列之十三高效绘图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/08/CoreAnimation系列之十三高效绘图/">CoreAnimation系列之十三高效绘图</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/08/CoreAnimation系列之十三高效绘图/" class="archive-article-date">
-  	<time datetime="2016-12-08T06:09:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-08</time>
-</a>
-        
-      </header>
-      <div align="center" class="post-count">
-        字数：2.9k字 | 预计阅读时长：11分钟
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在第12章『速度的曲率』我们学习如何用Instruments来诊断Core Animation性能问题。在构建一个iOS app的时候会遇到很多潜在的性能陷阱，但是在本章我们将着眼于有关<em>绘制</em>的性能问题。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CoreAnimation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高效绘图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/08/CoreAnimation系列之十三高效绘图/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1176,6 +1190,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
               </li>
              
@@ -1189,14 +1211,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SCNAction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1236,19 +1250,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IOS企业版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">APP离线升级</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">屏幕旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">IOS企业版</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">APP离线升级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1272,14 +1286,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
@@ -1297,6 +1303,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统型号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1396,7 +1410,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">隐式动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">图层时间</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1404,7 +1418,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图层时间</a>
+                <a href="javascript:void(0)" class="js-tag color5">隐式动画</a>
               </li>
              
               <li class="article-tag-list-item">

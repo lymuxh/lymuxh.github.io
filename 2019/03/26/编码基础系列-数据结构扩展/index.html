@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 数据结构 | 穆小灰灰的博客</title>
+  <title>编码基础系列-数据结构扩展 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS、NodeJS、Java">
-<meta property="og:type" content="website">
-<meta property="og:title" content="穆小灰灰的博客">
-<meta property="og:url" content="http://yoursite.com/tags/数据结构/index.html">
+  <meta name="description" content="数组和广义表数组和广义表可看成是一种特殊的线性表，其特殊在于: 表中的元素本身也是一种线性表。内存连续。根据下标在O(1)时间读/写任何元素。 二维数组，多维数组，广义表、树、图都属于非线性结构。 数组与关联数组数组的存储顺序：  行优先顺序； 列优先顺序。  数组中的任一元素可以在相同的时间内存取，即顺序存储的数组是一个随机存取结构。 关联数组(Associative Array)，又称映射（M">
+<meta name="keywords" content="数据结构,编程基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编码基础系列-数据结构扩展">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/编码基础系列-数据结构扩展/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="iOS、NodeJS、Java">
+<meta property="og:description" content="数组和广义表数组和广义表可看成是一种特殊的线性表，其特殊在于: 表中的元素本身也是一种线性表。内存连续。根据下标在O(1)时间读/写任何元素。 二维数组，多维数组，广义表、树、图都属于非线性结构。 数组与关联数组数组的存储顺序：  行优先顺序； 列优先顺序。  数组中的任一元素可以在相同的时间内存取，即顺序存储的数组是一个随机存取结构。 关联数组(Associative Array)，又称映射（M">
 <meta property="og:locale" content="Zh-CN">
+<meta property="og:updated_time" content="2019-03-26T11:03:34.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="穆小灰灰的博客">
-<meta name="twitter:description" content="iOS、NodeJS、Java">
+<meta name="twitter:title" content="编码基础系列-数据结构扩展">
+<meta name="twitter:description" content="数组和广义表数组和广义表可看成是一种特殊的线性表，其特殊在于: 表中的元素本身也是一种线性表。内存连续。根据下标在O(1)时间读/写任何元素。 二维数组，多维数组，广义表、树、图都属于非线性结构。 数组与关联数组数组的存储顺序：  行优先顺序； 列优先顺序。  数组中的任一元素可以在相同的时间内存取，即顺序存储的数组是一个随机存取结构。 关联数组(Associative Array)，又称映射（M">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -165,36 +167,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-编码基础系列-数据结构扩展" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      编码基础系列-数据结构扩展
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/编码基础系列-数据结构扩展/" class="archive-article-date">
+
+        
+        <a href="/2019/03/26/编码基础系列-数据结构扩展/" class="archive-article-date">
   	<time datetime="2019-03-26T09:50:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/编码基础系列-数据结构扩展/">编码基础系列-数据结构扩展</a>
-    </h1>
-  
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：3.2k字 | 预计阅读时长：11分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数组和广义表"><a href="#数组和广义表" class="headerlink" title="数组和广义表"></a>数组和广义表</h2><p>数组和广义表可看成是一种特殊的线性表，其特殊在于: 表中的元素本身也是一种线性表。内存连续。根据下标在O(1)时间读/写任何元素。</p>
+<p>二维数组，多维数组，广义表、树、图都属于非线性结构。</p>
+<h3 id="数组与关联数组"><a href="#数组与关联数组" class="headerlink" title="数组与关联数组"></a>数组与关联数组</h3><p>数组的存储顺序：</p>
+<ol>
+<li>行优先顺序；</li>
+<li>列优先顺序。</li>
+</ol>
+<p>数组中的任一元素可以在相同的时间内存取，即顺序存储的数组是一个随机存取结构。</p>
+<p>关联数组(Associative Array)，又称映射（Map）、字典（ Dictionary）是一个抽象的数据结构，它包含着类似于(键，值)的有序对。 不是线性表。</p>
+<p>矩阵的压缩：</p>
+<p>对称矩阵、三角矩阵：直接存储矩阵的上三角或者下三角元素。注意区分i&gt;=j和i&lt;=j。</p>
+<h3 id="广义表"><a href="#广义表" class="headerlink" title="广义表"></a>广义表</h3><p>广义表（Lists，又称列表）是线性表的推广。广义表是n(n≥0)个元素a<sup>1</sup>,a<sup>2</sup>,a<sup>3</sup>,…,a<sup>n</sup>的有限序列，其中a<sup>i</sup>或者是原子项，或者是一个广义表。若广义表LS（n&gt;=1)非空，则a<sup>1</sup>是LS的表头，其余元素组成的表(a<sup>2</sup>,…a<sup>n</sup>)称为LS的表尾。广义表的元素可以是广义表，也可以是原子，广义表的元素也可以为空。表尾是指除去表头后剩下的元素组成的表，表头可以为表或单元素值。所以表尾不可以是单个元素值。</p>
+<p>例子：</p>
+<p>A=（）——A是一个空表，其长度为零。<br>B=（a）——表B只有一个原子a，B的长度为1。<br>C=（a,(b,c,d))——表C的长度为2，两个元素分别为原子a和子表(b,c,d)。<br>D=（A，B，C）——表D的长度为3，三个元素都是广义 表。显然，将子表的值代入后，则有D=(( ),(a),(a,(b,c,d)))。<br>E=（a,E）——这是一个递归的表，它的长度为2，E相当于一个无限的广义表E=(a,(a,(a,(a,…))))。</p>
+<p>三个结论：</p>
+<ul>
+<li><p>广义表的元素可以是子表，而子表的元素还可以是子表。由此，广义表是一个多层次的结构，可以用图形象地表示</p>
+</li>
+<li><p>广义表可为其它表所共享。例如在上述例4中，广义表A，B，C为D的子表，则在D中可以不必列出子表的值，而是通过子表的名称来引用。</p>
+</li>
+<li><p>广义表的递归性</p>
+</li>
+</ul>
+<p>扩展：</p>
+<ul>
+<li><p>广义表是0个或多个单因素或子表组成的有限序列，广义表可以是自身的子表，广义表的长度n&gt;=0，所以可以为空表。广义表的同级元素(直属于同一个表中的各元素)具有线性关系。</p>
+</li>
+<li><p>广义表的表头为空，并不代表该广义表为空表。广义表()和(())不同。前者是长度为0的空表，对其不能做求表头和表尾的运算；而后者是长度为l的非空表(只不过该表中惟一的一个元素是空表)，对其可进行分解，得到的表头和表尾均是空表()。</p>
+</li>
+<li><p>已知广义表LS＝((a,b,c),(d,e,f)),运用head和tail函数取出LS中原子e的运算是head(tail(head(tail(LS)))。根据表头、表尾的定义可知：任何一个非空广义表的表头是表中第一个元素，它可以是原子，也可以是子表，而其表尾必定是子表。也就是说，广义表的head操作，取出的元素是什么，那么结果就是什么。但是tail操作取出的元素外必须加一个表——“（）“。tail(LS)＝((d,e,f))；head(tail(LS))=(d,e,f)；tail(head(tail(LS)))=(e,f)；head(tail(head(tail(LS))))=e。</p>
+</li>
+<li><p>二维以上的数组其实是一种特殊的广义表。</p>
+</li>
+</ul>
+<p>而在（非空）广义表中：</p>
+<ul>
+<li><p>表头head可以是原子或者一个表 </p>
+</li>
+<li><p>表尾tail一定是一个表 </p>
+</li>
+<li><p>广义表难以用顺序存储结构 </p>
+</li>
+<li><p>广义表可以是一个多层次的结构</p>
+</li>
+</ul>
+<h2 id="树和二叉树"><a href="#树和二叉树" class="headerlink" title="树和二叉树"></a>树和二叉树</h2><p>一种非线性结构。树是递归结构，在树的定义中又用到了树的概念。</p>
+<p>基本术语：</p>
+<p>树结点：包含一个数据元素及若干指向子树的分支；</p>
+<p>孩子结点：结点的子树的根称为该结点的孩子；</p>
+<p>双亲结点：B结点是A结点的孩子，则A结点是B结点的双亲；</p>
+<p>兄弟结点：同一双亲的孩子结点；</p>
+<p>堂兄结点：同一层上结点；</p>
+<p>结点层次：根结点的层定义为1；根的孩子为第二层结点，依此类推；</p>
+<p>树的高（深）度：树中最大的结点层；</p>
+<p>结点的度：结点子树的个数；</p>
+<p>树的度： 树中最大的结点度；</p>
+<p>叶子结点：也叫终端结点，是度为0的结点；</p>
+<p>分枝结点：度不为0的结点（非终端结点）；</p>
+<p>森林：互不相交的树集合；</p>
+<p>有序树：子树有序的树，如：家族树；</p>
+<p>无序树：不考虑子树的顺序；</p>
+<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树可以为空。二叉树结点的子树要区分左子树和右子树，即使只有一棵子树也要进行区分，说明它是左子树，还是右子树。这是二叉树与树的最主要的差别。注意区分：二叉树、二叉查找树/二叉排序树/二叉搜索树、二叉平衡(查找)树。</p>
+<p>二叉平衡树肯定是一颗二叉排序树。堆不是一颗二叉平衡树。</p>
+<p>二叉树与树是不同的，二叉树不等价于分支树最多为二的有序树。当一个结点只包含一个子节点时，对于有序树并无左右孩子之分，而对于二叉树来说依然有左右孩子之分，所以二叉树与树是两种不同的结构。</p>
+<p>性质：</p>
+<p>在二叉树的第 i 层上至多有2<sup>i-1</sup>个结点。</p>
+<p>深度为 k 的二叉树上至多含 2<sup>k</sup>-1 个结点（k≥1）</p>
+<p>对任何一棵二叉树，若它含有n<sub>0</sub>个叶子结点、n<sub>2</sub>个度为 2 的结点，则必存在关系式：n<sub>0</sub>= n<sub>2</sub>+1。</p>
+<p>具有 n 个结点的完全二叉树的深度为⎣log<sub>2</sub> n⎦ + 1 。</p>
+<p>n个结点的二叉树中，完全二叉树具有最小的路径长度。</p>
+<p>如果对一棵有n个结点的完全二叉树的结点按层序编号,则对任一结点i（1&lt;=i&lt;=n),有： </p>
+<ul>
+<li><p>如果i＝1，则结点i无双亲，是二叉树的根；如果i&gt;1，则其双亲d的编号是 i/2(整除）。</p>
+</li>
+<li><p>如果2i&gt;n，无左孩子；否则，其左孩子是结点2i。</p>
+</li>
+<li><p>如果2i＋1&gt;n，则结点i无右孩子；否则，其右孩子是结点2i＋1。</p>
+</li>
+</ul>
+<p>二叉树的存储结构</p>
+<p>顺序存储结构：仅仅适用于满或完全二叉树，结点之间的层次关系由性质5确定。</p>
+<p>二叉链表法：每个节点存储左子树和右子树。三叉链表：左子树、右子树、父节点，总的指针是n+2。</p>
+<p>在有n个结点的二叉链表中，值为非空的链域的个数为n-1。在有N个结点的二叉链表中必定有2N个链域。除根结点外，其余N-1个结点都有一个父结点。所以，一共有N-1个非空链域，其余2N-(N-1)=N+1个为空链域。</p>
+<p>二叉链存储法也叫孩子兄弟法，左指针指向左孩子，右指针指向右兄弟。而中序遍历的顺序是左孩子，根，右孩子。这种遍历顺序与存储结构不同，因此需要堆栈保存中间结果。而中序遍历检索二叉树时，由于其存储结构跟遍历顺序相符，因此不需要用堆栈。</p>
+<h3 id="遍历二叉树和线索二叉树"><a href="#遍历二叉树和线索二叉树" class="headerlink" title="遍历二叉树和线索二叉树"></a>遍历二叉树和线索二叉树</h3><p>遍历二叉树：使得每一个结点均被访问一次，而且仅被访问一次。非递归的遍历实现要利用栈。</p>
+<p>先序遍历DLR：根节点-&gt;左子树-&gt;右子树</p>
+<p>中序遍历LDR：左子树-&gt;根节点-&gt;右子树。必须要有中序遍历才能得到一棵二叉树的正确顺序</p>
+<p>后续遍历LRD：左子树-&gt;右子树-&gt;根节点。需要栈的支持。</p>
+<p>层次遍历：用一维数组存储二叉树时,总是以层次遍历的顺序存储结点。层次遍历应该借助队列。</p>
+<p>线索二叉树：对二叉树所有结点做某种处理可在遍历过程中实现；检索（查找）二叉树某个结点，可通过遍历实现；如果能将二叉树线索化，就可以简化遍历算法，提高遍历速度，目的是加快查找结点的前驱或后继的速度。</p>
+<p>如何线索化？以中序遍历为例，若能将中序序列中每个结点前趋、后继信息保存起来，以后再遍历二叉树时就可以根据所保存的结点前趋、后继信息对二叉树进行遍历。对于二叉树的线索化，实质上就是遍历一次二叉树，只是在遍历的过程中，检查当前结点左，右指针域是否为空，若为空，将它们改为指向前驱结点或后继结点的线索。前驱就是在这一点之前走过的点，不是下一将要去往的点。</p>
+<p>加上结点前趋后继信息（结索）的二叉树称为线索二叉树。n个结点的线索二叉树上每个结点有2个指针域（指向左孩子和右孩子），总共有2n个指针域；一个n个结点的树有n-1条边，那么空指针域= 2n - (n-1) = n + 1，即线索数为n+1。指针域tag为0，存放孩子指针，为1，存放前驱/后继节点指针。</p>
+<h2 id="树和森林"><a href="#树和森林" class="headerlink" title="树和森林"></a>树和森林</h2><p>树的存储结构：</p>
+<ul>
+<li><p>双亲表示法</p>
+</li>
+<li><p>孩子表示法</p>
+</li>
+<li><p>利用图表示树</p>
+</li>
+<li><p>孩子兄弟表示法（二叉树表示法）：链表中每个结点的两指针域分别指向其第一个孩子结点和下一个兄弟结点</p>
+</li>
+</ul>
+<p>将树转化成二叉树：右子树一定为空</p>
+<ul>
+<li><p>加线：在兄弟之间加一连线</p>
+</li>
+<li><p>抹线：对每个结点，除了其左孩子外，去除其与其余孩子之间的关系</p>
+</li>
+<li><p>旋转：以树的根结点为轴心，将整树顺时针转45°</p>
+</li>
+</ul>
+<p>森林转换成二叉树：</p>
+<ul>
+<li><p>将各棵树分别转换成二叉树</p>
+</li>
+<li><p>将每棵树的根结点用线相连</p>
+</li>
+<li><p>以第一棵树根结点为二叉树的根</p>
+</li>
+</ul>
+<p>树与转换后的二叉树的关系：转换后的二叉树的先序对应树的先序遍历；转换后的二叉树的中序对应树的后序遍历</p>
+<h3 id="哈弗曼树-霍夫曼树"><a href="#哈弗曼树-霍夫曼树" class="headerlink" title="哈弗曼树/霍夫曼树"></a>哈弗曼树/霍夫曼树</h3><p>一些概念</p>
+<p>路径：从一个祖先结点到子孙结点之间的分支构成这两个结点间的路径；</p>
+<p>路径长度：路径上的分支数目称为路径长度；</p>
+<p>树的路径长度：从根到每个结点的路径长度之和。</p>
+<p>结点的权：根据应用的需要可以给树的结点赋权值；</p>
+<p>结点的带权路径长度：从根到该结点的路径长度与该结点权的乘积；</p>
+<p>树的带权路径长度=树中所有叶子结点的带权路径之和；通常记作 WPL=∑w<sub>i</sub>×l<sub>i</sub></p>
+<p>哈夫曼树：假设有n个权值(w<sub>1</sub>, w<sub>2</sub>, … , w<sub>n</sub>)，构造有n个叶子结点的二叉树，每个叶子结点有一个 w<sub>i</sub>作为它的权值。则带权路径长度最小的二叉树称为哈夫曼树。最优二叉树。</p>
+<p>前缀码的定义：在一个字符集中，任何一个字符的编码都不是另一个字符编码的前缀。霍夫曼编码就是前缀码，可用于快速判断霍夫曼编码是否正确。霍夫曼树是满二叉树，若有n个节点，则共有(n+1)/2个码子</p>
+<p>给定n个权值作为n的叶子结点，构造一棵二叉树，若带权路径长度达到最小，称这样的二叉树为最优二叉树，也称为霍夫曼树(Huffman Tree)。霍夫曼树是带权路径长度最短的树，权值较大的结点离根较近。</p>
+<p>假设哈夫曼树是二叉的话，则度为0的结点个数为N，度为2的结点个数为N-1，则结点总数为2N-1。哈夫曼树的结点个数必为奇数。</p>
+<p>哈夫曼树不一定是完全二叉树，但一定是最优二叉树。</p>
+<p>若度为m的哈夫曼树中,其叶结点个数为n,则非叶结点的个数为[(n-1)/(m-1)]。边的数目等于度。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -210,61 +379,135 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/03/26/编码基础系列-数据结构扩展/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/25/编码基础系列-数据结构/" class="archive-article-date">
-  	<time datetime="2019-03-25T04:00:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/25/编码基础系列-数据结构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">编码基础系列-数据结构</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/25/编码基础系列-数据结构/">编码基础系列-数据结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组和广义表"><span class="toc-number">1.</span> <span class="toc-text">数组和广义表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组与关联数组"><span class="toc-number">1.1.</span> <span class="toc-text">数组与关联数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#广义表"><span class="toc-number">1.2.</span> <span class="toc-text">广义表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#树和二叉树"><span class="toc-number">2.</span> <span class="toc-text">树和二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树"><span class="toc-number">2.1.</span> <span class="toc-text">二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历二叉树和线索二叉树"><span class="toc-number">2.2.</span> <span class="toc-text">遍历二叉树和线索二叉树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#树和森林"><span class="toc-number">3.</span> <span class="toc-text">树和森林</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#哈弗曼树-霍夫曼树"><span class="toc-number">3.1.</span> <span class="toc-text">哈弗曼树/霍夫曼树</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2019/03/26/编码基础系列-数据结构扩展/",
+  owner: 'lymuxh',
+  repo: 'blogcomment.github.io',
+  oauth: {
+    client_id: 'e1cac1b593f334b8b1a4',
+    client_secret: 'a8ec6ccad978b56496f1a676afa1e05130ea4dfc',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -287,9 +530,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
