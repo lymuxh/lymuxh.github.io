@@ -215,117 +215,8 @@
 </li>
 </ul>
 </li>
-<li><p>有向图</p>
-<ul>
-<li><p>回路或环：第一个顶点和最后一个顶点相同的路径。</p>
-</li>
-<li><p>简单回路或简单环：除第一个顶点和最后一个顶点之外，其余顶点不重复出现的回路。</p>
-</li>
-<li><p>连通：顶点v至v’之间有路径存在</p>
-</li>
-<li><p>强连通图：有向图G的任意两点之间都是连通的，则称G是强连通图。各个顶点间均可达。</p>
-</li>
-<li><p>强连通分量：极大连通子图</p>
-</li>
-<li><p>有向图顶点的度是顶点的入度与出度之和。邻接矩阵中第V行中的1的个数是V的出度</p>
-</li>
-<li><p>生成树：极小连通子图。包含图的所有n个结点，但只含图的n-1条边。在生成树中添加一条边之后，必定会形成回路或环。</p>
-</li>
-<li><p>完全图：有 n(n-1)/2 条边的无向图。其中n是结点个数。必定是连通图。</p>
-</li>
-<li><p>有向完全图：有n(n-1)条边的有向图。其中n是结点个数。每两个顶点之间都有两条方向相反的边连接的图。</p>
-</li>
-<li><p>一个无向图 G=(V,E) 是连通的，那么边的数目大于等于顶点的数目减一：|E|&gt;=|V|-1，而反之不成立。如果 G=(V,E) 是有向图，那么它是强连通图的必要条件是边的数目大于等于顶点的数目：|E|&gt;=|V|，而反之不成立。没有回路的无向图是连通的当且仅当它是树，即等价于：|E|=|V|-1。</p>
-</li>
 </ul>
-</li>
-</ul>
-<h2 id="图的存储形式"><a href="#图的存储形式" class="headerlink" title="图的存储形式"></a>图的存储形式</h2><ol>
-<li><p>邻接矩阵和加权邻接矩阵 </p>
-<ul>
-<li><p>无权有向图：出度: i行之和；入度: j列之和。</p>
-</li>
-<li><p>无权无向图：i结点的度: i行或i列之和。</p>
-</li>
-<li><p>加权邻接矩阵：相连为w，不相连为∞</p>
-</li>
-</ul>
-</li>
-<li><p>邻接表 </p>
-<ul>
-<li><p>用顶点数组表、边（弧）表表示该有向图或无向图</p>
-</li>
-<li><p>顶点数组表：用数组存放所有的顶点。数组大小为图顶点数n</p>
-</li>
-<li><p>边表（边结点表）：每条边用一个结点进行表示。同一个结点的所有的边形成它的边结点单链表。</p>
-</li>
-<li><p>n个顶点的无向图的邻接表最多有n(n-1)个边表结点。有n个顶点的无向图最多有n<em>(n-1)/2条边，此时为完全无向图，而在邻接表中每条边存储两次，所以有n</em>(n-1)个结点</p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><p>深度优先搜索利用栈，广度优先搜索利用队列</p>
-<p>求一条从顶点i到顶点s的简单路径–深搜。求两个顶点之间的一条长度最短的路径–广搜。当各边上的权值均相等时,BFS算法可用来解决单源最短路径问题。</p>
-<h3 id="生成树和最小生成树"><a href="#生成树和最小生成树" class="headerlink" title="生成树和最小生成树"></a>生成树和最小生成树</h3><p>每次遍历一个连通图将图的边分成遍历所经过的边和没有经过的边两部分，将遍历经过的边同图的顶点构成一个子图，该子图称为生成树。因此有DFS生成树和BFS生成树。</p>
-<p>生成树是连通图的极小子图，有n个顶点的连通图的生成树必定有n-1条边,在生成树中任意增加一条边，必定产生回路。若砍去它的一条边，就会把生成树变成非连通子图</p>
-<p>最小生成树：生成树中边的权值(代价)之和最小的树。最小生成树问题是构造连通网的最小代价生成树。</p>
-<p>Kruskal算法：令最小生成树集合T初始状态为空，在有n个顶点的图中选取代价最小的边并从图中删去。若该边加到T中有回路则丢弃，否则留在T中；依此类推，直至T中有n-1条边为止。</p>
-<p>Prim算法、Kruskal算法和Dijkstra算法均属于贪心算法。</p>
-<ul>
-<li><p>Dijkstra算法解决的是带权重的有向图上单源最短路径问题，该算法要求所有边的权重都为非负值。</p>
-</li>
-<li><p>Dijkstra算法解决了从某个原点到其余各顶点的最短路径问题，由循环嵌套可知该算法的时间复杂度为O(N<em>N)。若要求任一顶点到其余所有顶点的最短路径，一个比较简单的方法是对每个顶点当做源点运行一次该算法，等于在原有算法的基础上，再来一次循环，此时整个算法的复杂度就变成了O(N</em>N*N)。</p>
-</li>
-<li><p>Bellman-Ford算法解决的是一般情况下的单源最短路径问题，在这里，边的权重可以为负值。该算法返回一个布尔值，以表明是否存在一个从源节点可以到达的权重为负值的环路。如果存在这样一个环路，算法将告诉我们不存在解决方案。如果没有这种环路存在，算法将给出最短路径和它们的权重。</p>
-</li>
-</ul>
-<h3 id="双连通图和关节点"><a href="#双连通图和关节点" class="headerlink" title="双连通图和关节点"></a>双连通图和关节点</h3><p>若从一个连通图中删去任何一个顶点及其相关联的边，它仍为一个连通图的话，则该连通图被称为重（双）连通图。</p>
-<p>若连通图中的某个顶点和其相关联的边被删去之后，该连通图被分割成两个或两个以上的连通分量，则称此顶点为关节点。</p>
-<p>没有关节点的连通图为双连通图</p>
-<ul>
-<li><p>若生成树的根结点，有两个或两个以上的分支，则此顶点(生成树的根)必为关节点；</p>
-</li>
-<li><p>对生成树上的任意一个非叶“顶点”，若其某棵子树中的所有“顶点”没有和其祖先相通的回边，则该“顶点”必为关节点。</p>
-<h3 id="有向无环图及其应用"><a href="#有向无环图及其应用" class="headerlink" title="有向无环图及其应用"></a>有向无环图及其应用</h3></li>
-</ul>
-<p>拓扑排序。在用邻接表表示图时,对有n个顶点和e条弧的有向图而言时间复杂度为O(n+e)。一个有向图能被拓扑排序的充要条件就是它是一个有向无环图。拓扑序列唯一不能唯一确定有向图。</p>
-<p>AOV网(Activity On Vertex)：用顶点表示活动，边表示活动的优先关系的有向图称为AOV网。AOV网中不允许有回路，这意味着某项活动以自己为先决条件。</p>
-<p>拓扑有序序列：把AOV网络中各顶点按照它们相互之间的优先关系排列一个线性序列的过程。若vi是vj前驱，则vi一定在vj之前；对于没有优先关系的点，顺序任意。</p>
-<p>拓扑排序：对AOV网络中顶点构造拓扑有序序列的过程。方法：</p>
-<ul>
-<li><p>在有向图中选一个没有前驱的顶点且输出之</p>
-</li>
-<li><p>从图中删除该顶点和所有以它为尾的弧</p>
-</li>
-<li><p>重复上述两步，直至全部顶点均已输出；或者当图中不存在无前驱的顶点为止(此时说明图中有环）</p>
-</li>
-</ul>
-<p>采用深度优先搜索或拓扑排序算法可以判断出一个有向图中是否有环(回路).深度优先搜索只要在其中记录下搜索的节点数n，当n大于图中节点数时退出，并可以得出有回路。若有回路，则拓扑排序访问不到图中所有的节点，所以也可以得出回路。广度优先搜索过程中如果访问到一个已经访问过的节点，可能是多个节点指向这个节点，不一定是存在环。</p>
-<p>算法描述：</p>
-<ul>
-<li>把邻接表中入度为0的顶点依此进栈</li>
-<li><p>若栈不空，则 </p>
-<ul>
-<li><p>栈顶元素vj退栈并输出；</p>
-</li>
-<li><p>在邻接表中查找v<sub>j</sub>的直接后继v<sub>k</sub>，把v<sub>k</sub>的入度减1；若v<sub>k</sub>的入度为0则进栈</p>
-</li>
-</ul>
-</li>
-<li><p>若栈空时输出的顶点个数不是n，则有向图有环；否则，拓扑排序完毕。</p>
-</li>
-</ul>
-<p>AOE网：带权的有向无环图，其中顶点表示事件，弧表示活动，权表示活动持续时间。在工程上常用来表示工程进度计划。</p>
-<p>一些定义：</p>
-<ul>
-<li><p>事件的最早发生时间（ve(j)）：从源点到j结点的最长的路径。意味着事件最早能够发生的时间。</p>
-</li>
-<li><p>事件的最迟发生时间（vl(j)）：不影响工程的如期完工，事件j必须发生的时间。</p>
-</li>
-<li><p>活动a<sub>i</sub>由弧</p>
-</li>
-</ul>
-
+        
       
 
       
@@ -1257,6 +1148,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
               </li>
              
@@ -1270,14 +1169,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SCNAction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1353,7 +1244,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1365,11 +1260,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片压缩</a>
+                <a href="javascript:void(0)" class="js-tag color3">iPhoneX</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1378,6 +1269,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">继续集成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">zsh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bash_profile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1398,14 +1297,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">zsh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bash_profile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1445,11 +1336,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
+                <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">UIView</a>
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1461,7 +1352,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1541,11 +1432,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">显式动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像IO</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像IO</a>
+                <a href="javascript:void(0)" class="js-tag color5">显式动画</a>
               </li>
              
               <li class="article-tag-list-item">
