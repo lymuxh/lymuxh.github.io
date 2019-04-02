@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/3 | 穆小灰灰的博客</title>
+  <title>编码基础系列-数据结构扩展六 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS、NodeJS、Java">
-<meta property="og:type" content="website">
-<meta property="og:title" content="穆小灰灰的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/03/page/2/index.html">
+  <meta name="description" content="内部排序：全部数据可同时放入内存进行的排序。 插入类 直接插入排序。最坏情况是数据递减序，数据比较和移动量最大，达到O(n2)，最好是数据是递增序，比较和移动最少为O(n)。趟数是固定的n-1，即使有序，也要依次从第二个元素开始。排序趟数不等于时间复杂度。  折半插入排序 。由于插入第i个元素到r[1]到r[i-1]之间时，前i个数据是有序的，所以可以用折半查找确定插入位置，然后插入。">
+<meta name="keywords" content="数据结构,编程基础,内部排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编码基础系列-数据结构扩展六">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/编码基础系列-数据结构扩展六/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="iOS、NodeJS、Java">
+<meta property="og:description" content="内部排序：全部数据可同时放入内存进行的排序。 插入类 直接插入排序。最坏情况是数据递减序，数据比较和移动量最大，达到O(n2)，最好是数据是递增序，比较和移动最少为O(n)。趟数是固定的n-1，即使有序，也要依次从第二个元素开始。排序趟数不等于时间复杂度。  折半插入排序 。由于插入第i个元素到r[1]到r[i-1]之间时，前i个数据是有序的，所以可以用折半查找确定插入位置，然后插入。">
 <meta property="og:locale" content="Zh-CN">
+<meta property="og:updated_time" content="2019-03-30T06:12:33.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="穆小灰灰的博客">
-<meta name="twitter:description" content="iOS、NodeJS、Java">
+<meta name="twitter:title" content="编码基础系列-数据结构扩展六">
+<meta name="twitter:description" content="内部排序：全部数据可同时放入内存进行的排序。 插入类 直接插入排序。最坏情况是数据递减序，数据比较和移动量最大，达到O(n2)，最好是数据是递增序，比较和移动最少为O(n)。趟数是固定的n-1，即使有序，也要依次从第二个元素开始。排序趟数不等于时间复杂度。  折半插入排序 。由于插入第i个元素到r[1]到r[i-1]之间时，前i个数据是有序的，所以可以用折半查找确定插入位置，然后插入。">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -70,7 +72,7 @@
 			总文章数 52
 		</nav>
 		<nav>
-			总字数 <span class="post-count">141.8k</span>
+			总字数 <span class="post-count">148.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -165,67 +167,295 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-编码基础系列-数据结构扩展六" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/22/iOS图片压缩方式/" class="archive-article-date">
-  	<time datetime="2019-03-22T07:11:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/22/iOS图片压缩方式/">iOS图片压缩方式</a>
+    <h1 class="article-title" itemprop="name">
+      编码基础系列-数据结构扩展六
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/02/编码基础系列-数据结构扩展六/" class="archive-article-date">
+  	<time datetime="2019-04-02T02:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+        字数：2k字 | 预计阅读时长：7分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>内部排序：全部数据可同时放入内存进行的排序。</p>
+<h2 id="插入类"><a href="#插入类" class="headerlink" title="插入类"></a>插入类</h2><ul>
+<li><p>直接插入排序。最坏情况是数据递减序，数据比较和移动量最大，达到O(n2)，最好是数据是递增序，比较和移动最少为O(n)。趟数是固定的n-1，即使有序，也要依次从第二个元素开始。排序趟数不等于时间复杂度。</p>
+</li>
+<li><p>折半插入排序 。由于插入第i个元素到r[1]到r[i-1]之间时，前i个数据是有序的，所以可以用折半查找确定插入位置，然后插入。</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>希尔排序。缩小增量排序。5-3-1。在实际应用中，步长的选取可简化为开始为表长n的一半（n/2），以后每次减半，最后为1。插入的改进，最后一趟已基本有序，比较次数和移动次数相比直接插入最后一趟更少。</li>
+</ul>
+<h2 id="交换类"><a href="#交换类" class="headerlink" title="交换类"></a>交换类</h2><ul>
+<li><p>冒泡排序。O(n<sup>2</sup>)通常认为冒泡是比较差的，可以加些改进，比如在一趟中无数据的交换，则结束等措施。</p>
+<ul>
+<li><p>在数据已基本有序时，冒泡是一个较好的方法</p>
+</li>
+<li><p>在数据量较少时（15个左右）可以用冒泡</p>
+</li>
+</ul>
+</li>
+<li><p>快速排序</p>
+<ul>
+<li><p>时间复杂度。最好情况：每次支点总在中间，O(nlog<sub>2</sub>n)，平均O(nlog<sub>2</sub>n)。最坏，数据已是递增或递减，O(n<sup>2</sup>)。pivotkey的选择越靠近中央，即左右两个子序列长度越接近，排序速度越快。越无序越快。</p>
+</li>
+<li><p>空间复杂度。需栈空间以实现递归，最坏情况：S(n)=O(n)；一般情况：S(n)=O(log<sub>2</sub>n)</p>
+</li>
+</ul>
+<ul>
+<li><p>在序列已是有序的情况下，时间复杂度最高。</p>
+<ul>
+<li><p>原因：支点选择不当。</p>
+</li>
+<li><p>改进：随机选取支点或最左、最右、中间三个元素中的值处于中间的作为支点，通常可以避免最坏情况。所以，快速排序在表已基本有序的情况下不合适。</p>
+</li>
+</ul>
+</li>
+<li><p>在序列长度已较短时，采用直接插入排序、起泡排序等排序方法。序列的个数通常取10左右。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="选择类"><a href="#选择类" class="headerlink" title="选择类"></a>选择类</h2><ul>
+<li><p>简单选择排序。O(n<sup>2</sup>)。总比较次数n(n-1)/2。</p>
+</li>
+<li><p>堆排序。建堆 O(n)，筛选排序O(nlogn)。找出若干个数中最大/最小的前K个数，用堆排序是最好。小根堆中最大的数一定是放在叶子节点上，堆本身是个完全二叉树，完全二叉树的叶子节点的位置大于[n/2]。时间复杂度不会因为待排序序列的有序程度而改变，但是待排序序列的有序程度会影响比较次数。</p>
+</li>
+<li><p>归并排序。时间：与表长成正比，若一个表表长是m，另一个是n，则时间是O(m+n)。单独一个数组归并，时间：O(nlogn)，空间：O(n)，比较次数介于(nlogn)/2和(nlogn)-n+1，赋值操作的次数是(2nlogn)。归并排序算法比较占用内存，但却是效率高且稳定的排序算法。在外排序中使用。归并的趟数是logn。</p>
+</li>
+<li><p>基数排序。在一般情况下，每个结点有 d 位关键字，必须执行 t = d次分配和收集操作。分配的代价：O(n)；收集的代价：O(rd) （rd是基数）；总的代价为：O( d ×(n + rd))。适用于以数字和字符串为关键字的情况。</p>
+</li>
+<li><p>枚举排序，通常也被叫做秩排序，比较计数排序。对每一个要排序的元素，统计小于它的所有元素的个数，从而得到该元素在整个序列中的位置，时间复杂度为O(n<sup>2</sup>)</p>
+</li>
+</ul>
+<h2 id="排序算法的一些特点"><a href="#排序算法的一些特点" class="headerlink" title="排序算法的一些特点"></a>排序算法的一些特点</h2><ul>
+<li><p>堆排序、冒泡排序、快速排序在每趟排序过程中,都会有一个元素被放置在其最终的位置上。</p>
+</li>
+<li><p>有字符序列 ｛Q,H,C,Y,P,A,M,S,R,D,F,X｝ ,新序列{F,H,C,D,P,A,M,Q,R,S,Y,X}，是快速排序算法一趟扫描的结果。(拿Q作为分割点,快速排序一轮。二路归并，第一趟排序，得到 n / 2 个长度为 2 的各自有序的子序列，第二趟排序，得到 n / 4 个长度为 4 的各自有序的子序列H Q C Y A P M S D R F X。如果是快速排序的话，第一个元素t将会被放到一个最准确的位置，t前的数均小于t，后面的数均大于t。希尔排序每个小分组内将会是有序的。堆排序，把它构成一颗二叉树的时候，该堆要么就是大根堆，要么就是小根堆，第一趟Y排在最后；冒泡，那么肯定会有数据下沉的动作，第一趟有A在第一位。)</p>
+</li>
+<li><p>在文件”局部有序”或文件长度较小的情况下,最佳内部排序的方法是直接插入排序。（归并排序要求待排序列已经部分有序，而部分有序的含义是待排序列由若干有序的子序列组成，即每个子序列必须有序，并且其时间复杂度为O(nlog2n)；直接插入排序在待排序列基本有序时，每趟的比较次数大为降低，即n-1趟比较的时间复杂度由O(n^2)降至O(n)。在待排序的元素序列基本有序或者每个元素距其最终位置不远也可用插入排序，效率最高的排序方法是插入排序）</p>
+</li>
+<li><p>排序趟数与序列的原始状态有关的排序方法是优化冒泡和快速排序法。(插入排序和选择排序不管序列的原始状态是什么都要执行n-1趟，优化冒泡和快排不一定。仔细理解排序的次数和比较次数的区别)</p>
+</li>
+<li><p>不稳定的排序方法：快排，堆排，希尔，选择</p>
+</li>
+<li><p>要与关键字的初始排列次序无关,那么就是最好、最坏、一般的情况下排序时间复杂度不变, 总共有堆排序,归并排序,选择排序,基数排序</p>
+</li>
+<li><p>快速排序、Shell 排序、归并排序、直接插入排序的关键码比较次数与记录的初始排列有关。折半插入排序、选择排序无关。(直接插入排序在完全有序的情况下每个元素只需要与他左边的元素比较一次就可以确定他最终的位置；折半插入排序，比较次数是固定的，与初始排序无关；快速排序，初始排序不影响每次划分时的比较次数，都要比较n次，但是初始排序会影响划分次数，所以会影响总的比较次数，但快排平均比较次数最小；归并排序在归并的时候，如果右路最小值比左路最大值还大，那么只需要比较n次，如果右路每个元素分别比左路对应位置的元素大，那么需要比较2*n-1次，所以与初始排序有关)</p>
+</li>
+<li><p>精俭排序，即一对数字不进行两次和两次以上的比较，插入和归并是“精俭排序”。插入排序，前面是有序的，后面的每一个元素与前面有序的元素比较，比较过的就是有序的了，不会再比较一次。归并每次合并后，内部都是有序的，内部的元素之间不用再比较。选择排序，每次在后面的元素中找到最小的，找最小元素的过程是在没有排好序的那部分进行，所有肯定会比较多次。堆排序也需比较多次。</p>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图片压缩</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内部排序</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/04/02/编码基础系列-数据结构扩展六/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/04/03/编码基础系列-数据结构扩展七/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          编码基础系列-数据结构扩展七
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/04/01/编码基础系列-数据结构扩展五/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">编码基础系列-数据结构扩展五</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#插入类"><span class="toc-number">1.</span> <span class="toc-text">插入类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换类"><span class="toc-number">2.</span> <span class="toc-text">交换类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择类"><span class="toc-number">3.</span> <span class="toc-text">选择类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序算法的一些特点"><span class="toc-number">4.</span> <span class="toc-text">排序算法的一些特点</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/03/">&laquo; Prev</a><a class="page-number" href="/archives/2019/03/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2019/04/02/编码基础系列-数据结构扩展六/",
+  owner: 'lymuxh',
+  repo: 'lymuxh.github.io',
+  oauth: {
+    client_id: 'e1cac1b593f334b8b1a4',
+    client_secret: 'a8ec6ccad978b56496f1a676afa1e05130ea4dfc',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -249,8 +479,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -327,19 +557,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS11</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -379,19 +609,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IOS企业版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">APP离线升级</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">屏幕旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">IOS企业版</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">APP离线升级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,18 +685,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常见数据分类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">zsh</a>
               </li>
              
@@ -475,11 +693,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">外部排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+                <a href="javascript:void(0)" class="js-tag color2">常见数据分类</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,6 +718,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">B树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,15 +761,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,19 +781,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">广义表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">gitment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">广义表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,11 +817,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图层性能</a>
+                <a href="javascript:void(0)" class="js-tag color5">视觉效果</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视觉效果</a>
+                <a href="javascript:void(0)" class="js-tag color5">图层性能</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,11 +845,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">

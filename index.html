@@ -70,7 +70,7 @@
 			总文章数 52
 		</nav>
 		<nav>
-			总字数 <span class="post-count">141.8k</span>
+			总字数 <span class="post-count">148.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -174,22 +174,29 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/29/编码基础系列-数据结构扩展七/">编码基础系列-数据结构扩展七</a>
+      <a class="article-title" href="/2019/04/03/编码基础系列-数据结构扩展七/">编码基础系列-数据结构扩展七</a>
     </h1>
   
 
         
-        <a href="/2019/03/29/编码基础系列-数据结构扩展七/" class="archive-article-date">
-  	<time datetime="2019-03-29T02:19:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
+        <a href="/2019/04/03/编码基础系列-数据结构扩展七/" class="archive-article-date">
+  	<time datetime="2019-04-03T02:19:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-        字数：0字 | 预计阅读时长：1分钟
+        字数：1.2k字 | 预计阅读时长：3分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <p>外部排序：文件中数据太多，无法全部调入内存进行的排序。</p>
+<ul>
+<li><p>生成合并段（run）：读入文件的部分记录到内存－&gt;在内存中进行内部排序－&gt;将排好序的这些记录写入外存，形成合并段－&gt;再读入该文件的下面的记录，往复进行，直至文件中的记录全部形成合并段为止。</p>
+</li>
+<li><p>外部合并：将上一阶段生成的合并段调入内存，进行合并，直至最后形成一个有序的文件。</p>
+</li>
+</ul>
         
       
 
@@ -221,7 +228,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/29/编码基础系列-数据结构扩展七/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/04/03/编码基础系列-数据结构扩展七/">展开全文 >></a>
         </p>
       
 
@@ -258,22 +265,29 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/29/编码基础系列-数据结构扩展六/">编码基础系列-数据结构扩展六</a>
+      <a class="article-title" href="/2019/04/02/编码基础系列-数据结构扩展六/">编码基础系列-数据结构扩展六</a>
     </h1>
   
 
         
-        <a href="/2019/03/29/编码基础系列-数据结构扩展六/" class="archive-article-date">
-  	<time datetime="2019-03-29T02:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
+        <a href="/2019/04/02/编码基础系列-数据结构扩展六/" class="archive-article-date">
+  	<time datetime="2019-04-02T02:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-        字数：0字 | 预计阅读时长：1分钟
+        字数：2k字 | 预计阅读时长：7分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <p>内部排序：全部数据可同时放入内存进行的排序。</p>
+<h2 id="插入类"><a href="#插入类" class="headerlink" title="插入类"></a>插入类</h2><ul>
+<li><p>直接插入排序。最坏情况是数据递减序，数据比较和移动量最大，达到O(n2)，最好是数据是递增序，比较和移动最少为O(n)。趟数是固定的n-1，即使有序，也要依次从第二个元素开始。排序趟数不等于时间复杂度。</p>
+</li>
+<li><p>折半插入排序 。由于插入第i个元素到r[1]到r[i-1]之间时，前i个数据是有序的，所以可以用折半查找确定插入位置，然后插入。</p>
+</li>
+</ul>
         
       
 
@@ -305,7 +319,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/29/编码基础系列-数据结构扩展六/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/04/02/编码基础系列-数据结构扩展六/">展开全文 >></a>
         </p>
       
 
@@ -342,22 +356,32 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/29/编码基础系列-数据结构扩展五/">编码基础系列-数据结构扩展五</a>
+      <a class="article-title" href="/2019/04/01/编码基础系列-数据结构扩展五/">编码基础系列-数据结构扩展五</a>
     </h1>
   
 
         
-        <a href="/2019/03/29/编码基础系列-数据结构扩展五/" class="archive-article-date">
-  	<time datetime="2019-03-29T02:19:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
+        <a href="/2019/04/01/编码基础系列-数据结构扩展五/" class="archive-article-date">
+  	<time datetime="2019-04-01T02:19:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-        字数：0字 | 预计阅读时长：1分钟
+        字数：1.5k字 | 预计阅读时长：5分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><ul>
+<li><p>在记录的存储地址和它的关键字之间建立一个确定的对应关系；这样不经过比较，一次存取就能得到元素。</p>
+</li>
+<li><p>哈希函数——在记录的关键字与记录的存储位置之间建立的一种对应关系。是从关键字空间到存储位置空间的一种映象。</p>
+</li>
+<li><p>哈希表——应用哈希函数，由记录的关键字确定记录在表中的位置信息，并将记录根据此信息放入表中，这样构成的表叫哈希表。</p>
+</li>
+<li><p>Hash查找适合于关键字可能出现的值的集合远远大于实际关键字集合的情形。</p>
+</li>
+</ul>
         
       
 
@@ -389,7 +413,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/29/编码基础系列-数据结构扩展五/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/04/01/编码基础系列-数据结构扩展五/">展开全文 >></a>
         </p>
       
 
@@ -426,22 +450,24 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/29/编码基础系列-数据结构扩展四/">编码基础系列-数据结构扩展四</a>
+      <a class="article-title" href="/2019/03/30/编码基础系列-数据结构扩展四/">编码基础系列-数据结构扩展四</a>
     </h1>
   
 
         
-        <a href="/2019/03/29/编码基础系列-数据结构扩展四/" class="archive-article-date">
-  	<time datetime="2019-03-29T02:18:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
+        <a href="/2019/03/30/编码基础系列-数据结构扩展四/" class="archive-article-date">
+  	<time datetime="2019-03-30T02:18:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-        字数：0字 | 预计阅读时长：1分钟
+        字数：1.6k字 | 预计阅读时长：5分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <p>B-树就是B树。m阶B-树满足或空，或为满足下列性质的m叉树：</p>
+<p><img src="/images/dataStructure/btree.jpg" alt="m阶B树"></p>
         
       
 
@@ -473,7 +499,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/29/编码基础系列-数据结构扩展四/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/30/编码基础系列-数据结构扩展四/">展开全文 >></a>
         </p>
       
 
@@ -1167,19 +1193,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS11</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1219,19 +1245,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IOS企业版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">APP离线升级</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">屏幕旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">IOS企业版</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">APP离线升级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1295,18 +1321,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常见数据分类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">zsh</a>
               </li>
              
@@ -1315,11 +1329,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">外部排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+                <a href="javascript:void(0)" class="js-tag color2">常见数据分类</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1332,6 +1354,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">B树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1371,15 +1397,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1391,19 +1417,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">广义表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">gitment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">广义表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1427,11 +1453,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图层性能</a>
+                <a href="javascript:void(0)" class="js-tag color5">视觉效果</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视觉效果</a>
+                <a href="javascript:void(0)" class="js-tag color5">图层性能</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1455,11 +1481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">

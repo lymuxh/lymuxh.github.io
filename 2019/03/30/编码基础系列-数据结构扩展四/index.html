@@ -8,18 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>编码基础系列-数据结构扩展四 | 穆小灰灰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS、NodeJS、Java">
+  <meta name="description" content="B-树就是B树。m阶B-树满足或空，或为满足下列性质的m叉树：">
 <meta name="keywords" content="数据结构,编程基础,B树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编码基础系列-数据结构扩展四">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/编码基础系列-数据结构扩展四/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/30/编码基础系列-数据结构扩展四/index.html">
 <meta property="og:site_name" content="穆小灰灰的博客">
-<meta property="og:description" content="iOS、NodeJS、Java">
+<meta property="og:description" content="B-树就是B树。m阶B-树满足或空，或为满足下列性质的m叉树：">
 <meta property="og:locale" content="Zh-CN">
-<meta property="og:updated_time" content="2019-03-29T02:45:27.930Z">
+<meta property="og:image" content="http://yoursite.com/images/dataStructure/btree.jpg">
+<meta property="og:image" content="http://yoursite.com/images/dataStructure/B+tree.jpg">
+<meta property="og:updated_time" content="2019-03-30T06:12:08.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编码基础系列-数据结构扩展四">
-<meta name="twitter:description" content="iOS、NodeJS、Java">
+<meta name="twitter:description" content="B-树就是B树。m阶B-树满足或空，或为满足下列性质的m叉树：">
+<meta name="twitter:image" content="http://yoursite.com/images/dataStructure/btree.jpg">
   
     <link rel="alternative" href="/atom.xml" title="穆小灰灰的博客" type="application/atom+xml">
   
@@ -72,7 +75,7 @@
 			总文章数 52
 		</nav>
 		<nav>
-			总字数 <span class="post-count">141.8k</span>
+			总字数 <span class="post-count">148.1k</span>
 	  </nav>
 		<nav class="header-smart-menu">
     		
@@ -179,18 +182,123 @@
   
 
         
-        <a href="/2019/03/29/编码基础系列-数据结构扩展四/" class="archive-article-date">
-  	<time datetime="2019-03-29T02:18:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
+        <a href="/2019/03/30/编码基础系列-数据结构扩展四/" class="archive-article-date">
+  	<time datetime="2019-03-30T02:18:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-        字数：0字 | 预计阅读时长：1分钟
+        字数：1.6k字 | 预计阅读时长：5分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>B-树就是B树。m阶B-树满足或空，或为满足下列性质的m叉树：</p>
+<p><img src="/images/dataStructure/btree.jpg" alt="m阶B树"></p>
+<a id="more"></a>
+<p>看图有以下特征：</p>
+<ul>
+<li><p>树中每个结点最多有m棵子树</p>
+</li>
+<li><p>在根结点不是叶子时，至少有两棵子树</p>
+</li>
+<li><p>除根外，所有非终端结点至少有⎡m/2⎤棵子树</p>
+</li>
+<li><p>有s个子树的非叶结点具有 n = s-1个关键字，结点的信息组织为:(n,A0,K1,A1,K2,A2 … Kn，An)。这里：n为关键字的个数，ki（i=1,2,…,n)为关键字，且满足Ki小于Ki+1,，Ai(i=0,1,..n)为指向子树的指针</p>
+</li>
+<li><p>所有的叶子结点都出现在同一层上，不带信息（可认为外部结点或失败结点）</p>
+</li>
+<li><p>关键字集合分布在整颗树中</p>
+</li>
+<li><p>任何一个关键字出现且只出现在一个结点中</p>
+</li>
+<li><p>搜索有可能在非叶子结点结束</p>
+</li>
+<li><p>其搜索性能等价于在关键字全集内做一次二分查找</p>
+</li>
+<li><p>只适用于随机检索，不适用于顺序检索</p>
+</li>
+<li><p>有结点的平衡因子都为零</p>
+</li>
+<li><p>M阶B-树中含有N个关键字，最大深度为log<sub>⎡m/2⎤</sub>(n+1)/2+2</p>
+</li>
+</ul>
+<h3 id="B树节点插入"><a href="#B树节点插入" class="headerlink" title="B树节点插入"></a>B树节点插入</h3><ul>
+<li><p>m代表B-树的阶，插入总发生在最低层</p>
+</li>
+<li><p>插入后关键字个数小于等于 m-1,完成</p>
+</li>
+<li><p>插入后关键字个数等于m,结点分裂，以中点数据为界一分为二，中点数据放到双亲结点中。这样就有可能使得双亲结点的数据个数为m,引起双亲结点的分裂，最坏情况下一直波及到根，引起根的分裂——B-树长高</p>
+</li>
+<li><p>3阶B-树的插入。每个结点最多3棵子树，2个数据；最少2棵子树，1个数据。所以3阶B-树也称为2-3树</p>
+</li>
+</ul>
+<h3 id="B树节点删除"><a href="#B树节点删除" class="headerlink" title="B树节点删除"></a>B树节点删除</h3><ul>
+<li><p>删除发生在最底层 </p>
+</li>
+<li><p>被删关键字所在结点中的关键字数目大于等于 m/2 ，直接删除。</p>
+</li>
+<li><p>删除后结点中数据为⎡m/2⎤-2，而相邻的左（右）兄弟中数据大于⎡m/2⎤-1，此时左（右兄弟）中最大（小）的数据上移到双亲中，双亲中接（靠）在它后（前）面的数据移到被删数据的结点中</p>
+</li>
+<li><p>其左右兄弟结点中数据都是⎡m/2⎤-1，此时和左（右）兄弟合并，合并时连同双亲中相关的关键字。此时，双亲中少了一项，因此又可能引起双亲的合并，最坏一直到根，使B-树降低一层。</p>
+</li>
+</ul>
+<p>删除不在最底层 </p>
+<ul>
+<li>在大于被删数据中选最小的代替被删数据，问题转换成在最底层的删除</li>
+</ul>
+<h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><p>在实际的文件系统中，用的是B+树或其变形。有关性质与操作类似与B-树。</p>
+<p><img src="/images/dataStructure/B+tree.jpg" alt="B+tree"></p>
+<p>差异：</p>
+<ul>
+<li><p>有n棵子树的结点中有n个关键字，每个关键字不保存数据，只用来索引，所有数据都保存在叶子节点。</p>
+</li>
+<li><p>所有叶子结点中包含全部关键字信息，及对应记录位置信息及指向含有这些关键字记录的指针，且叶子结点本身依关键字的大小自小而大的顺序链接。(而B树的叶子节点并没有包括全部需要查找的信息)</p>
+</li>
+<li><p>所有非叶子为索引，结点中仅含有其子树根结点中最大（或最小）关键字。 (而B树的非终节点也包含需要查找的有效信息)</p>
+</li>
+<li><p>非叶最底层顺序联结，这样可以进行顺序查找</p>
+</li>
+</ul>
+<h4 id="B-特性"><a href="#B-特性" class="headerlink" title="B+特性"></a>B+特性</h4><ul>
+<li><p>所有关键字都出现在叶子结点的链表中（稠密索引），且链表中的关键字恰好是有序的；</p>
+</li>
+<li><p>不可能在非叶子结点命中</p>
+</li>
+<li><p>非叶子结点相当于是叶子结点的索引（稀疏索引），叶子结点相当于是存储（关键字）数据的数据层</p>
+</li>
+<li><p>更适合文件索引系统</p>
+</li>
+<li><p>B+树插入操作的平均时间复杂度为O(logn)，最坏时间复杂度为O(logn)</p>
+</li>
+</ul>
+<h3 id="查找过程"><a href="#查找过程" class="headerlink" title="查找过程"></a>查找过程</h3><ul>
+<li><p>在 B+ 树上，既可以进行缩小范围的查找，也可以进行顺序查找；</p>
+</li>
+<li><p>在进行缩小范围的查找时，不管成功与否，都必须查到叶子结点才能结束；</p>
+</li>
+<li><p>若在结点内查找时，给定值≤K<sub>i</sub>， 则应继续在 A<sub>i</sub> 所指子树中进行查找</p>
+</li>
+</ul>
+<p>插入和删除的操作：类似于B-树进行，即必要时，也需要进行结点的“分裂”或“合并”。</p>
+<p>为什么说B+tree比B树更适合实际应用中操作系统的文件索引和数据库索引？</p>
+<ul>
+<li><p>B+tree的磁盘读写代价更低 </p>
+<ul>
+<li><p>B+tree的内部结点并没有指向关键字具体信息的指针。因此其内部结点相对B 树更小。如果把所有同一内部结点的关键字存放在同一盘块中，那么盘块所能容纳的关键字数量也越多。一次性读入内存中的需要查找的关键字也就越多。相对来说IO读写次数也就降低了。</p>
+</li>
+<li><p>举个例子，假设磁盘中的一个盘块容纳16bytes，而一个关键字2bytes，一个关键字具体信息指针2bytes。一棵9阶B-tree(一个结点最多8个关键字)的内部结点需要2个盘快。而B+树内部结点只需要1个盘快。当需要把内部结点读入内存中的时候，B树就比B+树多一次盘块查找时间(在磁盘中就是盘片旋转的时间)。</p>
+</li>
+</ul>
+</li>
+<li><p>B+tree的查询效率更加稳定 </p>
+<ul>
+<li>由于非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字的索引。所以任何关键字的查找必须走一条从根结点到叶子结点的路。所有关键字查询的路径长度相同，导致每一个数据的查询效率相当。</li>
+</ul>
+</li>
+</ul>
+<p>B树和B+树都是平衡的多叉树。B树和B+树都可用于文件的索引结构。B树和B+树都能有效的支持随机检索。B+树既能索引查找也能顺序查找。</p>
+
       
 
       
@@ -298,7 +406,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/03/29/编码基础系列-数据结构扩展四/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/03/30/编码基础系列-数据结构扩展四/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -312,7 +420,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/29/编码基础系列-数据结构扩展五/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/01/编码基础系列-数据结构扩展五/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -350,7 +458,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#B树节点插入"><span class="toc-number">1.</span> <span class="toc-text">B树节点插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B树节点删除"><span class="toc-number">2.</span> <span class="toc-text">B树节点删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-树"><span class="toc-number">3.</span> <span class="toc-text">B+树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#B-特性"><span class="toc-number">3.1.</span> <span class="toc-text">B+特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找过程"><span class="toc-number">4.</span> <span class="toc-text">查找过程</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -375,7 +483,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://yoursite.com/2019/03/29/编码基础系列-数据结构扩展四/",
+  id: "http://yoursite.com/2019/03/30/编码基础系列-数据结构扩展四/",
   owner: 'lymuxh',
   repo: 'lymuxh.github.io',
   oauth: {
@@ -486,19 +594,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ARKit</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS11</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AFNetworking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,19 +646,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">IOS企业版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">APP离线升级</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">屏幕旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">IOS企业版</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">APP离线升级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,18 +722,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">常见数据分类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">zsh</a>
               </li>
              
@@ -634,11 +730,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">外部排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+                <a href="javascript:void(0)" class="js-tag color2">常见数据分类</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,6 +755,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">B树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,15 +798,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UIView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">控制器生命周期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,19 +818,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">广义表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">gitment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">广义表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,11 +854,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图层性能</a>
+                <a href="javascript:void(0)" class="js-tag color5">视觉效果</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视觉效果</a>
+                <a href="javascript:void(0)" class="js-tag color5">图层性能</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,11 +882,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能调优</a>
+                <a href="javascript:void(0)" class="js-tag color4">基于定时器的动画</a>
               </li>
              
               <li class="article-tag-list-item">
